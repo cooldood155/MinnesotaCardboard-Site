@@ -1,27 +1,14 @@
----
-layout: home
----
+# MinnesotaCardboard-Site
 
-**Minnesota Cardboard** is an app for Magic: The Gathering players with large
-collections: people who sort, sell, share and keep track of their cards. It is
-in development for Windows, macOS and Linux.
+The source of [mncardboard.com](https://mncardboard.com), built by GitHub Pages
+with Jekyll on every push to `main`.
 
-## What it will do
+| File | What it is |
+| :-- | :-- |
+| `_config.yml` | site title, description, theme and plugins |
+| `index.md` | the home page; it lists every update below its text |
+| `_posts/` | updates, one file each, named `YYYY-MM-DD-title.md` |
+| `404.md` | the page shown for an address that does not exist |
 
-- **Add cards three ways**: a document scanner, a photo, or typing the card in.
-  Scanned images are straightened, cropped and saved where you choose.
-- **Sort for you**: every card you add is alphabetized and sorted the way you
-  set it up, with optional SKUs for sellers.
-- **Know your inventory**: what you have, and what has already sold, without
-  digging through the piles.
-- **See prices** from several markets, for one card, a deck or the whole
-  collection.
-- **Search everything**: find cards by anything about them.
-- **Build and share decks** from your collection, and share decks or whole
-  inventories with a link.
-
-Questions: [hello@mncardboard.com](mailto:hello@mncardboard.com)
-
-<small>Minnesota Cardboard is unofficial Fan Content permitted under the Fan
-Content Policy. Not approved/endorsed by Wizards. Portions of the materials
-used are property of Wizards of the Coast. (c)Wizards of the Coast LLC.</small>
+A new update is a new file in `_posts/`. Push it and the site, and its RSS feed
+at `/feed.xml`, rebuild by themselves.
