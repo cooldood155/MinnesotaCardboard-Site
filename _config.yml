@@ -4,9 +4,11 @@ description: "An inventory app for Magic: The Gathering collections, for Windows
 url: "https://mncardboard.com"
 email: evanreumann@mncardboard.com
 github_username: cooldood155
+author: Evan R. Reumann
 
-author:
-  - name: Evan R. Reumann
+# Will be chosen based on the location of the user *soon*, uses
+# Minnesota time for now.
+timezone: America/Chicago
 
 theme: minima
 plugins:
