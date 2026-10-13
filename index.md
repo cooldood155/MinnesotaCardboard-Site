@@ -20,7 +20,7 @@ in development for Windows, macOS and Linux.
 - **Build and share decks** from your collection, and share decks or whole
   inventories with a link.
 
-Questions: [hello@mncardboard.com](mailto:hello@mncardboard.com)
+Questions: [qa@mncardboard.com](mailto:hello@mncardboard.com)
 
 <small>Minnesota Cardboard is unofficial Fan Content permitted under the Fan
 Content Policy. Not approved/endorsed by Wizards. Portions of the materials
