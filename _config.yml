@@ -2,8 +2,11 @@
 title: Minnesota Cardboard
 description: "An inventory app for Magic: The Gathering collections, for Windows, macOS and Linux. In development."
 url: "https://mncardboard.com"
-email: hello@mncardboard.com
+email: evanreumann@mncardboard.com
 github_username: cooldood155
+
+author:
+  - name: Evan R. Reumann
 
 theme: minima
 plugins:
