@@ -1,0 +1,6 @@
+# Jekyll build output and caches (local builds only; GitHub builds its own)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+Gemfile.lock
