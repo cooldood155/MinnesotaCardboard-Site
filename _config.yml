@@ -6,8 +6,8 @@ email: evanreumann@mncardboard.com
 github_username: cooldood155
 author: Evan R. Reumann
 
-# Will be chosen based on the location of the user *soon*, uses
-# Minnesota time for now.
+# Post times are written in Minnesota time and shown in the reader's time zone
+# (via 'assets/feed.js').
 timezone: America/Chicago
 
 theme: minima
@@ -18,5 +18,11 @@ plugins:
 # Repository files that are not pages of the site.
 exclude:
   - README.md
+  - DEVELOPMENT.md
   - Gemfile
   - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - node_modules
+  - wrangler.jsonc

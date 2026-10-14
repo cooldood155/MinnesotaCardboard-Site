@@ -1,0 +1,64 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="{{ '/assets/feed.css' | absolute_url }}"?>
+{%- comment -%}
+  The site's Atom feed. jekyll-feed builds feed.xml on its own unless this file
+  exists; this copy of its template (jekyll-feed 0.17, MIT) adds two things a
+  feed reader ignores and a browser uses:
+  - the stylesheet line above, which styles the raw feed when scripts are off
+  - the script element at the end, which turns the feed into a readable page
+    with every date in the reader's own time zone
+  Entry ids are the same as jekyll-feed's, so readers do not see posts twice.
+{%- endcomment %}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang | default: 'en' }}">
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
+  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ page.url | absolute_url | xml_escape }}</id>
+  <title>{{ site.title | xml_escape }}</title>
+  {%- if site.description %}
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  {%- endif %}
+  {%- if site.author %}
+  <author>
+    <name>{{ site.author.name | default: site.author | xml_escape }}</name>
+    {%- if site.author.uri %}
+    <uri>{{ site.author.uri | xml_escape }}</uri>
+    {%- endif %}
+  </author>
+  {%- endif %}
+  {%- assign posts = site.posts | where_exp: "post", "post.draft != true" %}
+  {%- assign posts_limit = site.feed.posts_limit | default: 10 %}
+  {%- for post in posts limit: posts_limit %}
+  {%- assign post_title = post.title | strip_html | normalize_whitespace | xml_escape %}
+  <entry>
+    <title>{{ post_title }}</title>
+    <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post_title }}" />
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
+    <id>{{ post.id | absolute_url | xml_escape }}</id>
+    <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
+    {%- assign post_author = post.author | default: site.author %}
+    {%- if post_author %}
+    <author>
+      <name>{{ post_author.name | default: post_author | xml_escape }}</name>
+    </author>
+    {%- endif %}
+    {%- for category in post.categories %}
+    <category term="{{ category | xml_escape }}" />
+    {%- endfor %}
+    {%- for tag in post.tags %}
+    <category term="{{ tag | xml_escape }}" />
+    {%- endfor %}
+    {%- assign post_summary = post.description | default: post.excerpt | strip_html | normalize_whitespace %}
+    {%- if post_summary != "" %}
+    <summary type="html">{{ post_summary | xml_escape }}</summary>
+    {%- endif %}
+  </entry>
+  {%- endfor %}
+  <script xmlns="http://www.w3.org/1999/xhtml" src="{{ '/assets/feed.js' | absolute_url }}"></script>
+</feed>

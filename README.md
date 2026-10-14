@@ -1,14 +1,13 @@
 # MinnesotaCardboard-Site
 
-The source of [mncardboard.com](https://mncardboard.com), built by GitHub Pages
-with Jekyll on every push to `main`.
+The source for [mncardboard.com](https://mncardboard.com), the website for
+Minnesota Cardboard: an inventory app for Magic: The Gathering collections, in
+development for Windows, macOS and Linux.
 
-| File | What it is |
-| :-- | :-- |
-| `_config.yml` | site title, description, theme and plugins |
-| `index.md` | the home page; it lists every update below its text |
-| `_posts/` | updates, one file each, named `YYYY-MM-DD-title.md` |
-| `404.md` | the page shown for an address that does not exist |
+The site posts updates on the apps development. Follow the updates with any
+feed reader at [mncardboard.com/feed.xml](https://mncardboard.com/feed.xml);
+that address shows the updates as a readable page if opened in a browser.
 
-A new update is a new file in `_posts/`. Push it and the site, and its RSS feed
-at `/feed.xml`, rebuild by themselves.
+GitHub Pages will build the site with Jekyll on every push to `main`.
+
+Writing updates and working on the site: [DEVELOPMENT.md](DEVELOPMENT.md).

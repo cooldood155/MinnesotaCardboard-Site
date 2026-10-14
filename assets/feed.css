@@ -1,0 +1,327 @@
+/* '/feed.xml' styles when viewed from a browser (feed readers ignore it).
+:root is the Atom <feed> while the page is loading (and stays like that if
+scripts are off) and then the <html> feed.js builds. */
+
+@namespace atom url("http://www.w3.org/2005/Atom");
+@namespace xhtml url("http://www.w3.org/1999/xhtml");
+
+:root {
+  --bg: #fdfdfd;
+  --text: #111111;
+  --muted: #5c5c5c;
+  --rule: #e8e8e8;
+  --top-bar: #424242;
+  --link: #1f63c4;
+  --link-hover: #111111;
+  --panel: #f1f5fb;
+  --panel-edge: #c9d8ee;
+  --code-bg: #ffffff;
+  --button: #1f63c4;
+  --button-ink: #ffffff;
+
+  background: var(--bg);
+  color: var(--text);
+  font: 400 18px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c;
+    --text: #e9eaec;
+    --muted: #a3a7ae;
+    --rule: #2c3037;
+    --top-bar: #6b7280;
+    --link: #7cb0ff;
+    --link-hover: #ffffff;
+    --panel: #1d2633;
+    --panel-edge: #33465f;
+    --code-bg: #101216;
+    --button: #7cb0ff;
+    --button-ink: #0d1117;
+    color-scheme: dark;
+  }
+}
+
+/* Raw Feed (scripts off / page building/loading) */
+
+atom|feed {
+  display: block;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+atom|feed::before {
+  content: "The news feed for Minnesota Cardboard! To follow it, copy this page's address into your feed reader app.";
+  display: block;
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+}
+
+atom|feed > atom|title {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+atom|feed > atom|subtitle {
+  display: block;
+  margin: 0.5rem 0 2rem;
+  color: var(--muted);
+}
+
+atom|entry {
+  display: block;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+atom|entry > atom|title {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+atom|entry > atom|published {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+atom|entry > atom|published::before {
+  content: "Posted ";
+}
+
+atom|entry > atom|summary {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+/* Everything else here (raw feed) for feed readers only. */
+atom|generator, atom|link, atom|updated, atom|id, atom|author,
+atom|category, atom|content, atom|feed > xhtml|script {
+  display: none;
+}
+
+/* feed.js Built Page */
+
+xhtml|body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  border-top: 5px solid var(--top-bar);
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.site-title {
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+xhtml|main {
+  display: block;
+  padding: 2rem 0 3rem;
+}
+
+xhtml|a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+xhtml|a:hover {
+  color: var(--link-hover);
+}
+
+xhtml|a:focus-visible, xhtml|button:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Page Information Panel */
+
+.about {
+  margin: 0 0 2.5rem;
+  padding: 1.1rem 1.25rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 10px;
+}
+
+.about xhtml|h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.about xhtml|p {
+  margin: 0 0 0.9rem;
+}
+
+.subscribe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subscribe xhtml|code {
+  flex: 1 1 16rem;
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  background: var(--code-bg);
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  font: 0.95rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.subscribe xhtml|button {
+  padding: 0.55rem 1.1rem;
+  background: var(--button);
+  color: var(--button-ink);
+  border: 0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.about .help {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Feed Title and Posts */
+
+.feed-head xhtml|h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.feed-head .subtitle {
+  margin: 0.5rem 0 0.25rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.post {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.post xhtml|h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.post xhtml|h2 xhtml|a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post xhtml|h2 xhtml|a:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+.post .meta xhtml|time {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.post-body {
+  margin-top: 1rem;
+  overflow-wrap: break-word;
+}
+
+.post-body xhtml|img, .post-body xhtml|video {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-body xhtml|pre {
+  overflow-x: auto;
+  padding: 0.75rem 1rem;
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.read-more {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+}
+
+.empty {
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer xhtml|p {
+  margin: 0 0 0.4rem;
+}
