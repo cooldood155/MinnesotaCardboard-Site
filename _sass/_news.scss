@@ -51,14 +51,9 @@ Styled Files:
   }
 }
 
-.news-panel-title {
-  margin: 2.5rem 0 0;
-  font-size: 1.25rem;
-}
-
-.news-tabs:not([hidden]) ~ .news-panel {
-  .news-panel-title { display: none; }
-  .post-card:first-of-type { border-top: 0; }
+.news-tabs:not([hidden]) ~ .news-posts {
+  .post-card { border-top: 0; }
+  .post-card:not([hidden]) ~ .post-card:not([hidden]) { border-top: 1px solid var(--border); }
 }
 
 // _includes/feed-subscribe.html ---------------------------------------------

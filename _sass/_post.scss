@@ -1,6 +1,9 @@
 /* Post page styles.
 Styled Files:
- - /_layouts/post.html */
+ - /_layouts/post.html
+ - /_includes/post-nav.html */
+
+// /_layouts/post.html --------------------------------------------------------
 
 // Narrow: lines around 70 chars long
 .post-page {
@@ -80,11 +83,47 @@ Styled Files:
   border-top: 1px solid var(--border);
 }
 
-.post-page-nav {
+// /_includes/post-nav.html ---------------------------------------------------
+
+.post-page-nav { margin-top: 2rem; }
+
+.post-page-nav-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  button {
+    padding: 0 0 0.15rem;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+
+    &:hover { color: var(--text); }
+  }
+
+  button[aria-pressed="true"] {
+    color: var(--text);
+    border-bottom-color: var(--link);
+  }
+}
+
+.post-page-nav-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  margin-top: 2rem;
+
+  &[hidden] { display: none; }
 
   @media (max-width: 600px) { grid-template-columns: 1fr; }
 }

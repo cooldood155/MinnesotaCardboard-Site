@@ -1,0 +1,37 @@
+{%- comment -%}
+  "Older" and "Newer" links within a list of posts. Left out when the post has
+  no neighbors in the list. assets/js/post-nav.js combines lists with the same
+  links and lets readers switch between the rest.
+  site.posts is newest first.
+
+  Example use: {% include post-nav.html posts=live_posts list="all" label="All posts" %}
+{%- endcomment -%}
+
+{%- assign nav_older = nil -%}
+{%- assign nav_newer = nil -%}
+{%- for nav_post in include.posts -%}
+  {%- if nav_post.url == page.url -%}
+    {%- assign nav_older = include.posts[forloop.index] -%}
+    {%- unless forloop.first -%}
+      {%- assign nav_newer_index = forloop.index0 | minus: 1 -%}
+      {%- assign nav_newer = include.posts[nav_newer_index] -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if nav_older or nav_newer %}
+<div class="post-page-nav-links" data-post-nav-list="{{ include.list | escape }}" data-post-nav-label="{{ include.label | escape }}" data-post-nav-key="{{ nav_older.url }}|{{ nav_newer.url }}"{% if include.hidden %} hidden{% endif %}>
+  {%- if nav_older %}
+  <a class="post-page-nav-link" href="{{ nav_older.url | relative_url }}">
+    <span class="post-page-nav-label">&larr; Older</span>
+    <span class="post-page-nav-title">{{ nav_older.title | escape }}</span>
+  </a>
+  {%- endif %}
+  {%- if nav_newer %}
+  <a class="post-page-nav-link post-page-nav-next" href="{{ nav_newer.url | relative_url }}">
+    <span class="post-page-nav-label">Newer &rarr;</span>
+    <span class="post-page-nav-title">{{ nav_newer.title | escape }}</span>
+  </a>
+  {%- endif %}
+</div>
+{%- endif -%}

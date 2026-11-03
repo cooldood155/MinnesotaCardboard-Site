@@ -4,7 +4,7 @@
 {%- endcomment -%}
 
 {%- assign post = include.post -%}
-<article class="post-card">
+<article class="post-card" data-topic="{{ post.topic }}">
   <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
 
   <p class="post-meta">{% include post-dates.html post=post %}</p>

@@ -4,45 +4,34 @@ title: News feed
 permalink: /news/
 ---
 {%- comment -%}
-  How to follow the feeds, then every post listed in full under App and
+  How to follow the feeds, then every post listed in full under All, App and
   Website tabs (assets/js/news-tabs.js). Archived posts are listed on
   /news/archive/ instead (archive.html).
   Styles: _sass/_news.scss
 {%- endcomment -%}
 
 {%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" -%}
-{%- assign app_posts = live_posts | where: "topic", "app" -%}
-{%- assign website_posts = live_posts | where: "topic", "website" -%}
 {%- assign archived_posts = site.posts | where_exp: "post", "post.archived == true" -%}
-{%- assign newest_topic = live_posts.first.topic | default: "app" -%}
 
 {% include feed-subscribe.html %}
 
 <h1 class="page-heading">{{ site.title }}</h1>
 <p class="news-subtitle">{{ site.description }}</p>
 
-<div class="news-tabs" role="tablist" aria-label="News" data-news-tabs="{{ newest_topic }}" hidden>
-  <button type="button" role="tab" id="news-tab-app" aria-controls="news-app" data-news-tab="app">App</button>
-  <button type="button" role="tab" id="news-tab-website" aria-controls="news-website" data-news-tab="website">Website</button>
+<div class="news-tabs" role="tablist" aria-label="News" data-news-tabs hidden>
+  <button type="button" role="tab" id="news-tab-all" aria-controls="news-posts" data-news-tab="all">All</button>
+  <button type="button" role="tab" id="news-tab-app" aria-controls="news-posts" data-news-tab="app">App</button>
+  <button type="button" role="tab" id="news-tab-website" aria-controls="news-posts" data-news-tab="website">Website</button>
 </div>
 
-<section class="news-panel" id="news-app" role="tabpanel" aria-labelledby="news-tab-app">
-  <h2 class="news-panel-title">App updates</h2>
-  {% for post in app_posts %}
+<div class="news-posts" id="news-posts" role="tabpanel">
+  {% for post in live_posts %}
     {% include post-card.html post=post %}
   {% else %}
-    <p class="news-empty">No app posts yet.</p>
+    <p class="news-empty">No posts yet.</p>
   {% endfor %}
-</section>
-
-<section class="news-panel" id="news-website" role="tabpanel" aria-labelledby="news-tab-website">
-  <h2 class="news-panel-title">Website updates</h2>
-  {% for post in website_posts %}
-    {% include post-card.html post=post %}
-  {% else %}
-    <p class="news-empty">No website posts yet.</p>
-  {% endfor %}
-</section>
+  <p class="news-empty" data-news-empty hidden></p>
+</div>
 
 {% if archived_posts.size > 0 %}
 <p class="news-archive-link"><a href="{{ '/news/archive/' | relative_url }}">Archived posts ({{ archived_posts.size }})</a></p>

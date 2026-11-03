@@ -12,7 +12,7 @@ layout: default
 
 <article class="post-page">
   <header class="post-page-header">
-    <p class="post-page-back"><a href="{{ '/news/' | relative_url }}#{{ page.topic }}">&larr; All {% if page.topic == "website" %}website{% else %}app{% endif %} news</a></p>
+    <p class="post-page-back"><a href="{{ '/news/' | relative_url }}#all">&larr; All news</a></p>
     <h1 class="post-page-title">{{ page.title | escape }}</h1>
     <p class="post-page-meta">{% include post-dates.html post=page %} · {{ minutes }} min read</p>
     {% include author-byline.html post=page %}
@@ -32,43 +32,41 @@ layout: default
     {% include author-card.html post=page %}
 
     {%- comment -%}
-      Older and newer posts of the same topic (app or website), skipping
-      archived ones. Archived posts get no
-      links here; the note at the top links to the archive instead.
-      site.posts is newest first (the post after this one is older).
+      Older and newer posts: all posts, then the same topic (app or website),
+      then each author's, skipping archived.
     {%- endcomment -%}
-    {%- assign older_post = nil -%}
-    {%- assign newer_post = nil -%}
     {%- unless page.archived -%}
-      {%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" | where: "topic", page.topic -%}
-      {%- for post in live_posts -%}
-        {%- if post.url == page.url -%}
-          {%- assign older_post = live_posts[forloop.index] -%}
-          {%- unless forloop.first -%}
-            {%- assign newer_index = forloop.index0 | minus: 1 -%}
-            {%- assign newer_post = live_posts[newer_index] -%}
-          {%- endunless -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endunless -%}
+      {%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" -%}
+      {%- if live_posts.size > 1 %}
+    <nav class="post-page-nav" aria-label="More posts" data-post-nav>
+      <p class="post-page-nav-heading">All posts</p>
+      {%- include post-nav.html posts=live_posts list="all" label="All posts" -%}
 
-    {%- if older_post or newer_post %}
-    <nav class="post-page-nav" aria-label="More posts">
-      {%- if older_post %}
-      <a class="post-page-nav-link" href="{{ older_post.url | relative_url }}" rel="prev">
-        <span class="post-page-nav-label">&larr; Older</span>
-        <span class="post-page-nav-title">{{ older_post.title | escape }}</span>
-      </a>
-      {%- endif %}
-      {%- if newer_post %}
-      <a class="post-page-nav-link post-page-nav-next" href="{{ newer_post.url | relative_url }}" rel="next">
-        <span class="post-page-nav-label">Newer &rarr;</span>
-        <span class="post-page-nav-title">{{ newer_post.title | escape }}</span>
-      </a>
-      {%- endif %}
+      {%- assign topic_posts = live_posts | where: "topic", page.topic -%}
+      {%- if page.topic == "website" -%}
+        {%- assign topic_label = "Website posts" -%}
+      {%- else -%}
+        {%- assign topic_label = "App posts" -%}
+      {%- endif -%}
+      {%- include post-nav.html posts=topic_posts list="topic" label=topic_label hidden=true -%}
+
+      {%- comment -%} Same authors:/author: handling as _includes/author-byline.html. {%- endcomment -%}
+      {%- if page.authors -%}
+        {%- assign nav_names = page.authors -%}
+      {%- else -%}
+        {%- assign nav_names = page.author | split: "|" -%}
+      {%- endif -%}
+      {%- for nav_name in nav_names -%}
+        {%- assign author_posts = live_posts | where_exp: "post", "post.authors contains nav_name or post.author == nav_name" -%}
+        {%- assign author_list = "author:" | append: nav_name -%}
+        {%- assign author_label = "Posts by " | append: nav_name -%}
+        {%- include post-nav.html posts=author_posts list=author_list label=author_label hidden=true -%}
+      {%- endfor %}
     </nav>
-    {%- endif %}
+      {%- endif -%}
+    {%- endunless -%}
   </footer>
 </article>
 
 <script src="{{ '/assets/js/local-dates.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/js/post-nav.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

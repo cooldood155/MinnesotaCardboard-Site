@@ -50,7 +50,7 @@ bundle exec jekyll serve --open-url
 | :-- | :-- |
 | `_config.yml` | Site settings: title, theme, plugins, header menu, defaults |
 | `index.md` | The home page |
-| `news.html` | `/news/`: how to follow the feeds, then every post in full under App and Website tabs |
+| `news.html` | `/news/`: how to follow the feeds, then every post in full under All, App and Website tabs |
 | `authors.html` | `/authors/`: everyone who writes for the site |
 | `archive.html` | `/news/archive/`: archived posts |
 | `feed.xml`, `feed/` | The feeds for feed readers: `/feed.xml` (everything), `/feed/app.xml` and `/feed/website.xml` |
@@ -61,7 +61,7 @@ bundle exec jekyll serve --open-url
 | `_includes/` | Pieces of HTML used by the pages and layouts. Each file says what it's for at the top. `head.html` and `header.html` replace minima's |
 | `assets/main.scss` | The site's stylesheet: minima's styles, then the files in `_sass/` |
 | `_sass/` | One file per part of the site. See `docs/_sass-RULES.md` |
-| `assets/js/` | `copy-button.js` (the Copy buttons on the news page), `news-tabs.js` (the App and Website tabs on the news page), `local-dates.js` (dates in the reader's time zone) and `theme-button.js` (the light/dark button in the header) |
+| `assets/js/` | `copy-button.js` (the Copy buttons on the news page), `news-tabs.js` (the All, App and Website tabs on the news page), `post-nav.js` (switching the Older/Newer links under a post between all posts, its topic and its authors), `local-dates.js` (dates in the reader's time zone) and `theme-button.js` (the light/dark button in the header) |
 | `admin/` | The post editor at `/admin/` (Decap CMS); settings in `admin/config.yml` |
 | `cms-auth/` | The Cloudflare Worker that handles "Sign in with GitHub" for the editor; not part of the site |
 | `tsconfig.json`, `package.json` | Type-checking, and `npm run editor` for editing locally; not part of the site |

@@ -18,7 +18,7 @@ updates with any feed reader at
 [/feed/website.xml](https://mncardboard.com/feed/website.xml), or read them at
 [mncardboard.com/news/](https://mncardboard.com/news/).
 
-- **News:** every post on the news page, under separate App and Website tabs,
+- **News:** every post on the news page, under All, App and Website tabs,
   with the newest three shown at the bottom of the home page. Dates/times are
   shown in the reader's own time zone (or UTC if they have scripts turned off).
 - **Authors:** each post links to its authors, and every author has a page listing
