@@ -1,5 +1,5 @@
 ---
-title: A readable news feed
+title: Follow updates with a news feed
 date: 2026-10-13 22:15 -0500
 topic: website
 authors:

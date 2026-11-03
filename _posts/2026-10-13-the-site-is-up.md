@@ -8,4 +8,4 @@ authors:
 layout: post
 ---
 
-mncardboard.com is live. Updates on the app will be posted here.
+mncardboard.com is live. Updates on the app and this site will be posted here.
