@@ -1,0 +1,20 @@
+/* Header styles.
+Styled Files:
+ - /_includes/header.html */
+
+// looks like the menu links next to it
+.header-theme-button {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+
+  &:hover { text-decoration: underline; }
+}
+
+// phone menu: minima right-aligns the links
+@media (max-width: 600px) {
+  .site-nav .header-theme-button { margin-left: auto; }
+}

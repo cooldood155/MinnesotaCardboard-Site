@@ -1,0 +1,25 @@
+{%- comment -%}
+  minima 2.5.2's head.html, plus the theme scripts (assets/js/theme-button.js).
+  The inline script applies a saved theme before the page is drawn, so it
+  doesn't flash the wrong colors.
+{%- endcomment -%}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    })();
+  </script>
+  <script src="{{ '/assets/js/theme-button.js' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+</head>

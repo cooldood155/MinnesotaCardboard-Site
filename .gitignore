@@ -1,9 +1,9 @@
-# Jekyll build output and caches (local builds only; GitHub builds its own)
-_site/
+# Local build output & caches
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
-Gemfile.lock
+.wrangler/
+_site/
 
-# TypeScript (installed via `npm install`)
+# Installed via `npm install`
 node_modules/

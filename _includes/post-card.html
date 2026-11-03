@@ -1,0 +1,18 @@
+{%- comment -%}
+  One full post for the news page.
+  Example use: {% include post-card.html post=post %}
+{%- endcomment -%}
+
+{%- assign post = include.post -%}
+<article class="post-card">
+  <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+
+  <p class="post-meta">{% include post-dates.html post=post %}</p>
+  {% include author-byline.html post=post %}
+
+  <div class="post-card-body">
+    {{ post.content }}
+  </div>
+
+  <p class="post-card-link"><a href="{{ post.url | relative_url }}">Open this post on its own page</a></p>
+</article>

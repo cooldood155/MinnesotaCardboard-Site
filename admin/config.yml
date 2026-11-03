@@ -1,0 +1,136 @@
+# Settings for the editor at /admin/. Docs: https://decapcms.org/docs/
+
+backend:
+  name: github
+  repo: cooldood155/MinnesotaCardboard-Site
+  branch: main
+  # cms-auth/ sign-in worker
+  base_url: https://mncardboard-cms-auth.evanrileyreumann.workers.dev
+  commit_messages:
+    create: 'Add {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
+
+# hosting locally edits local files only
+local_backend: true
+
+site_url: https://mncardboard.com
+display_url: https://mncardboard.com
+
+media_folder: assets/images/uploads
+public_folder: /assets/images/uploads
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: _posts
+    create: true
+    delete: true
+    slug: "{{fields.date | date('YYYY-MM-DD')}}-{{slug}}"
+    summary: "{{title}}{{archived | ternary(' (archived)', '')}}"
+    sortable_fields: [date, title]
+
+    view_filters:
+      - label: Archived
+        field: archived
+        pattern: true
+
+    fields:
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD HH:mm ZZ
+        default: "{{now}}"
+        hint: Readers see in their own time zone.
+
+      - label: Show only the date
+        name: date_only
+        widget: boolean
+        default: false
+        required: false
+        hint: Hides the time; the post shows just its calendar date.
+
+      - label: Authors
+        name: authors
+        widget: relation
+        collection: authors
+        value_field: name
+        search_fields: [name]
+        display_fields: [name]
+        multiple: true
+        min: 1
+        hint: Everyone who wrote the post.
+
+      - label: Updated
+        name: last_modified_at
+        widget: datetime
+        format: YYYY-MM-DD HH:mm ZZ
+        required: false
+        hint: Only if the post was changed after publication.
+
+      - label: Archived
+        name: archived
+        widget: boolean
+        default: false
+        hint: >-
+          Takes the post off the news page, the home page and the feed. Keeps
+          its own page and is listed on /news/archive/.
+
+      - label: Post
+        name: body
+        widget: markdown
+
+
+  - name: authors
+    label: Authors
+    label_singular: Author
+    folder: _authors
+    create: true
+    delete: true
+    identifier_field: name
+    slug: "{{slug}}"
+
+    fields:
+      - label: Name
+        name: name
+        widget: string
+        hint: Posts use this name as the author.
+
+      - label: Role
+        name: role
+        widget: string
+        required: false
+
+      - label: Short bio
+        name: bio
+        widget: string
+        required: false
+        hint: Shown under each authors posts.
+
+      - label: Email
+        name: email
+        widget: string
+        required: false
+
+      - label: GitHub username
+        name: github
+        widget: string
+        required: false
+
+      - label: Photo
+        name: avatar
+        widget: image
+        required: false
+        hint: Without a photo, their initials are shown.
+
+      - label: Full bio
+        name: body
+        widget: markdown
+        required: false

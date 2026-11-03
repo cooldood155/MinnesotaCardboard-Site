@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{%- comment -%}
+  This layout replaces minima's home layout (used by index.md). The page shows
+  the page's text, then places a "Latest news" box with the latest 3 news posts
+  (not archived) underneath.
+  Styles: _sass/_home.scss
+{%- endcomment -%}
+
+{%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" -%}
+
+<div class="home">
+  {{ content }}
+
+  {%- if live_posts.size > 0 %}
+  <section class="home-news" aria-labelledby="home-news-title">
+    <h2 id="home-news-title" class="home-news-title">Latest news</h2>
+
+    <ul class="home-news-list">
+      {%- for post in live_posts limit: 3 %}
+      <li class="home-news-item">
+        <span class="home-news-date">{% include local-time.html date=post.date date_only=post.date_only short=true %}</span>
+        <a class="home-news-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <p class="home-news-excerpt">{{ post.excerpt | strip_html | truncatewords: 24 }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+
+    <p class="home-news-more">
+      <a href="{{ '/news/' | relative_url }}">All news</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ '/news/' | relative_url }}#feed-subscribe-title">How to follow it</a>
+    </p>
+  </section>
+  {%- endif %}
+</div>
+
+<script src="{{ '/assets/js/local-dates.js' | relative_url }}" defer></script>

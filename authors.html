@@ -1,0 +1,28 @@
+---
+layout: default
+title: Authors
+permalink: /authors/
+---
+{%- comment -%}
+  Everyone author of the site with their own file entry in _authors/.
+  Styles: _sass/_authors.scss
+{%- endcomment -%}
+
+<h1 class="page-heading">Authors</h1>
+
+<ul class="authors-list">
+  {%- for author in site.authors %}
+  <li class="authors-item">
+    {% include author-avatar.html name=author.name %}
+    <div>
+      <a class="authors-name" href="{{ author.url | relative_url }}">{{ author.name | escape }}</a>
+      {%- if author.role %}
+      <p class="authors-role">{{ author.role | escape }}</p>
+      {%- endif %}
+      {%- if author.bio %}
+      <p class="authors-bio">{{ author.bio | escape }}</p>
+      {%- endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ul>

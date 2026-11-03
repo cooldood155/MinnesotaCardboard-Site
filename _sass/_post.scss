@@ -1,0 +1,122 @@
+/* Post page styles.
+Styled Files:
+ - /_layouts/post.html */
+
+// Narrow: lines around 70 chars long
+.post-page {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.post-page-back {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+
+  a { text-decoration: none; }
+  a:hover { text-decoration: underline; }
+}
+
+.post-page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-page-title {
+  margin: 0 0 0.5rem;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 600px) { font-size: 1.75rem; }
+}
+
+.post-page-meta {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+
+  time {
+    color: var(--text);
+    font-weight: 600;
+  }
+}
+
+.post-page-archived {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.post-page-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+
+  h2,
+  h3 { margin-top: 2rem; }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  blockquote {
+    margin-left: 0;
+    padding-left: 1rem;
+    border-left: 4px solid var(--panel-border);
+    font-style: normal;
+  }
+}
+
+.post-page-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-page-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.post-page-nav-link {
+  display: block;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--link);
+    text-decoration: none;
+  }
+}
+
+.post-page-nav-next {
+  grid-column: 2;
+  text-align: right;
+
+  @media (max-width: 600px) { grid-column: 1; }
+}
+
+.post-page-nav-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.post-page-nav-title {
+  display: block;
+  color: var(--link);
+  font-weight: 600;
+}

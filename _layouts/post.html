@@ -1,0 +1,73 @@
+---
+layout: default
+---
+{%- comment -%}
+  This layout replaces minima's post layout. Every post uses it.
+  Styles: _sass/_post.scss, plus _sass/_authors.scss for the byline and author
+  box.
+{%- endcomment -%}
+
+{%- assign word_count = content | number_of_words -%}
+{%- assign minutes = word_count | divided_by: 200 | at_least: 1 -%}
+
+<article class="post-page">
+  <header class="post-page-header">
+    <p class="post-page-back"><a href="{{ '/news/' | relative_url }}">&larr; All news</a></p>
+    <h1 class="post-page-title">{{ page.title | escape }}</h1>
+    <p class="post-page-meta">{% include post-dates.html post=page %} · {{ minutes }} min read</p>
+    {% include author-byline.html post=page %}
+    {%- if page.archived %}
+    <p class="post-page-archived">
+      This post is archived and may be out of date.
+      <a href="{{ '/news/archive/' | relative_url }}">See all archived posts</a>.
+    </p>
+    {%- endif %}
+  </header>
+
+  <div class="post-page-body">
+    {{ content }}
+  </div>
+
+  <footer class="post-page-footer">
+    {% include author-card.html post=page %}
+
+    {%- comment -%}
+      Older and newer posts, skipping archived ones. Archived posts get no
+      links here; the note at the top links to the archive instead.
+      site.posts is newest first (the post after this one is older).
+    {%- endcomment -%}
+    {%- assign older_post = nil -%}
+    {%- assign newer_post = nil -%}
+    {%- unless page.archived -%}
+      {%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" -%}
+      {%- for post in live_posts -%}
+        {%- if post.url == page.url -%}
+          {%- assign older_post = live_posts[forloop.index] -%}
+          {%- unless forloop.first -%}
+            {%- assign newer_index = forloop.index0 | minus: 1 -%}
+            {%- assign newer_post = live_posts[newer_index] -%}
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endunless -%}
+
+    {%- if older_post or newer_post %}
+    <nav class="post-page-nav" aria-label="More posts">
+      {%- if older_post %}
+      <a class="post-page-nav-link" href="{{ older_post.url | relative_url }}" rel="prev">
+        <span class="post-page-nav-label">&larr; Older</span>
+        <span class="post-page-nav-title">{{ older_post.title | escape }}</span>
+      </a>
+      {%- endif %}
+      {%- if newer_post %}
+      <a class="post-page-nav-link post-page-nav-next" href="{{ newer_post.url | relative_url }}" rel="next">
+        <span class="post-page-nav-label">Newer &rarr;</span>
+        <span class="post-page-nav-title">{{ newer_post.title | escape }}</span>
+      </a>
+      {%- endif %}
+    </nav>
+    {%- endif %}
+  </footer>
+</article>
+
+<script src="{{ '/assets/js/local-dates.js' | relative_url }}" defer></script>

@@ -1,10 +1,12 @@
 {
   "private": true,
-  "description": "Tooling for mncardboard.com (site has no build step).",
+  "description": "Tools for working on mncardboard.com.",
   "scripts": {
-    "typecheck": "tsc --project tsconfig.json"
+    "typecheck": "tsc --project tsconfig.json",
+    "editor": "decap-server"
   },
   "devDependencies": {
+    "decap-server": "3.11.3",
     "typescript": "7.0.2"
   }
 }

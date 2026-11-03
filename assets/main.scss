@@ -1,0 +1,14 @@
+---
+---
+// Replaces minima's assets/main.scss. Every page will load the result,
+// /assets/main.css. @use uses files from _sass/, prioritizing the styles
+// defined here before minima's.
+
+@use "minima";
+@use "colors";
+@use "news";
+@use "home";
+@use "post";
+@use "authors";
+@use "archive";
+@use "header";

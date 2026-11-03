@@ -1,11 +1,11 @@
 {
-  // Type-checks browser scripts.
+  // Type-checks the scripts in assets/js (no compilation)
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
 
-    // Browser APIs up to ES2020 only because newer ones break older browsers.
+    // Only allow JavaScript up to ES2020 to keep compatible with older browsers
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
 

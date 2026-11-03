@@ -1,0 +1,19 @@
+{%- comment -%}
+  A rounded image for an author (their avatar), gotten from their author file
+  in _authors/, or their initials if there isn't a picture linked in their
+  author file (e.x., "Evan R. Reumann" becomes "ER").
+
+  Example use: {% include author-avatar.html name="Evan R. Reumann" %}
+
+  Size it where it's used by setting --avatar-size (view _sass/_authors.scss).
+  Variables start with avatar_ because Liquid variables set within an include
+  are visible to the page that includes it (to not pollute global namespace).
+{%- endcomment -%}
+
+{%- assign avatar_author = site.authors | where: "name", include.name | first -%}
+{%- assign avatar_name_parts = include.name | split: " " -%}
+{%- if avatar_author.avatar and avatar_author.avatar != "" -%}
+<img class="author-avatar" src="{{ avatar_author.avatar | relative_url }}" alt="" loading="lazy">
+{%- else -%}
+<span class="author-avatar" aria-hidden="true">{{ avatar_name_parts.first | slice: 0 }}{{ avatar_name_parts.last | slice: 0 }}</span>
+{%- endif -%}

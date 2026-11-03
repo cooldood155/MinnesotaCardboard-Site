@@ -2,9 +2,17 @@
 layout: home
 ---
 
-**Minnesota Cardboard** is an app for Magic: The Gathering players with large
-collections: people who sort, sell, share and keep track of their cards. It is
-in development for Windows, macOS and Linux.
+**Minnesota Cardboard** is an app for anyone with a big collection of playing
+cards: people who sort, sell, share and keep track of their cards. It's in
+development for Windows, macOS and Linux.
+
+## Card games it will support
+
+- Magic: The Gathering
+- Pokémon
+- One Piece Card Game
+- Yu-Gi-Oh!
+{: .home-games}
 
 ## What it will do
 
@@ -20,8 +28,10 @@ in development for Windows, macOS and Linux.
 - **Build and share decks** from your collection, and share decks or whole
   inventories with a link.
 
-Questions: [qa@mncardboard.com](mailto:hello@mncardboard.com)
+Questions: [qa@mncardboard.com](mailto:qa@mncardboard.com)
 
 <small>Minnesota Cardboard is unofficial Fan Content permitted under the Fan
 Content Policy. Not approved/endorsed by Wizards. Portions of the materials
-used are property of Wizards of the Coast. (c)Wizards of the Coast LLC.</small>
+used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
+Pokémon, One Piece Card Game, Yu-Gi-Oh! and Disney Lorcana belong to their
+owners. Minnesota Cardboard isn't affiliated with or endorsed by them.</small>

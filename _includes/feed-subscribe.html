@@ -1,0 +1,24 @@
+{%- comment -%}
+  The "This is a news feed" box with the feed's address and a Copy button.
+  Use: {% include feed-subscribe.html %}
+
+  The button stays hidden until assets/js/copy-button.js shows it.
+{%- endcomment -%}
+
+{%- assign feed_url = "/feed.xml" | absolute_url -%}
+<section class="feed-subscribe" aria-labelledby="feed-subscribe-title">
+  <h2 id="feed-subscribe-title">This is a news feed</h2>
+  <p>
+    Follow {{ site.title }} in a feed reader app and new posts show up there
+    right away. Copy this address into your reader to follow:
+  </p>
+  <div class="feed-subscribe-row">
+    <code id="feed-address">{{ feed_url }}</code>
+    <button type="button" data-copy="feed-address" hidden>Copy address</button>
+    <span class="visually-hidden" role="status"></span>
+  </div>
+  <p class="feed-subscribe-help">
+    New to feeds? <a href="https://aboutfeeds.com/">About Feeds</a> explains
+    how they work and lists free readers.
+  </p>
+</section>

@@ -1,0 +1,26 @@
+/* Archive page styles.
+Styled Files:
+ - /archive.html */
+
+.archive-intro { color: var(--muted); }
+
+.archive-list {
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+.archive-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.archive-empty { color: var(--muted); }

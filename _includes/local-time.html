@@ -1,0 +1,22 @@
+{%- comment -%}
+  A <time> for one date. Jekyll writes it in UTC (timezone: UTC in _config.yml)
+  and labels it "UTC"; assets/js/local-dates.js rewrites it in the reader's
+  time zone.
+
+  - date_only=true, or a date with no time (00:00 UTC) will only show the date.
+  - short=true: "Oct 13, 2026", for lists.
+
+  Example use: {% include local-time.html date=post.date date_only=post.date_only %}
+{%- endcomment -%}
+
+{%- assign time_of_day = include.date | date: "%H:%M:%S" -%}
+{%- if include.date_only or time_of_day == "00:00:00" -%}
+<time datetime="{{ include.date | date: '%Y-%m-%d' }}" data-date-only{% if include.short %} data-short{% endif %}>
+  {%- if include.short -%}{{ include.date | date: "%b %-d, %Y" }}{%- else -%}{{ include.date | date: "%A, %B %-d, %Y" }}{%- endif -%}
+</time>
+{%- else -%}
+{%- assign iso_date = include.date | date_to_xmlschema -%}
+<time datetime="{{ iso_date }}" title="{{ iso_date }}"{% if include.short %} data-short{% endif %}>
+  {%- if include.short -%}{{ include.date | date: "%b %-d, %Y" }}{%- else -%}{{ include.date | date: "%A, %B %-d, %Y, %-I:%M %p" }} UTC{%- endif -%}
+</time>
+{%- endif -%}

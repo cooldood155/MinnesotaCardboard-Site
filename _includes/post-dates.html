@@ -1,0 +1,17 @@
+{%- comment -%}
+  "Posted <date> · 3 days ago · Updated <date>" for a post.
+
+  Example use: {% include post-dates.html post=post %}
+
+  "Updated" only shows when `last_modified_at:` is more than an hour after the
+  post's date. assets/js/local-dates.js fills in the .time-ago span, requiring
+  it to come right after the <time> elemet.
+{%- endcomment -%}
+
+Posted {% include local-time.html date=include.post.date date_only=include.post.date_only %}<span class="time-ago" hidden></span>
+{%- if include.post.last_modified_at -%}
+  {%- assign posted_at = include.post.date | date: "%s" | plus: 0 -%}
+  {%- assign updated_at = include.post.last_modified_at | date: "%s" | plus: 0 -%}
+  {%- assign seconds_later = updated_at | minus: posted_at -%}
+  {%- if seconds_later > 3600 %} · Updated {% include local-time.html date=include.post.last_modified_at %}{% endif -%}
+{%- endif -%}

@@ -1,0 +1,87 @@
+/* Site colors every rule uses.
+Styled Files:
+ - every page (minima's colors overridden below) */
+
+:root {
+  --bg: #fdfdfd;
+  --text: #111111;
+  --muted: #5c5c5c;
+  --border: #e8e8e8;
+  --top-bar: #424242;
+  --link: #1f63c4;
+  --link-hover: #111111;
+  --panel: #f1f5fb;
+  --panel-border: #c9d8ee;
+  --code-bg: #ffffff;
+  --button: #1f63c4;
+  --button-text: #ffffff;
+  color-scheme: light;
+}
+
+@mixin dark-colors {
+  --bg: #16181c;
+  --text: #e9eaec;
+  --muted: #a3a7ae;
+  --border: #2c3037;
+  --top-bar: #6b7280;
+  --link: #7cb0ff;
+  --link-hover: #ffffff;
+  --panel: #1d2633;
+  --panel-border: #33465f;
+  --code-bg: #101216;
+  --button: #7cb0ff;
+  --button-text: #0d1117;
+  color-scheme: dark;
+}
+
+// data-theme is set by the header's theme button (assets/js/theme-button.js).
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-colors; }
+}
+
+:root[data-theme="dark"] { @include dark-colors; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+  &:visited { color: var(--link); }
+  &:hover { color: var(--link-hover); }
+}
+
+.site-header {
+  border-top-color: var(--top-bar);
+  border-bottom-color: var(--border);
+}
+
+.site-title,
+.site-title:visited,
+.site-nav .page-link {
+  color: var(--text);
+}
+
+.site-nav {
+  background-color: var(--bg);
+  border-color: var(--border);
+}
+
+.site-nav .menu-icon > svg path {
+  fill: var(--muted);
+}
+
+.site-footer { border-top-color: var(--border); }
+
+.post-meta,
+.footer-col-wrapper,
+blockquote {
+  color: var(--muted);
+}
+
+pre,
+code {
+  background-color: var(--code-bg);
+  border-color: var(--border);
+}

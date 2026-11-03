@@ -1,0 +1,33 @@
+---
+layout: default
+title: News feed
+permalink: /news/
+---
+{%- comment -%}
+  How to follow the feed, then every post listed in full. Archived posts are
+  listed on /news/archive/ instead (archive.html).
+  Styles: _sass/_news.scss
+{%- endcomment -%}
+
+{%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" -%}
+{%- assign archived_posts = site.posts | where_exp: "post", "post.archived == true" -%}
+
+{% include feed-subscribe.html %}
+
+<h1 class="page-heading">{{ site.title }}</h1>
+<p class="news-subtitle">{{ site.description }}</p>
+
+{% for post in live_posts %}
+  {% include post-card.html post=post %}
+{% else %}
+  <p class="news-empty">No posts yet.</p>
+{% endfor %}
+
+{% if archived_posts.size > 0 %}
+<p class="news-archive-link"><a href="{{ '/news/archive/' | relative_url }}">Archived posts ({{ archived_posts.size }})</a></p>
+{% endif %}
+
+<p class="news-time-zone" data-time-zone-note>Dates and times are in UTC (the sites local-dates.js script could not load).</p>
+
+<script src="{{ '/assets/js/copy-button.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/local-dates.js' | relative_url }}" defer></script>

@@ -1,0 +1,13 @@
+// The sign-in Worker for the admin author editor.
+{
+  "name": "mncardboard-cms-auth",
+  "account_id": "c2ebd812f8a205752dd8450eec599528",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  "vars": {
+    // GitHub OAuth app; secret set separately
+    "GITHUB_CLIENT_ID": "Ov23liA7LStelyWQAskl",
+    // Sites allowed to receive the sign-in token
+    "ALLOWED_ORIGINS": "https://mncardboard.com,http://localhost:4000,http://127.0.0.1:4000"
+  }
+}

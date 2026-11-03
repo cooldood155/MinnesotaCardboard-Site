@@ -1,0 +1,33 @@
+{%- comment -%}
+  The "By" line under a post's title: each author's avatar and name. Names
+  with a file in _authors/ link to that author's page.
+
+  Example use: {% include author-byline.html post=page %}
+
+  Posts list one author as `author: Name`, or several as `authors: [A, B]`.
+  `split: "|"` turns a single name into a list of one, so the loop below
+  handles both the same way.
+{%- endcomment -%}
+
+{%- if include.post.authors -%}
+  {%- assign byline_names = include.post.authors -%}
+{%- else -%}
+  {%- assign byline_names = include.post.author | split: "|" -%}
+{%- endif -%}
+
+{%- if byline_names.size > 0 %}
+<p class="author-byline">
+  <span class="author-byline-label">By</span>
+  {%- for byline_name in byline_names %}
+  {%- assign byline_author = site.authors | where: "name", byline_name | first %}
+  <span class="author-byline-person">
+    {%- include author-avatar.html name=byline_name -%}
+    {%- if byline_author %}
+    <a href="{{ byline_author.url | relative_url }}">{{ byline_name | escape }}</a>
+    {%- else %}
+    {{ byline_name | escape }}
+    {%- endif %}
+  </span>
+  {%- endfor %}
+</p>
+{%- endif -%}

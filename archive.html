@@ -1,0 +1,33 @@
+---
+layout: default
+title: Archived posts
+permalink: /news/archive/
+---
+{%- comment -%}
+  Posts with 'archived: true'; left off the news page, the home page and feed,
+  keeping their own pages.
+  Styles: _sass/_archive.scss
+{%- endcomment -%}
+
+{%- assign archived_posts = site.posts | where_exp: "post", "post.archived == true" -%}
+
+<h1 class="page-heading">Archived posts</h1>
+<p class="archive-intro">
+  Older posts that may be out of date or incorrect. They're no longer in the
+  <a href="{{ '/news/' | relative_url }}">news feed</a>.
+</p>
+
+{%- if archived_posts.size > 0 %}
+<ul class="archive-list">
+  {%- for post in archived_posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    <span class="archive-date">{% include local-time.html date=post.date date_only=post.date_only short=true %}</span>
+  </li>
+  {%- endfor %}
+</ul>
+{%- else %}
+<p class="archive-empty">Looks like there's nothing here.</p>
+{%- endif %}
+
+<script src="{{ '/assets/js/local-dates.js' | relative_url }}" defer></script>

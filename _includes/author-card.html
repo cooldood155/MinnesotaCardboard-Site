@@ -1,0 +1,32 @@
+{%- comment -%}
+  An "about the author" box for post's author(s), shown under the pst. Authors
+  without a file in _authors/ don't get one.
+
+  Example use: {% include author-card.html post=page %}
+{%- endcomment -%}
+
+{%- if include.post.authors -%}
+  {%- assign card_names = include.post.authors -%}
+{%- else -%}
+  {%- assign card_names = include.post.author | split: "|" -%}
+{%- endif -%}
+
+{%- for card_name in card_names -%}
+  {%- assign card_author = site.authors | where: "name", card_name | first -%}
+  {%- if card_author %}
+<aside class="author-card" aria-label="About {{ card_name | escape }}">
+  {% include author-avatar.html name=card_name %}
+  <div class="author-card-text">
+    <p class="author-card-label">Written by</p>
+    <p class="author-card-name"><a href="{{ card_author.url | relative_url }}">{{ card_author.name | escape }}</a></p>
+    {%- if card_author.role %}
+    <p class="author-card-role">{{ card_author.role | escape }}</p>
+    {%- endif %}
+    {%- if card_author.bio %}
+    <p class="author-card-bio">{{ card_author.bio | escape }}</p>
+    {%- endif %}
+    <p class="author-card-more"><a href="{{ card_author.url | relative_url }}">More from {{ card_author.name | split: " " | first }} &rarr;</a></p>
+  </div>
+</aside>
+  {%- endif -%}
+{%- endfor -%}
