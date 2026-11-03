@@ -5,6 +5,8 @@ email: evanreumann@mncardboard.com
 github_username: cooldood155
 author: Evan R. Reumann
 
+include: [".well-known"]
+
 # assets/js/local-dates.js localizes times/dates for reader's (Jekyll writes in UTC).
 timezone: UTC
 
