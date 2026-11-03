@@ -33,6 +33,7 @@ defaults:
       path: ""
       type: posts
     values:
+      layout: post
       topic: app
 
 plugins:
