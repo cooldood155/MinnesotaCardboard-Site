@@ -27,6 +27,14 @@ collections:
     output: true
     permalink: /authors/:name/
 
+# Posts without `topic:` are app posts.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      topic: app
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

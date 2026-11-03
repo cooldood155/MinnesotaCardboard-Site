@@ -1,6 +1,7 @@
 ---
 title: A readable news feed
 date: 2026-10-13 22:15 -0500
+topic: website
 authors:
   - Evan R. Reumann
 layout: post

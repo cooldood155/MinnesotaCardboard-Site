@@ -33,6 +33,10 @@ collections:
     summary: "{{title}}{{archived | ternary(' (archived)', '')}}"
     sortable_fields: [date, title]
 
+    view_groups:
+      - label: Topic
+        field: topic
+
     view_filters:
       - label: Archived
         field: archived
@@ -42,6 +46,14 @@ collections:
       - label: Title
         name: title
         widget: string
+
+      - label: Topic
+        name: topic
+        widget: select
+        options:
+          - { label: App, value: app }
+          - { label: Website, value: website }
+        hint: App and website posts are listed under separate tabs and feeds.
 
       - label: Date
         name: date

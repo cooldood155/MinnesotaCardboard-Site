@@ -11,13 +11,16 @@ Linux.
 
 ## What the Site Is Currently Capable Of
 
-The site posts updates on the app's development. Follow the updates with any
-feed reader at [mncardboard.com/feed.xml](https://mncardboard.com/feed.xml),
-or read them at [mncardboard.com/news/](https://mncardboard.com/news/).
+The site posts updates on the app's and the website's development. Follow the
+updates with any feed reader at
+[mncardboard.com/feed.xml](https://mncardboard.com/feed.xml) (everything),
+[/feed/app.xml](https://mncardboard.com/feed/app.xml) or
+[/feed/website.xml](https://mncardboard.com/feed/website.xml), or read them at
+[mncardboard.com/news/](https://mncardboard.com/news/).
 
-- **News:** every post on the news page, with the newest three shown at the
-  bottom of the home page. Dates/times are shown in the reader's own time zone
-  (or UTC if they have scripts turned off).
+- **News:** every post on the news page, under separate App and Website tabs,
+  with the newest three shown at the bottom of the home page. Dates/times are
+  shown in the reader's own time zone (or UTC if they have scripts turned off).
 - **Authors:** each post links to its authors, and every author has a page listing
   their posts and info about them
   ([mncardboard.com/authors/](https://mncardboard.com/authors/)).
@@ -56,6 +59,9 @@ Most of what the app does, just hosted and running in a browser:
   collection, compare different collection prices to get the best deal, and
   more.
 - **Share** cards, decks, or whole collections with a link.
+- **Sell** cards by listing them to any of your linked services (like Facebook,
+  TCGplayer, eBay, etc.). View and manage all of your ongoing and past sales in
+  one place!
 
 ## Working on the Site
 

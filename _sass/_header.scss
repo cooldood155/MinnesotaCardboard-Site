@@ -18,3 +18,5 @@ Styled Files:
 @media (max-width: 600px) {
   .site-nav .header-theme-button { margin-left: auto; }
 }
+
+.site-nav .header-theme-button[hidden] { display: none; }

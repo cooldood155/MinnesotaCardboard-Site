@@ -50,10 +50,10 @@ bundle exec jekyll serve --open-url
 | :-- | :-- |
 | `_config.yml` | Site settings: title, theme, plugins, header menu, defaults |
 | `index.md` | The home page |
-| `news.html` | `/news/`: how to follow the feed, then every post in full |
+| `news.html` | `/news/`: how to follow the feeds, then every post in full under App and Website tabs |
 | `authors.html` | `/authors/`: everyone who writes for the site |
 | `archive.html` | `/news/archive/`: archived posts |
-| `feed.xml` | The feed for feed readers, `/feed.xml` |
+| `feed.xml`, `feed/` | The feeds for feed readers: `/feed.xml` (everything), `/feed/app.xml` and `/feed/website.xml` |
 | `404.md` | The "page not found" page |
 | `_posts/` | Updates, one file each, named `YYYY-MM-DD-title.md` |
 | `_authors/` | One file per author; each gets a page at `/authors/<file name>/` |
@@ -61,13 +61,14 @@ bundle exec jekyll serve --open-url
 | `_includes/` | Pieces of HTML used by the pages and layouts. Each file says what it's for at the top. `head.html` and `header.html` replace minima's |
 | `assets/main.scss` | The site's stylesheet: minima's styles, then the files in `_sass/` |
 | `_sass/` | One file per part of the site. See `docs/_sass-RULES.md` |
-| `assets/js/` | `copy-button.js` (the Copy button on the news page), `local-dates.js` (dates in the reader's time zone) and `theme-button.js` (the light/dark button in the header) |
+| `assets/js/` | `copy-button.js` (the Copy buttons on the news page), `news-tabs.js` (the App and Website tabs on the news page), `local-dates.js` (dates in the reader's time zone) and `theme-button.js` (the light/dark button in the header) |
 | `admin/` | The post editor at `/admin/` (Decap CMS); settings in `admin/config.yml` |
 | `cms-auth/` | The Cloudflare Worker that handles "Sign in with GitHub" for the editor; not part of the site |
 | `tsconfig.json`, `package.json` | Type-checking, and `npm run editor` for editing locally; not part of the site |
 
-`feed.xml` is the jekyll-feed plugin's template (archived posts left out).
-While it exists, the plugin uses it and doesn't generate it's own.
+`_includes/atom-feed.xml` is the jekyll-feed plugin's template (archived posts
+left out), used by all three feeds. While `feed.xml` exists, the plugin uses it
+and doesn't generate it's own.
 
 - If the jekyll-feed plugin is ever updated, compare its template to the
   current template, and make any needed changes.
@@ -93,6 +94,7 @@ Example for *Minnesota time* (CDT/CST):
 ---
 title: The app has a name
 date: 2026-11-02 18:30 -0600
+topic: app
 authors:
   - First Last
   - Another Author
@@ -105,6 +107,9 @@ authors:
   editor), or write `date:` with no time (`date: 2026-11-02`).
 - **Always write the UTC offset** (the `-0600` above). Without it, the time is
   read as UTC.
+- **Topic:** `topic: app` or `topic: website` (the "Topic" choice in the
+  editor). App and website posts get separate tabs on the news page and
+  separate feeds. Without `topic:`, a post is an app post.
 
 Every post links to its `authors` (one or more), and only trusted members are
 allowed to be granted this title. To become an author, you must follow these

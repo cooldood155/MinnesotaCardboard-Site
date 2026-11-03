@@ -12,7 +12,7 @@ layout: default
 
 <article class="post-page">
   <header class="post-page-header">
-    <p class="post-page-back"><a href="{{ '/news/' | relative_url }}">&larr; All news</a></p>
+    <p class="post-page-back"><a href="{{ '/news/' | relative_url }}#{{ page.topic }}">&larr; All {% if page.topic == "website" %}website{% else %}app{% endif %} news</a></p>
     <h1 class="post-page-title">{{ page.title | escape }}</h1>
     <p class="post-page-meta">{% include post-dates.html post=page %} · {{ minutes }} min read</p>
     {% include author-byline.html post=page %}
@@ -32,14 +32,15 @@ layout: default
     {% include author-card.html post=page %}
 
     {%- comment -%}
-      Older and newer posts, skipping archived ones. Archived posts get no
+      Older and newer posts of the same topic (app or website), skipping
+      archived ones. Archived posts get no
       links here; the note at the top links to the archive instead.
       site.posts is newest first (the post after this one is older).
     {%- endcomment -%}
     {%- assign older_post = nil -%}
     {%- assign newer_post = nil -%}
     {%- unless page.archived -%}
-      {%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" -%}
+      {%- assign live_posts = site.posts | where_exp: "post", "post.archived != true" | where: "topic", page.topic -%}
       {%- for post in live_posts -%}
         {%- if post.url == page.url -%}
           {%- assign older_post = live_posts[forloop.index] -%}

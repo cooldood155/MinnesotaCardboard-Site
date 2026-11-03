@@ -1,0 +1,4 @@
+---
+permalink: /feed/app.xml
+---
+{%- include atom-feed.xml topic="app" label="App" -%}

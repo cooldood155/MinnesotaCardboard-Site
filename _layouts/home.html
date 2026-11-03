@@ -20,7 +20,7 @@ layout: default
     <ul class="home-news-list">
       {%- for post in live_posts limit: 3 %}
       <li class="home-news-item">
-        <span class="home-news-date">{% include local-time.html date=post.date date_only=post.date_only short=true %}</span>
+        <span class="home-news-date">{% include local-time.html date=post.date date_only=post.date_only short=true %} · {% if post.topic == "website" %}Website{% else %}App{% endif %}</span>
         <a class="home-news-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         <p class="home-news-excerpt">{{ post.excerpt | strip_html | truncatewords: 24 }}</p>
       </li>
