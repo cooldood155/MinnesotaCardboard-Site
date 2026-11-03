@@ -30,4 +30,4 @@ permalink: /news/archive/
 <p class="archive-empty">Looks like there's nothing here.</p>
 {%- endif %}
 
-<script src="{{ '/assets/js/local-dates.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/local-dates.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
