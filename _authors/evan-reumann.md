@@ -1,7 +1,7 @@
 ---
 name: Evan R. Reumann
 role: Creator of Minnesota Cardboard
-bio: "Building Minnesota Cardboard: an inventory app for playing card collections."
+bio: "Building Minnesota Cardboard: an inventory app for trading card collectibles."
 email: evanreumann@mncardboard.com
 github: cooldood155
 avatar: /assets/images/authors/evan-reumann.webp

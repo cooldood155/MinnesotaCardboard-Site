@@ -5,6 +5,7 @@
 
   - date_only=true, or a date with no time (00:00 UTC) will only show the date.
   - short=true: "Oct 13, 2026", for lists.
+  - relative=true: "· Yesterday" added after the date/time
 
   Example use: {% include local-time.html date=post.date date_only=post.date_only %}
 {%- endcomment -%}
@@ -19,4 +20,7 @@
 <time datetime="{{ iso_date }}" title="{{ iso_date }}"{% if include.short %} data-short{% endif %}>
   {%- if include.short -%}{{ include.date | date: "%b %-d, %Y" }}{%- else -%}{{ include.date | date: "%A, %B %-d, %Y, %-I:%M %p" }} UTC{%- endif -%}
 </time>
+{%- endif -%}
+{%- if include.relative -%}
+<span class="time-ago"></span>
 {%- endif -%}

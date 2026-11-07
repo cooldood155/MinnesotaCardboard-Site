@@ -1,7 +1,7 @@
 # MinnesotaCardboard-Site
 
 The source for [mncardboard.com](https://mncardboard.com), the website for
-Minnesota Cardboard (**MNCB**): an inventory app for playing card collections
+Minnesota Cardboard (**MNCB**): an inventory app for trading card collections
 (Magic: The Gathering, Pokémon and more), in development for Windows, macOS and
 Linux.
 

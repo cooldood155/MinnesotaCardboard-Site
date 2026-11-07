@@ -2,17 +2,32 @@
 layout: home
 ---
 
-**Minnesota Cardboard** is an app for anyone with a big collection of playing
-cards: people who sort, sell, share and keep track of their cards. It's in
-development for Windows, macOS and Linux.
+# Minnesota Cardboard (***MNCB***)
 
-## Card games it will support
+Aimed at helping with trading cards collectibles:
+
+- sell cards across multiple selling platforms, managing it all in one place
+- keep track of you cards
+- sort cards proficiently and customize how they are organized
+- share cards to others with customizble social preview card others will see with your links
+
+## Trading Cards Supported
 
 - Magic: The Gathering
 - Pokémon
 - One Piece Card Game
 - Yu-Gi-Oh!
 {: .home-games}
+
+## Selling Platforms Supported
+
+- [TCGplayer]
+- [eBay]
+- [Whatnot]
+- [Cardmarket]
+- [Star City Games]
+- [Card Kingdom]
+- [Mana Pool]
 
 ## What it will do
 
@@ -28,6 +43,8 @@ development for Windows, macOS and Linux.
 - **Build and share decks** from your collection, and share decks or whole
   inventories with a link.
 
+*The app in in development for Windows, macOS and Linux.*
+
 Questions: [qa@mncardboard.com](mailto:qa@mncardboard.com)
 
 <small>Minnesota Cardboard is unofficial Fan Content permitted under the Fan
@@ -35,3 +52,11 @@ Content Policy. Not approved/endorsed by Wizards. Portions of the materials
 used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
 Pokémon, One Piece Card Game, Yu-Gi-Oh! and Disney Lorcana belong to their
 owners. Minnesota Cardboard isn't affiliated with or endorsed by them.</small>
+
+[TCGplayer]: https://www.tcgplayer.com
+[eBay]: https://www.ebay.com
+[Whatnot]: https://www.whatnot.com
+[Cardmarket]: https://cardmarket.com
+[Star City Games]: https://starcitygames.com
+[Card Kingdom]: https://cardkindgom.com
+[Mana Pool]: https://manapool.com
