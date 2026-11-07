@@ -4,7 +4,7 @@ layout: home
 
 # Minnesota Cardboard (***MNCB***)
 
-Aimed at helping with trading cards collectibles:
+Minnesota Cardboard (MNCB) is aimed at helping with trading card collectibles:
 
 - sell cards across multiple selling platforms, managing it all in one place
 - keep track of you cards
