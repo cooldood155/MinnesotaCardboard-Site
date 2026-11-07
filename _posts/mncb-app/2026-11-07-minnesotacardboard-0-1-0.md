@@ -1,6 +1,6 @@
 ---
 title: "Minnesota Cardboard 0.1.0: The First Test Build"
-date: 2026-11-07 03:20 -0600
+date: 2026-11-07 08:20 -0600
 topic: app
 authors:
   - Evan R. Reumann
