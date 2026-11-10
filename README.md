@@ -1,4 +1,4 @@
-**Application Repositories Badges**:
+*Private* **[`MinnesotaCardboard`](https://github.com/cooldood155/MinnesotaCardboard) Repositories Badges**:
 
 [![catalog](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/catalog.yml/badge.svg)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/catalog.yml)
 [![update-site](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml)
