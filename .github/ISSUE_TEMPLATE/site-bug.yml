@@ -1,0 +1,74 @@
+name: "Site: something's wrong"
+description: mncardboard.com did something it shouldn't (or didn't do something it should).
+title: "[Bug]: "
+labels: ["bug", "site", "tester"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for using mncardboard.com! The more of this you fill in, the faster it gets fixed.
+        Don't put anything private in here (emails, addresses, etc.), everyone can see it.
+
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      description: Copy the link from the address bar.
+      placeholder: "https://mncardboard.com/news/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: doing
+    attributes:
+      label: What were you doing?
+      description: The steps, in order (e.g., "opened News, clicked the App tab, clicked the 0.1.0 post").
+    validations:
+      required: true
+
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened?
+      description: What you saw. Copy any message the page showed, word for word (if possible).
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Computer
+        - Phone
+        - Tablet
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Safari
+        - Firefox
+        - Edge
+        - Something else (say which below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots help the most (drag them in here).
+    validations:
+      required: false

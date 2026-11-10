@@ -1,0 +1,76 @@
+name: "App: something's wrong"
+description: The app did something it shouldn't (or didn't do something it should).
+title: "[Bug]: "
+labels: ["bug", "app", "tester"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying MinnesotaCardboard! The more of this you fill in, the faster it gets fixed.
+        Don't put anything private in here (emails, addresses, etc.), everyone can see it.
+
+  - type: textarea
+    id: doing
+    attributes:
+      label: What were you doing?
+      description: The steps, in order (e.g., "File > Import > Moxfield CSV, picked my file, clicked Import").
+    validations:
+      required: true
+
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened?
+      description: What you saw. Copy any message the app showed, word for word.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: mncb version
+      description: In the title bar or Help > About (e.g., 0.1.0).
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game
+    attributes:
+      label: Game
+      options:
+        - Not about one game
+        - "Magic: The Gathering"
+        - Pokémon
+        - One Piece Card Game
+        - Yu-Gi-Oh!
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: |
+        Screenshots, or the CSV you imported (drag it in here).
+        mncb.log helps a lot too: it's in mncb's logs folder and starts over every time the app opens, so grab it right after it happens.
+    validations:
+      required: false

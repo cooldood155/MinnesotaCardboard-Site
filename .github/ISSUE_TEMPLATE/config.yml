@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: No GitHub account? Need to send something private? Email me at evanreumann@mncardboard.com
+    url: https://mail.google.com/mail/?view=cm&fs=1&to=evanreumann@mncardboard.com
+    about: Send what went wrong (or your idea) and I'll put it in here myself (if it's not meant to be private).
+  - name: News and app updates
+    url: https://mncardboard.com
+    about: What's new, and the test builds.
