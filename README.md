@@ -1,3 +1,11 @@
+**Application Repositories Badges**:
+
+[![catalog](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/catalog.yml/badge.svg)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/catalog.yml)
+[![update-site](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml)
+[![app-updates](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/app-updates.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/app-updates.yml)
+[![verify](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/verify.yml)
+[![release](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/release.yml)
+
 # MinnesotaCardboard-Site
 
 The source for [mncardboard.com](https://mncardboard.com), the website for
