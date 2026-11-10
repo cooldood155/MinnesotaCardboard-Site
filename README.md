@@ -1,10 +1,19 @@
-*Private* **[`MinnesotaCardboard`](https://github.com/cooldood155/MinnesotaCardboard) Repositories Badges**:
+*Public (MIT)* **[`QCDX`](https://github.com/cooldood155/QCDX) Repository Badges (tool used to build MinnesotaCardboard):**
+
+[![ci](https://github.com/cooldood155/QCDX/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/cooldood155/QCDX/actions/workflows/ci.yml)
+[![release](https://github.com/cooldood155/QCDX/actions/workflows/release.yml/badge.svg)](https://github.com/cooldood155/QCDX/actions/workflows/release.yml)
+[![template-sync](https://github.com/cooldood155/QCDX/actions/workflows/template-sync.yml/badge.svg?branch=main)](https://github.com/cooldood155/QCDX/actions/workflows/template-sync.yml)
+
+*Private* **[`MinnesotaCardboard`](https://github.com/cooldood155/MinnesotaCardboard) Repository Badges:**
 
 [![catalog](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/catalog.yml/badge.svg)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/catalog.yml)
 [![update-site](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml)
 [![app-updates](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/app-updates.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/app-updates.yml)
 [![verify](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/verify.yml)
-[![release](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/release.yml)
+
+**MinnesotaCardboard-Site (current) Repository Badges:**
+
+[![Deploy site](https://github.com/cooldood155/MinnesotaCardboard-Site/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard-Site/actions/workflows/jekyll-gh-pages.yml)
 
 # MinnesotaCardboard-Site
 
