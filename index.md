@@ -19,6 +19,8 @@ Minnesota Cardboard (MNCB) is aimed at helping with trading card collectibles:
 - Yu-Gi-Oh!
 {: .home-games}
 
+{% include image-gallery.html %}
+
 ## Selling Platforms Supported
 
 - [TCGplayer]
