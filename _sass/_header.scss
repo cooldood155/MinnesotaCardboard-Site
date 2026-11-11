@@ -2,6 +2,35 @@
 Styled Files:
  - /_includes/header.html */
 
+// a thicker red bar across the top of every page
+.site-header {
+  border-top-width: 6px;
+}
+
+// the title, with a little red card in front of it
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.6rem; // grows with the screen (_screens.scss)
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  &::before {
+    content: "";
+    width: 0.8em;
+    height: 1.1em;
+    background: var(--accent);
+    border-radius: 3px;
+    transform: rotate(-8deg);
+    box-shadow: 3px 2px 0 var(--accent-soft);
+  }
+}
+
+.site-nav .page-link { font-size: 1rem; }
+
+.site-nav .page-link:hover { color: var(--link); }
+
 // looks like the menu links next to it
 .header-theme-button {
   padding: 0;

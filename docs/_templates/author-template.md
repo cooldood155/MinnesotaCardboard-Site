@@ -1,7 +1,7 @@
 ---
-# This page wil be at /authors/<file-name>/, the file name should be the
-# authors name, written as "first-last" (optionally "first-middle-last"), and
-# the pages `name:` attribute's value must exactly match the name in
+# This page will be at /authors/<file-name>/. The file name should be the
+# author's name, written as "first-last" (optionally "first-middle-last"), and
+# the page's `name:` value must exactly match the name in
 # `authors:` on posts made by the author.
 name: First Last
 role: What you do on/for the project

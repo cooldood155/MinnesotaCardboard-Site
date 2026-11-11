@@ -1,36 +1,44 @@
-/* Site colors every rule uses.
+/* Site colors every rule uses (red is mncb's color).
 Styled Files:
  - every page (minima's colors overridden below) */
 
 :root {
-  --bg: #fdfdfd;
-  --text: #111111;
-  --muted: #5c5c5c;
-  --border: #e8e8e8;
-  --top-bar: #424242;
-  --link: #1f63c4;
-  --link-hover: #111111;
-  --panel: #f1f5fb;
-  --panel-border: #c9d8ee;
+  --bg: #fdfcfc;
+  --text: #1b1517;
+  --muted: #5f5458;
+  --border: #eee3e5;
+  --top-bar: #c8102e;
+  --link: #b3122b;
+  --link-hover: #7a0c1d;
+  --panel: #fdf3f4;
+  --panel-border: #f2cdd3;
   --code-bg: #ffffff;
-  --button: #1f63c4;
+  --button: #c8102e;
   --button-text: #ffffff;
+  --accent: #c8102e;
+  --accent-soft: #fde7ea;
+  --logo-plate: transparent;
+  --shadow: rgba(122, 12, 29, 0.18);
   color-scheme: light;
 }
 
 @mixin dark-colors {
-  --bg: #161518;
-  --text: #e1e4e9;
-  --muted: #a3a7ae;
-  --border: #2c3037;
-  --top-bar: #6b7280;
-  --link: #7cb0ff;
+  --bg: #141113;
+  --text: #ece6e7;
+  --muted: #b0a5a8;
+  --border: #2e2528;
+  --top-bar: #e0233f;
+  --link: #ff7a8a;
   --link-hover: #ffffff;
-  --panel: #1d2633;
-  --panel-border: #33465f;
-  --code-bg: #101216;
-  --button: #7cb0ff;
-  --button-text: #0d1117;
+  --panel: #221a1c;
+  --panel-border: #45282e;
+  --code-bg: #0f0c0d;
+  --button: #e0233f;
+  --button-text: #ffffff;
+  --accent: #ff4d63;
+  --accent-soft: #3a1a20;
+  --logo-plate: #f3eef0;
+  --shadow: rgba(0, 0, 0, 0.45);
   color-scheme: dark;
 }
 
@@ -84,4 +92,24 @@ pre,
 code {
   background-color: var(--code-bg);
   border-color: var(--border);
+}
+
+// tables (minima's are made for a white page, and are hard to read in dark mode)
+table {
+  width: auto;
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+}
+
+table tr:nth-child(even) { background-color: transparent; }
+
+table th,
+table td {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--panel-border);
+}
+
+table th {
+  background-color: var(--panel);
+  color: var(--text);
 }

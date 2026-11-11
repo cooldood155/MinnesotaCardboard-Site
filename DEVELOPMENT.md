@@ -1,24 +1,24 @@
 # Working on mncardboard.com
 
-Every time an update is pushed upstream to the [GitHub repositories][repo]
+Every time an update is pushed upstream to the [GitHub repository's][repo]
 `main` branch, `.github/workflows/jekyll-gh-pages.yml` builds and publishes the
 site to GitHub Pages.
 
 ### Run it locally:
 
-`bundle install` only needs to be ran when:
+`bundle install` only needs to be run when:
 
-- you haven't ran it at least once for the site already
+- you haven't run it at least once for the site already
 - a Ruby library (a "gem") is added/removed or has its version changed
-- the Gemfile.lock needs to be re-generated
-- switching between branches with different gems
-- Updated your local version of Ruby
+- the Gemfile.lock needs to be regenerated
+- you switch between branches with different gems
+- you update your local version of Ruby
 
 `bundle exec jekyll serve` is used to build and serve the site locally on your
 system.
 
-`exec` uses the projects current bundle (projects gems under Gemfile.lock
-rather than your systems installed gems). `jekyll serve` builds the site, with
+`exec` uses the project's current bundle (the project's gems in Gemfile.lock
+rather than your system's installed gems). `jekyll serve` builds the site, with
 the compiled output being placed into a `_site/` directory, starts a local web
 server (usually at http\://localhost:4000), and watches for file changes,
 automatically rebuilding the site in the background (requiring you to refresh
@@ -28,14 +28,14 @@ the page to see changes).
 - `--livereload`/`-l`: Injects a small script into the compiled site,
   automatically refreshing the page when the source is recompiled.
 - `--open-url`/`-o`: If the site is correctly served, it is automatically
-  opened for you (in your systems default web browser).
+  opened for you (in your system's default web browser).
 
 *Even though the site is automatically rebuilt, certain circumstances require a
 server restart:*
 
 - Edited `_config.yml`
 - Added/Removed a Gem (`Gemfile`)
-- Modified Files in `_plugins/`
+- Modified files in `_plugins/`
 - Changed Data Files (`_data/`)
 - *any settings/Ruby edits*
 
@@ -68,7 +68,7 @@ bundle exec jekyll serve --open-url
 
 `_includes/atom-feed.xml` is the jekyll-feed plugin's template (archived posts
 left out), used by all three feeds. While `feed.xml` exists, the plugin uses it
-and doesn't generate it's own.
+and doesn't generate its own.
 
 - If the jekyll-feed plugin is ever updated, compare its template to the
   current template, and make any needed changes.
@@ -123,40 +123,39 @@ steps:
 To show an "Updated" date, add `last_modified_at: <current date/time>` (more
 than an hour after `date:`).
 
-Don't change post's file names or `date:` attribute after it has been posted.
-The feed uses them to tell posts apart, some readers would then see it as a new
-post.
+Don't change a post's file name or `date:` after it has been posted. The feed
+uses them to tell posts apart (some readers would see it as a new post).
 
 ## Archiving a Post
 
 Turn on "Archived" within the editor, or add `archived: true` to the post file.
-The post leaves the new page, the home page and the feed, but keeps its own
-page (with a not that it's archived), so old links will still work. Archived
-posts are listed on `/new/archive/`, still showing on their author's page.
+The post leaves the news page, the home page and the feed, but keeps its own
+page (with a note that it's archived), so old links still work. Archived posts
+are listed on `/news/archive/`, and still show on their author's page.
 
 Bringing back an archived post requires you to (within the editor) turn
 "Archived" off, or (within the post's file) remove the `archived: true` line.
 
 ## Adding an Author
 
-Add an author in the editor under "Authors", or copy and fill-out
-`_authors/template.md`, renaming the file to `firstname-lastname.md`. The file
-name will become the page address for the author. The authors `name:` will be
-used to match posts `authors:` (authors `name:` attribute must match the name
-in their posts `authors:` list).
+Add an author in the editor under "Authors", or copy
+`docs/_templates/author-template.md` into `_authors/`, rename it to
+`firstname-lastname.md` and fill it out. The file name becomes the page address
+for the author. The author's `name:` must exactly match the name in their
+posts' `authors:` lists.
 
 ## The Editor (/admin/)
 
-`/admin/` lists the sites posts and authors and allows writting, editing and
-deletion of them. Saving any changes will update the corrosponding files and
-commit to `main`, the site then rebuilds and republishes itself.
+`/admin/` lists the site's posts and authors and allows writing, editing and
+deleting them. Saving any changes updates the corresponding files and commits
+to `main`, and the site then rebuilds and republishes itself.
 
-Saving within the editor will cause the files front mattre block to be
-rewritten, removing any extra comments/attributes/etc. added externally.
+Saving within the editor rewrites the file's front matter block, removing any
+extra comments/attributes/etc. added outside the editor.
 
 ### Local Editing (test editor)
 
-No sign-in required; changes the files within local site clone. Within one
+No sign-in required; changes the files in your local copy of the site. Within one
 terminal, [serve the site locally](#run-it-locally):
 
 ```sh
@@ -170,12 +169,12 @@ In another terminal, run the editor locally:
 npm run editor
 ```
 
-The editor is not being served locally at <https://localhost:4000/admin>.
+The editor is now being served locally at <http://localhost:4000/admin/>.
 
 - your device may be serving the site under a different *port* than 4000, which
   should be printed out by Jekyll.
 
-**Note:** The url must say `localhost` (e.g., <https://localhost:4000/admin>).
+**Note:** The URL must say `localhost` (e.g., <http://localhost:4000/admin/>).
 `127.0.0.1` (IPv4) and `::1` (IPv6) will not work.
 
 ### Sign-in on the Live Site [one-time setup]
@@ -201,7 +200,7 @@ can see or change anything. The sign-in lasts until you log out (top right of
 the editor). **Log out** on computers you don't own: the token can push to your
 repos.
 
-## JavaScript `<scripts>`
+## JavaScript `<script>` tags
 
 JavaScript scripts are loaded with plain `<script>` tags, meaning they share
 global variables (two scripts can't both have a top-level `const` with the same
@@ -218,8 +217,8 @@ npm install # if needed
 npm run typecheck
 ```
 
-The GitHub workflow also runs typecheck before publishing the site, ensuring
-forgotten checks that happen to fail never go live.
+The GitHub workflow also runs typecheck before publishing the site, so a
+failing check you forgot to run never goes live.
 
 `tsconfig.json` only allows JavaScript up to ES2020; using something newer
 results in a type error, preventing scripts/pages that break in older browsers.

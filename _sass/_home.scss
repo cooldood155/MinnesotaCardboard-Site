@@ -3,34 +3,400 @@ Styled Files:
  - /_layouts/home.html
  - /index.md */
 
-// list of card games, shown as tags
-.home-games {
+// a short red bar in front of every section heading
+.home h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 1.1em;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+}
+
+// Hero: the big top part with the stack of cards ---------------------------
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 0 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--accent-soft), var(--panel) 70%);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.home-hero-kicker {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.home-hero-title {
+  margin: 0 0 0.75rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+
+  span { color: var(--accent); }
+}
+
+.home-hero-about {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.home-hero-note {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.home-hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 10px;
+  margin: 0;
+}
+
+.home-button,
+.home-button:visited {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--button);
+  border: 2px solid var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+
+  &:hover {
+    color: var(--button-text);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+}
+
+.home-button-quiet,
+.home-button-quiet:visited {
+  background: transparent;
+  color: var(--accent);
+
+  &:hover { color: var(--accent); }
+}
+
+// the card backs, fanned out like a hand of cards
+.home-hero-stack {
+  position: relative;
+  height: 15.5rem;
+
+  img {
+    position: absolute;
+    top: 1.25rem;
+    left: 50%;
+    width: 8.1rem;
+    height: 11.4rem;
+    margin-left: -4.05rem;
+    object-fit: cover;
+    border-radius: 9px;
+    box-shadow: 0 8px 18px var(--shadow);
+    transform-origin: 50% 120%;
+    transition: transform 0.25s ease;
+  }
+
+  img:nth-child(1) { transform: rotate(-18deg) translateX(-1.9rem); }
+  img:nth-child(2) { transform: rotate(-6deg) translateX(-0.6rem); }
+  img:nth-child(3) { transform: rotate(6deg) translateX(0.6rem); }
+  img:nth-child(4) { transform: rotate(18deg) translateX(1.9rem); }
+
+  &:hover img:nth-child(1) { transform: rotate(-24deg) translateX(-2.8rem); }
+  &:hover img:nth-child(2) { transform: rotate(-8deg) translateX(-0.9rem); }
+  &:hover img:nth-child(3) { transform: rotate(8deg) translateX(0.9rem); }
+  &:hover img:nth-child(4) { transform: rotate(24deg) translateX(2.8rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-stack img,
+  .home-button { transition: none; }
+}
+
+@media (max-width: 700px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .home-hero-title { font-size: 1.9rem; }
+
+  .home-hero-stack {
+    order: -1;
+    height: 10.5rem;
+
+    img {
+      width: 5.6rem;
+      height: 7.9rem;
+      margin-left: -2.8rem;
+      top: 0.6rem;
+    }
+  }
+}
+
+// Boxes: How it works, Made for, setups -------------------------------------
+
+.home-steps,
+.home-cards,
+.home-setups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
   margin: 0 0 1.5rem;
+  padding: 0;
   list-style: none;
 
   li {
-    padding: 0.3rem 0.8rem;
+    padding: 1rem;
     background: var(--panel);
     border: 1px solid var(--panel-border);
-    border-radius: 9999px;
+    border-radius: 12px;
+  }
+
+  strong { display: block; }
+}
+
+// How it works: a big red number on each step
+.home-steps {
+  counter-reset: home-step;
+
+  li {
+    position: relative;
+    padding-top: 3.1rem;
+    counter-increment: home-step;
+  }
+
+  li::before {
+    content: counter(home-step);
+    position: absolute;
+    top: 0.9rem;
+    left: 1rem;
+    display: grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: var(--button);
+    color: var(--button-text);
+    border-radius: 50%;
+    font-weight: 800;
+  }
+
+  strong { font-size: 1.15rem; }
+}
+
+// Made for: a red line on top of each box
+.home-cards li { border-top: 4px solid var(--accent); }
+
+.home-cards strong { font-size: 1.1rem; }
+
+// Setups: one box per built-in setup (_data/setups.yml)
+.home-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+// clearly says it's one mncb comes with (not one you made)
+.home-setup-badge {
+  align-self: flex-start;
+  padding: 0.1rem 0.55rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.home-setup-name { font-size: 1.05rem; }
+
+.home-setup-about {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+// "Want more control?" boxes that open and close
+.home-more {
+  margin: 0 0 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+
+  summary {
+    padding: 0.75rem 1rem;
+    color: var(--accent);
+    font-weight: 700;
+    cursor: pointer;
+
+    span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+  }
+
+  ul { margin: 0 1rem 1rem 2.25rem; }
+
+  li { margin-bottom: 0.4rem; }
+}
+
+// Card games: a box per game with its name and logo (.image-wrapper too,
+// or _images.scss's row would win) ------------------------------------------
+.image-wrapper.home-games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.home-games .image-item {
+  min-width: 0; // a wide logo can't push its box wider than the others
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.home-games .game-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+// black logos (Magic, One Piece) disappear on dark boxes, so each logo sits
+// on its own plate (_colors.scss: see-through in light mode, light in dark)
+.home-games img {
+  width: auto;
+  max-width: 100%;
+  max-height: 5rem;
+  padding: 6px 8px;
+  background: var(--logo-plate);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+// Selling ---------------------------------------------------------------------
+
+.home-planned {
+  padding: 0.1rem 0.55rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// one row per site: name, what it allows (Automatic/Partly/Not yet), and
+// what mncb can do there. No links on purpose.
+.home-platforms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.home-platform {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  align-content: start; // text stays right under the name in short boxes
+  gap: 0.35rem 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+}
+
+.home-platform-name { font-weight: 700; }
+
+.home-platform-status {
+  padding: 0.05rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+
+  &.is-auto { background: var(--button); color: var(--button-text); }
+  &.is-half { border: 1px solid var(--accent); color: var(--accent); }
+  &.is-no { border: 1px solid var(--muted); color: var(--muted); }
+}
+
+.home-platform-can {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+// Words you might see (in a box that opens, right under the top part) ---------
+
+.home-words .home-glossary { margin: 0.25rem 1rem 1rem; }
+
+
+.home-glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px 20px;
+  margin: 0 0 1.5rem;
+
+  div {
+    padding: 0.6rem 0 0.6rem 0.9rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  dt { font-weight: 700; }
+
+  dd {
+    margin: 0.15rem 0 0;
+    color: var(--muted);
     font-size: 0.95rem;
   }
 }
+
+// Latest news box (_layouts/home.html) --------------------------------------
 
 .home-news {
   margin-top: 2.5rem;
   padding: 1.25rem 1.5rem 1rem;
   background: var(--panel);
   border: 1px solid var(--panel-border);
-  border-radius: 10px;
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
 }
 
-.home-news-title {
+// the box's own title doesn't get the red bar (it's already in a box)
+.home .home-news-title {
   margin: 0 0 0.5rem;
   font-size: 1.25rem;
+
+  &::before { display: none; }
 }
 
 .home-news-list {

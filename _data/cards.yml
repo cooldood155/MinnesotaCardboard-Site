@@ -1,0 +1,9 @@
+backs:
+  - src: "/assets/images/trading-card-games/mtg_card_back.webp"
+    alt: "Magic: The Gathering Card Back"
+  - src: "/assets/images/trading-card-games/pokemon_card_back.webp"
+    alt: "Pokémon Card Back"
+  - src: "/assets/images/trading-card-games/opcg_card_back.webp"
+    alt: "One Piece Card Game Back"
+  - src: "/assets/images/trading-card-games/yugioh_card_back.webp"
+    alt: "Yu-Gi-Oh! Card Back"

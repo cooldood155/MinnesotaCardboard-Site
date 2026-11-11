@@ -1,0 +1,178 @@
+/* Try it page styles.
+Styled Files:
+ - /try.html */
+
+.try-kicker {
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.try-title {
+  margin: 0 0 0.5rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.try-lead {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+}
+
+// version, dates and the post link, in one line that wraps
+.try-version {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+.try-version-number {
+  padding: 0.1rem 0.6rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-weight: 800;
+}
+
+.try-version a { font-weight: 700; }
+
+.try-phone,
+.try-expired,
+.try-none {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+// one box per system, the visitor's own first
+.try-downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 0 0 2rem;
+
+  &.is-expired .try-button {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.try-download {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 1.1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+
+  &.is-yours {
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 18px var(--shadow);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+}
+
+.try-yours {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.05rem 0.55rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &[hidden] { display: none; }
+}
+
+.try-needs {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.try-button,
+.try-button:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; // big enough to tap
+  margin: 0.25rem 0 0;
+  padding: 0.65rem 1rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--button-text);
+    text-decoration: none;
+    filter: brightness(1.08);
+  }
+}
+
+.try-file {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+  overflow-wrap: anywhere; // long file names wrap on small phones
+}
+
+.try-steps {
+  margin: 0.25rem 0 0 1.25rem;
+
+  li { margin-bottom: 0.3rem; }
+
+  code { overflow-wrap: anywhere; }
+}
+
+.try-check {
+  margin-top: auto;
+  font-size: 0.85rem;
+
+  summary {
+    padding: 0.65rem 0; // big enough to tap
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  p { margin: 0 0 0.35rem; }
+
+  code {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+.try-heading { margin-top: 0; }
+
+.try-notes li { margin-bottom: 0.4rem; }
+
+@media (max-width: 600px) {
+  .try-title { font-size: 1.9rem; }
+}

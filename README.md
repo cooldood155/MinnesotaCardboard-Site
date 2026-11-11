@@ -22,7 +22,7 @@ Minnesota Cardboard (**MNCB**): an inventory app for trading card collections
 (Magic: The Gathering, Pokémon and more), in development for Windows, macOS and
 Linux.
 
-- The site will provide near identical functionality to the app for most casual
+- The site will provide nearly identical functionality to the app for most casual
   users, while power users *may need* the app to unlock MNCB's full
   potential.
 
@@ -61,7 +61,8 @@ from any of the supported card games' entire card collections.
 
 Most of what the app does, just hosted and running in a browser:
 
-- **Add cards** from a photo or by typing them in.
+- **Add cards** from a photo, by picking them from the list of every card, or
+  by importing the pictures or collection you already have.
 - **Sort cards** automatically, the way you set it up, with optional SKUs for
   sellers.
 - **Track your inventory:** what you have and what has already sold.
@@ -76,9 +77,9 @@ Most of what the app does, just hosted and running in a browser:
   collection, compare different collection prices to get the best deal, and
   more.
 - **Share** cards, decks, or whole collections with a link.
-- **Sell** cards by listing them to any of your linked services (like Facebook,
-  TCGplayer, eBay, etc.). View and manage all of your ongoing and past sales in
-  one place!
+- **Sell** cards on the sites that let apps like MNCB list for you (the home
+  page says what each one allows right now). View and manage all of your
+  ongoing and past sales in one place!
 
 ## Working on the Site
 

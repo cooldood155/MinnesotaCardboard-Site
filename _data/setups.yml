@@ -1,0 +1,10 @@
+# The built-in setups shown on the home page (index.md). Plain words only:
+# these are for people who've never used anything like mncb.
+- name: "Just add them to my collection"
+  about: "Your cards are saved. That's it."
+- name: "Sort into binders by set"
+  about: "Cards from the same set go in the same binder, in order."
+- name: "Get them ready to sell"
+  about: "Every card gets a price (based on how worn it is) and waits until you say \"sell\"."
+- name: "Bulk box"
+  about: "Cards worth less than a dollar go in a box. The rest get set aside for you to look at."

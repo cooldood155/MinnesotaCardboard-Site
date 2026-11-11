@@ -1,9 +1,12 @@
 title: Minnesota Cardboard
-description: "An inventory app/website for trading card collecting, saving and organizing, selling, researching, sharing, comparing and more. The app will support Windows, macOS and Linux. Both the app and site are currently in development."
+description: "Put a stack of trading cards in your scanner and Minnesota Cardboard does the rest (finds, sorts, prices and sells them the way you set it up). The app (Windows, macOS, Linux) and this site are both in development."
 url: "https://mncardboard.com"
 email: evanreumann@mncardboard.com
 github_username: cooldood155
 author: Evan R. Reumann
+
+# "Report a problem" in the footer and on the home page (the issue forms).
+report_url: "https://github.com/cooldood155/MinnesotaCardboard-Site/issues/new/choose"
 
 include: [".well-known"]
 
@@ -18,6 +21,7 @@ sass:
 
 # The header (title bar) menu, in order (bottom entry is furthest right).
 header_pages:
+  - try.html
   - news.html
   - authors.html
 

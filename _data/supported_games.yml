@@ -1,0 +1,8 @@
+- name: "Magic: The Gathering"
+  logo: "/assets/images/trading-card-games/mtg-logo.webp"
+- name: "Pokémon"
+  logo: "/assets/images/trading-card-games/pokemon-logo.webp"
+- name: "One Piece Card Game"
+  logo: "/assets/images/trading-card-games/opcg-logo.webp"
+- name: "Yu-Gi-Oh!"
+  logo: "/assets/images/trading-card-games/yugioh-logo.webp"

@@ -1,0 +1,119 @@
+---
+layout: default
+title: Try it
+permalink: /try/
+---
+{%- comment -%}
+  The newest test build, for people who just want to try mncb (no digging
+  through the news). Everything comes from _data/test_build.json, which the
+  app-updates workflow (in MinnesotaCardboard) writes every time it publishes.
+  Never edit that file by hand.
+  Styles: _sass/_try.scss
+{%- endcomment -%}
+
+{%- assign build = site.data.test_build -%}
+
+<div class="try">
+  <p class="try-kicker">Test build</p>
+  <h1 class="try-title">Try mncb</h1>
+  <p class="try-lead">Want to see where mncb is at? Grab the newest test build
+  for your computer. Nothing gets installed, and it keeps its own collection
+  (nothing you already have gets touched).</p>
+
+  {%- if build and build.downloads.size > 0 %}
+  {%- assign post = site.posts | where: "title", build.title | first %}
+  <div class="try-version" data-works-until="{{ build.works_until }}">
+    <span class="try-version-number">{{ build.version }}</span>
+    <span>Built {{ build.built | date: "%B %-d, %Y" }}</span>
+    <span data-try-until>Works until {{ build.works_until | date: "%B %-d, %Y" }}</span>
+    {%- if post %}
+    <a href="{{ post.url | relative_url }}">What's new in it</a>
+    {%- endif %}
+  </div>
+  <p class="try-phone" data-try-phone hidden>On a phone or tablet? Test
+  builds are for computers (Windows, Mac or Linux) for now. Send yourself this
+  page and try it there!</p>
+  <p class="try-expired" data-try-expired hidden>This one has stopped working
+  (test builds only last {{ build.days }} days). A new one is coming, keep an eye
+  on the <a href="{{ '/news/' | relative_url }}#app">news</a>!</p>
+
+  <div class="try-downloads" data-try-downloads>
+    {%- for download in build.downloads %}
+    <section class="try-download" data-system="{{ download.system | downcase }}">
+      <p class="try-yours" hidden>Your computer</p>
+      <h2>{{ download.system }}</h2>
+      <p class="try-needs">{{ download.needs }}</p>
+      <a class="try-button" href="{{ download.url }}">Download for {{ download.system }}</a>
+      <p class="try-file">{{ download.file }} ({{ download.size }})</p>
+      <ol class="try-steps">
+        {%- for step in download.steps %}
+        <li>{{ step | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+        {%- endfor %}
+      </ol>
+      <details class="try-check">
+        <summary>Check the download (optional)</summary>
+        <p>If you want to make sure the file is exactly what was built, its
+        SHA-256 is:</p>
+        <code>{{ download.sha256 }}</code>
+      </details>
+    </section>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="try-none">There's no test build right now. A new one is coming,
+  keep an eye on the <a href="{{ '/news/' | relative_url }}#app">news</a>!</p>
+  {%- endif %}
+
+  <h2 class="try-heading">Before you try it</h2>
+  <ul class="try-notes">
+    <li><strong>It's not finished.</strong> Lots will change, and some things
+    won't work right yet. That's what test builds are for!</li>
+    <li><strong>Don't keep your real collection in it (yet).</strong> A test
+    build keeps its own, and stops working {{ build.days | default: 30 }} days
+    after it's built.</li>
+    <li><strong>Found something wrong, or have an idea?</strong>
+    <a href="{{ site.report_url }}">Tell me here</a>, or email
+    <a href="mailto:qa@mncardboard.com">qa@mncardboard.com</a>.</li>
+  </ul>
+</div>
+
+<script>
+  (function () {
+    // Puts the download for the visitor's computer first, and says so.
+    // Phones, tablets and Chromebooks don't get one (and phones get a note).
+    var downloads = document.querySelector("[data-try-downloads]");
+    if (downloads) {
+      var platform = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "").toLowerCase();
+      var agent = (navigator.userAgent || "").toLowerCase();
+      var touchMac = /mac/.test(platform) && navigator.maxTouchPoints > 1; // iPads say "Mac"
+      var system = "";
+      if (/android|iphone|ipad|ipod/.test(agent + " " + platform) || touchMac) {
+        document.querySelector("[data-try-phone]").hidden = false;
+      } else if (/cros|chrome os/.test(agent + " " + platform)) {
+        system = "";
+      } else if (/mac/.test(platform)) {
+        system = "macos";
+      } else if (/win/.test(platform)) {
+        system = "windows";
+      } else if (/linux/.test(platform)) {
+        system = "linux";
+      }
+      var mine = system && downloads.querySelector('[data-system="' + system + '"]');
+      if (mine) {
+        downloads.insertBefore(mine, downloads.firstChild);
+        mine.classList.add("is-yours");
+        mine.querySelector(".try-yours").hidden = false;
+      }
+    }
+
+    // Says so when this test build has stopped working.
+    var version = document.querySelector("[data-works-until]");
+    if (version) {
+      var until = new Date(version.getAttribute("data-works-until") + "T23:59:59");
+      if (!isNaN(until) && new Date() > until) {
+        document.querySelector("[data-try-expired]").hidden = false;
+        if (downloads) downloads.classList.add("is-expired");
+      }
+    }
+  })();
+</script>

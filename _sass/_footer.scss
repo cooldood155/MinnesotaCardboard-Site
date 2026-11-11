@@ -1,0 +1,23 @@
+/* Footer styles.
+Styled Files:
+ - /_includes/footer.html */
+
+.site-footer {
+  color: var(--muted);
+  border-top: 3px solid var(--accent);
+}
+
+.footer-heading {
+  color: var(--text);
+  font-weight: 700;
+}
+
+// the legal line, small, under everything else
+.footer-legal {
+  clear: both;
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}

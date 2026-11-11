@@ -1,0 +1,70 @@
+{%- comment -%}
+  A row of images, from a data file, the page, or a list typed right in.
+
+    {% include images.html images="site.data.cards.backs" %}
+    {% include images.html images="page.pictures" %}
+    {% include images.html images="/a.webp|Alt for a, /b.webp|Alt for b" %}
+
+  Every image in a data file is { src: ..., alt: ... } (or { logo: ..., name:
+  ... } like _data/supported_games.yml).
+
+  Optional:
+    layout="games"     shows each image's alt (or name) above it, as a title
+    class="..."        on the wrapper (e.g. home-games, home-card-backs)
+    item_class="..."   on every figure
+    img_class="..."    on every img (default: responsive-img)
+    width/height       on every img (the box it fits in, it's never stretched)
+    show_caption=true  the alt under each image (not with layout="games")
+    img_alt="..."      alt for images that don't have their own
+
+  Styles: _sass/_images.scss (and _sass/_home.scss for the home page's)
+{%- endcomment -%}
+{%- assign raw_images = include.images -%}
+{%- assign img_list = nil -%}
+{%- if raw_images contains "." -%}
+  {%- assign path_parts = raw_images | split: "." -%}
+  {%- if path_parts[0] == "site" and path_parts[1] == "data" -%}
+    {%- assign current_data = site.data -%}
+    {%- for part in path_parts offset:2 -%}
+      {%- assign current_data = current_data[part] -%}
+    {%- endfor -%}
+    {%- assign img_list = current_data -%}
+  {%- elsif path_parts[0] == "page" -%}
+    {%- assign current_data = page -%}
+    {%- for part in path_parts offset:1 -%}
+      {%- assign current_data = current_data[part] -%}
+    {%- endfor -%}
+    {%- assign img_list = current_data -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if img_list == nil -%}
+  {%- assign img_list = site.data[raw_images] | default: page[raw_images] | default: layout[raw_images] -%}
+{%- endif -%}
+{%- if img_list == nil -%}
+  {%- assign img_list = raw_images | split: "," -%}
+{%- endif %}
+<div class="image-wrapper{% if include.class %} {{ include.class }}{% endif %}">
+  {%- for item in img_list -%}
+    {%- if item.src or item.logo -%}
+      {%- assign img_src = item.src | default: item.logo | strip -%}
+      {%- assign current_alt = item.alt | default: item.name | default: include.img_alt | default: "" -%}
+    {%- else -%}
+      {%- assign parts = item | strip | split: "|" -%}
+      {%- assign img_src = parts[0] | strip -%}
+      {%- if parts.size > 1 -%}
+        {%- assign current_alt = parts[1] | strip -%}
+      {%- else -%}
+        {%- assign current_alt = include.img_alt | default: "" -%}
+      {%- endif -%}
+    {%- endif %}
+  <figure class="image-item{% if include.item_class %} {{ include.item_class }}{% endif %}">
+    {%- if include.layout == "games" %}
+    <span class="game-title">{{ current_alt }}</span>
+    {%- endif %}
+    <img src="{{ img_src | relative_url }}" alt="{{ current_alt }}"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %} class="{{ include.img_class | default: 'responsive-img' }}" loading="lazy" decoding="async">
+    {%- if current_alt != "" and include.show_caption == true and include.layout != "games" %}
+    <figcaption>{{ current_alt }}</figcaption>
+    {%- endif %}
+  </figure>
+  {%- endfor %}
+</div>

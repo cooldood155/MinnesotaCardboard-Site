@@ -1,0 +1,32 @@
+# Where mncb is planned to sell (home page, index.md), and what each site lets
+# an app like mncb do RIGHT NOW. No links on purpose: the point is you DON'T
+# have to go to each one. Keep this honest and up to date (and change
+# selling_checked when you check again). Only list a site once mncb can do
+# something for it.
+#
+# status: auto  = the site has an official way for apps to list, update and
+#                 take down cards
+#         half  = some of it (mncb does what it can, you do the rest)
+#         no    = no official way in yet
+
+- name: "eBay"
+  status: "auto"
+  can: "Listing, updating and taking cards down, and knowing the moment one sells."
+- name: "Mana Pool"
+  status: "auto"
+  can: "Its open API covers your inventory and orders, and it says when something sells."
+- name: "CardNexus"
+  status: "auto"
+  can: "Its open seller API covers your listings, inventory and sales, and mncb only gets the access you give it."
+- name: "Whatnot"
+  status: "half"
+  can: "Its seller API is only for tools sellers build themselves right now (no way for an app like mncb to sign in for you yet). mncb can keep track and tell you exactly what to change there."
+- name: "CardTrader"
+  status: "half"
+  can: "Has a full seller API (listings, quantities, and a ping when something sells). Waiting on CardTrader to say mncb can use it. Until then, mncb can keep track and tell you exactly what to change there."
+- name: "TCGplayer"
+  status: "half"
+  can: "No new apps allowed in yet. mncb can make the file TCGplayer's sellers upload to update prices and quantities (Level 4 sellers), and tell you exactly what to take down."
+- name: "Cardmarket"
+  status: "half"
+  can: "Not letting new apps in right now. mncb can keep track and tell you exactly what to change there."

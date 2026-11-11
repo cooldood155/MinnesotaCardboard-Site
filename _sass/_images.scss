@@ -1,22 +1,30 @@
-/* Image stylyes/tools for the site.
+/* Image styles/tools for the site.
 Styled Files:
- - /index.md */
+ - /_includes/images.html (every page that uses it) */
 
-.image-gallery {
+// a row of images that wraps on small screens
+.image-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+  margin: 0 0 1.5rem;
 }
 
-.uniform-card {
-  width: 150px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.image-item {
+  margin: 0;
+  text-align: center;
+}
 
-  /* Quality Optimization */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+// fits in its width/height box, never stretched or squished
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-item figcaption {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
 }

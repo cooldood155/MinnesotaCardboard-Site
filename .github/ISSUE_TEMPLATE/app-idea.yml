@@ -26,7 +26,7 @@ body:
   - type: checkboxes
     id: game
     attributes:
-      label: Is the idea targetting a game(s)?
+      label: Is the idea for a certain game (or games)?
       description: Select all that apply.
       options:
         - label: Every game

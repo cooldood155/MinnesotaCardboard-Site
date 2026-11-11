@@ -23,7 +23,7 @@ for (const button of copyButtons) {
     setTimeout(() => { button.textContent = label; }, 2500);
   };
 
-  // Select text if browser doen't have the capability to copy
+  // Select text if the browser doesn't have the capability to copy
   const selectText = () => {
     const range = document.createRange();
     range.selectNodeContents(target);

@@ -1,12 +1,18 @@
 ---
 title: Introducing Minnesota Cardboard
 date: 2026-11-02 22:50 -0600
+last_modified_at: 2026-11-10 23:45 -0600
 topic: app
 authors:
   - Evan R. Reumann
 ---
 
-Minnesota Cardboard is an app for anyone with a big collection of playing
+*Update (November 10, 2026): a few things here changed. You'll never type
+cards in (you pick them from the list of every card instead), and mncb only
+sells on sites that let apps do it. The [home page]({{ "/" | relative_url }})
+always has the newest plan.*
+
+Minnesota Cardboard is an app for anyone with a big collection of trading
 cards: collectors, players and sellers who sort, sell, find the best deals,
 share and keep track of their cards. It's in development for Windows, macOS and
 Linux.
@@ -45,7 +51,7 @@ the core of the internal API is mostly complete. The database has just started
 to be modeled and constructed. And the website is awaiting custom functionality
 the application/libraries are supposed to provide, so the next step is to
 complete the internal API, start really working on the database and public
-API/libraries, and creating a nice looking GUI.
+API/libraries, and create a nice-looking GUI.
 
 App updates are posted under the App tab on the
 [news page]({{ "/news/" | relative_url }}#app), and in the app feed at
