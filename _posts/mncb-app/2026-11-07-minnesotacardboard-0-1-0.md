@@ -57,7 +57,7 @@ Found something wrong, or have an idea? Email me at
 
 - **Windows:** [MinnesotaCardboard-0.1.0-test-windows.zip](https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-windows.zip) (6.5 MB). Unzip it, run `bin/mncb.exe`. Windows may say it doesn't know the app (it isn't signed yet): *More info* > *Run anyway*.
   SHA-256: `dcbff4cd37161bec82de6a8a5ff705e7354d8336ec0e8bcf6dde76e44b0cbe1f`
-- **macOS:** [MinnesotaCardboard-0.1.0-test-macos.tar.gz](https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-macos.tar.gz) (3.6 MB). Apple silicon (M1 or newer). Double click it, then in Terminal (in the folder it made): `xattr -dr com.apple.quarantine . && ./bin/mncb` (macOS blocks apps that aren't notarized yet).
+- **macOS:** [MinnesotaCardboard-0.1.0-test-macos.tar.gz](https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-macos.tar.gz) (3.6 MB). Apple silicon (M1 or newer). Double-click it, then in Terminal (in the folder it made): `xattr -dr com.apple.quarantine . && ./bin/mncb` (macOS blocks apps that aren't notarized yet).
   SHA-256: `0e5d45a745c061af79292a6d18bf0e697791587c879c641cce43e7dbefcb7c99`
 - **Linux:** [MinnesotaCardboard-0.1.0-test-linux.tar.gz](https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-linux.tar.gz) (16.6 MB). x86_64, GTK 3 (any desktop has it), glibc 2.39 or newer (e.g., Ubuntu 24.04, Fedora 40, Debian 13). `tar xf` it, run `bin/mncb`.
   SHA-256: `18aca0fe547a2b880713af5d0ca2a8c21eaf71b04c95ec6c70fefb18812072fe`
