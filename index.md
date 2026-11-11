@@ -124,8 +124,8 @@ what they allow, and this list will change with them.</p>
   <ul>
     <li><strong>Sign in through each site's own sign-in.</strong> mncb never
     sees your passwords.</li>
-    <li><strong>List once</strong> with your price, condition and pictures
-    (your scans).</li>
+    <li><strong>List once, across multiple markets</strong> with your
+    prices, conditions and pictures (scans, photos or generic card images).</li>
     <li><strong>Sold on one site? It comes off the others.</strong> On the
     sites marked <em>Automatic</em>, mncb does it for you. On the others, mncb
     tells you right away exactly what to take down (and where).</li>
