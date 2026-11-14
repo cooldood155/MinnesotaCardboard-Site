@@ -94,6 +94,14 @@ code {
   border-color: var(--border);
 }
 
+// code blocks (```): minima's are always light blue, and the code inside one
+// got its own background on every line
+.highlighter-rouge .highlight {
+  background-color: var(--code-bg);
+}
+
+pre code { background-color: transparent; }
+
 // tables (minima's are made for a white page, and are hard to read in dark mode)
 table {
   width: auto;
