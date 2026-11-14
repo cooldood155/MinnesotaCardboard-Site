@@ -55,6 +55,7 @@ bundle exec jekyll serve --open-url
 | `archive.html` | `/news/archive/`: archived posts |
 | `feed.xml`, `feed/` | The feeds for feed readers: `/feed.xml` (everything), `/feed/app.xml` and `/feed/website.xml` |
 | `404.md` | The "page not found" page |
+| `credits.md` | `/credits/`: everyone whose cards, prices, pictures and code the app and the site use (linked in the footer) |
 | `_posts/` | Updates, one file each, named `YYYY-MM-DD-title.md` |
 | `_authors/` | One file per author; each gets a page at `/authors/<file name>/` |
 | `_layouts/` | `home.html`, `post.html` and `author.html`. Each replaces minima's layout of the same name, or adds a new one |
