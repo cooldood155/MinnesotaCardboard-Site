@@ -1,6 +1,6 @@
 ---
 title: "Minnesota Cardboard 0.1.1: Look It Up, Real Prices and a Price Sheet"
-date: 2026-11-14 09:00 -0600
+date: 2026-11-14 04:30 -0600
 topic: app
 authors:
   - Evan R. Reumann
