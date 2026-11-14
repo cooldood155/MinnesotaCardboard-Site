@@ -1,17 +1,17 @@
 {
-  "version": "0.1.0",
-  "title": "Minnesota Cardboard 0.1.0: The First Test Build",
-  "built": "2026-11-07",
-  "works_until": "2026-12-07",
+  "version": "0.1.1",
+  "title": "Minnesota Cardboard 0.1.1: Look It Up, Real Prices and a Price Sheet",
+  "built": "2026-11-14",
+  "works_until": "2026-12-14",
   "days": 30,
   "downloads": [
     {
       "system": "Windows",
       "needs": "64-bit Windows.",
-      "file": "MinnesotaCardboard-0.1.0-test-windows.zip",
-      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-windows.zip",
-      "size": "6.5 MB",
-      "sha256": "dcbff4cd37161bec82de6a8a5ff705e7354d8336ec0e8bcf6dde76e44b0cbe1f",
+      "file": "MinnesotaCardboard-0.1.1-test-windows.zip",
+      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.1-test-windows.zip",
+      "size": "6.7 MB",
+      "sha256": "26bbbbd980d230fa22e79aa5e4f76f28081c3d8edf1b64272feb72616651d8fe",
       "steps": [
         "Unzip it.",
         "Open the `bin` folder and run `mncb.exe`.",
@@ -21,10 +21,10 @@
     {
       "system": "macOS",
       "needs": "A Mac with Apple silicon (M1 or newer).",
-      "file": "MinnesotaCardboard-0.1.0-test-macos.tar.gz",
-      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-macos.tar.gz",
-      "size": "3.6 MB",
-      "sha256": "0e5d45a745c061af79292a6d18bf0e697791587c879c641cce43e7dbefcb7c99",
+      "file": "MinnesotaCardboard-0.1.1-test-macos.tar.gz",
+      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.1-test-macos.tar.gz",
+      "size": "3.7 MB",
+      "sha256": "e8282d6e2b4dd5eeceeffcaef5b59a253e6521fa48c655a009bcdd3e645fff20",
       "steps": [
         "Double-click it to unpack it.",
         "Open Terminal in the folder it made and run `xattr -dr com.apple.quarantine . && ./bin/mncb`",
@@ -34,10 +34,10 @@
     {
       "system": "Linux",
       "needs": "x86_64 with GTK 3 and glibc 2.39 or newer (Ubuntu 24.04, Fedora 40, Debian 13, etc.).",
-      "file": "MinnesotaCardboard-0.1.0-test-linux.tar.gz",
-      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.0-test-linux.tar.gz",
-      "size": "16.6 MB",
-      "sha256": "18aca0fe547a2b880713af5d0ca2a8c21eaf71b04c95ec6c70fefb18812072fe",
+      "file": "MinnesotaCardboard-0.1.1-test-linux.tar.gz",
+      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/app/MinnesotaCardboard-0.1.1-test-linux.tar.gz",
+      "size": "16.8 MB",
+      "sha256": "13a7db667eafe7fd609ecc4c38af56ec3de7c8d91816ca71d75388f9f29eaeb0",
       "steps": [
         "Unpack it with `tar xf`.",
         "Run `bin/mncb`."
