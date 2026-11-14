@@ -54,5 +54,4 @@ exclude:
   - package-lock.json
   - tsconfig.json
   - node_modules
-  - wrangler.jsonc
   - cms-auth
