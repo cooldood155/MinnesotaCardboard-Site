@@ -1,41 +1,28 @@
 {%- comment -%}
-  minima 2.5.2's footer.html, plus "Report a problem", the credits and the
-  legal line on every page (it used to only be on the home page).
+  The bottom of every page: who makes it and how to reach them, the pages,
+  and the legal line (the cards, the prices and the games belong to their
+  owners).
   Styles: _sass/_footer.scss
 {%- endcomment -%}
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
+<footer class="site-footer">
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
-            {%- if site.report_url -%}
-            <li><a href="{{ site.report_url }}">Report a problem (or share an idea)</a></li>
-            {%- endif -%}
-        </ul>
+    <div class="footer-top">
+      <div class="footer-about">
+        <p class="footer-name">{{ site.title | escape }}</p>
+        <p>{{ site.description | escape }}</p>
       </div>
 
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
+      <ul class="footer-links">
+        <li>{{ site.author | escape }}</li>
+        {%- if site.email %}
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        {%- endif %}
+        {%- if site.report_url %}
+        <li><a href="{{ site.report_url }}">Report a problem (or share an idea)</a></li>
+        {%- endif %}
+        <li><a href="{{ '/news/' | relative_url }}#feed-subscribe-title">Follow the news</a></li>
+        <li><a href="{{ '/credits/' | relative_url }}">Credits</a></li>
+      </ul>
     </div>
 
     <p class="footer-legal">Cards and pictures from Scryfall, TCGplayer
@@ -48,7 +35,5 @@
     Game and Yu-Gi-Oh! belong to their owners. Minnesota Cardboard isn't made
     by, affiliated with or endorsed by them, or by Scryfall, TCGplayer, TCGCSV,
     Cardmarket or the Pokémon TCG API.</p>
-
   </div>
-
 </footer>

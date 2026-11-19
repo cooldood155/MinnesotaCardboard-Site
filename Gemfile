@@ -1,12 +1,8 @@
 source "https://rubygems.org"
 
-# Jekyll core and default aesthetic theme
+# Jekyll, and only Jekyll: the layouts, styles, feeds and link previews are
+# the site's own (no theme, no plugins)
 gem "jekyll", "~> 4.3"
-gem "minima", "~> 2.5"
-
-# Jekyll plugins for SEO metadata and RSS feed automation
-gem "jekyll-seo-tag"
-gem "jekyll-feed"
 
 # Time zone libraries (Jekyll requires tzinfo to handle localized dates/times)
 gem "tzinfo", ">= 1", "< 3"

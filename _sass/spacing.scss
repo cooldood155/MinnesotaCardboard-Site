@@ -1,9 +1,0 @@
-/* Site spacing layout rules.
-Styled Files:
- - /index.md (only the page's own content, NOT the header or footer) */
-
-// room above every section heading on the home page
-.home h2 {
-  margin-top: 2rem;
-  clear: both; // no floated elements breaking spacing
-}

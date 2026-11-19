@@ -1,0 +1,188 @@
+/* What every page starts from (it used to be minima's): the page's width,
+text, headings, links, lists, tables, code, pictures and buttons. The colors
+are _colors.scss's.
+Styled Files:
+ - every page */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5rem; // #links land under the sticky header
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-content {
+  flex: 1;
+  padding: 2rem 0 3.5rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+// Only for keyboards: straight to the page, past the header
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--button);
+  color: var(--button-text);
+  &:focus { top: 1rem; }
+  &:visited { color: var(--button-text); }
+}
+
+// Text -------------------------------------------------------------------
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: 2.25rem; font-weight: 800; }
+h2 { font-size: 1.6rem; font-weight: 800; margin-top: 2.25rem; }
+h3 { font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; }
+h4 { font-size: 1rem; font-weight: 700; }
+
+p, ul, ol, dl, pre, table, blockquote, figure { margin: 0 0 1rem; }
+
+ul, ol { padding-left: 1.4rem; }
+li + li { margin-top: 0.25rem; }
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+strong { font-weight: 700; }
+
+.page-heading { font-size: 2.25rem; margin-bottom: 1rem; }
+
+.post-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+blockquote {
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+// Pictures never wider than their space (a big logo can't push the page
+// sideways)
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Code, tables ---------------------------------------------------------
+
+code, pre, kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  padding: 0.1em 0.35em;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--code-bg);
+}
+
+pre {
+  overflow-x: auto;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--code-bg);
+  line-height: 1.45;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+th { font-weight: 700; }
+
+// Buttons ----------------------------------------------------------------
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.25rem;
+  border: 2px solid var(--button);
+  border-radius: 999px;
+  background: var(--button);
+  color: var(--button-text);
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &:visited { color: var(--button-text); }
+  &:hover {
+    color: var(--button-text);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--shadow);
+  }
+}
+
+.button-quiet {
+  background: transparent;
+  color: var(--accent);
+  &:visited { color: var(--accent); }
+  &:hover { color: var(--accent); background: var(--accent-soft); }
+}
+
+details > summary { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (max-width: 600px) {
+  h1, .page-heading { font-size: 1.85rem; }
+  h2 { font-size: 1.4rem; }
+  .page-content { padding-top: 1.25rem; }
+}

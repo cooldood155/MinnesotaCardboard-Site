@@ -22,7 +22,7 @@ function startSignIn(url, env) {
   githubUrl.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
   githubUrl.searchParams.set("redirect_uri", `${url.origin}/callback`);
   // Lets the editor commit posts to the site's repo (it's public). NOT "repo":
-  // that one opens every private repo too.
+  // whih also opens every private repo.
   githubUrl.searchParams.set("scope", "public_repo");
   githubUrl.searchParams.set("state", state);
 

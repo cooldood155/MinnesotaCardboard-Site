@@ -1,6 +1,6 @@
 /* Site colors every rule uses (red is mncb's color).
 Styled Files:
- - every page (minima's colors overridden below) */
+ - every page */
 
 :root {
   --bg: #fdfcfc;
@@ -19,6 +19,10 @@ Styled Files:
   --accent-soft: #fde7ea;
   --logo-plate: transparent;
   --shadow: rgba(122, 12, 29, 0.18);
+  --good: #17602f;
+  --good-soft: #e3f4e8;
+  --warn: #7a4d00;
+  --warn-soft: #fdf0d8;
   color-scheme: light;
 }
 
@@ -39,6 +43,10 @@ Styled Files:
   --accent-soft: #3a1a20;
   --logo-plate: #f3eef0;
   --shadow: rgba(0, 0, 0, 0.45);
+  --good: #7ad79a;
+  --good-soft: #17301f;
+  --warn: #f0c46a;
+  --warn-soft: #3a2c12;
   color-scheme: dark;
 }
 
@@ -94,15 +102,15 @@ code {
   border-color: var(--border);
 }
 
-// code blocks (```): minima's are always light blue, and the code inside one
-// got its own background on every line
+// code blocks (```): the code inside one doesn't get its own background on
+// every line
 .highlighter-rouge .highlight {
   background-color: var(--code-bg);
 }
 
 pre code { background-color: transparent; }
 
-// tables (minima's are made for a white page, and are hard to read in dark mode)
+// tables: readable on a light or a dark page
 table {
   width: auto;
   color: var(--text);

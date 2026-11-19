@@ -13,14 +13,12 @@ include: [".well-known"]
 # assets/js/local-dates.js localizes times/dates for reader's (Jekyll writes in UTC).
 timezone: UTC
 
-theme: minima
-
-# Hides Sass warnings from minima's files.
-sass:
-  quiet_deps: true
+# No theme: the layouts, includes and styles are all the site's own
+# (_layouts/, _includes/, _sass/).
 
 # The header (title bar) menu, in order (bottom entry is furthest right).
 header_pages:
+  - features.md
   - try.html
   - news.html
   - authors.html
@@ -40,9 +38,8 @@ defaults:
       layout: post
       topic: app
 
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+# No plugins: the feeds (feed.xml, feed/) and the link previews
+# (_includes/seo.html) are the site's own.
 
 # Files in the repo NOT part of the site.
 exclude:

@@ -1,443 +1,436 @@
-/* Home page styles.
+/* The home page and What it does (/features/).
 Styled Files:
- - /_layouts/home.html
- - /index.md */
+ - /index.md, /_layouts/home.html (the latest news)
+ - /features.md */
 
-// a short red bar in front of every section heading
-.home h2 {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+// Sections: a short red bar in front of every heading
+.home-section {
+  margin-top: 3.25rem;
 
-  &::before {
-    content: "";
-    flex: none;
-    width: 6px;
-    height: 1.1em;
-    background: var(--accent);
-    border-radius: 3px;
+  > h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0;
+
+    &::before {
+      content: "";
+      flex: none;
+      width: 0.35rem;
+      height: 1.4rem;
+      border-radius: 2px;
+      background: var(--accent);
+    }
   }
 }
 
-// Hero: the big top part with the stack of cards ---------------------------
+.home-more-link {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  a { font-weight: 700; }
+}
+
+// Hero: the big top part, the stack of cards on the right ------------------
 
 .home-hero {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   align-items: center;
-  gap: 1.5rem;
-  margin: 0 0 2.5rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--accent-soft), var(--panel) 70%);
-  border: 1px solid var(--panel-border);
-  border-radius: 18px;
-  overflow: hidden;
+  gap: 2rem 3rem;
+  padding: 1.5rem 0 1rem;
 }
 
 .home-hero-kicker {
-  margin: 0 0 0.5rem;
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
   color: var(--accent);
   font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
 }
 
 .home-hero-title {
-  margin: 0 0 0.75rem;
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 
   span { color: var(--accent); }
 }
 
-.home-hero-about {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-}
+.home-hero-about { font-size: 1.15rem; }
 
-.home-hero-note {
-  margin: 0 0 1.25rem;
-  color: var(--muted);
-}
+.home-hero-note { color: var(--muted); }
 
 .home-hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 0;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-.home-button,
-.home-button:visited {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background: var(--button);
-  border: 2px solid var(--button);
-  border-radius: 999px;
-  color: var(--button-text);
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform 0.15s ease;
-
-  &:hover {
-    color: var(--button-text);
-    text-decoration: none;
-    transform: translateY(-2px);
-  }
-}
-
-.home-button-quiet,
-.home-button-quiet:visited {
-  background: transparent;
-  color: var(--accent);
-
-  &:hover { color: var(--accent); }
-}
-
-// the card backs, fanned out like a hand of cards
+// The card backs, fanned like a hand of cards
 .home-hero-stack {
   position: relative;
-  height: 15.5rem;
+  height: 18rem;
 
   img {
     position: absolute;
-    top: 1.25rem;
+    top: 50%;
     left: 50%;
-    width: 8.1rem;
-    height: 11.4rem;
-    margin-left: -4.05rem;
-    object-fit: cover;
-    border-radius: 9px;
-    box-shadow: 0 8px 18px var(--shadow);
+    width: 9.5rem;
+    height: auto;
+    border-radius: 0.6rem;
+    box-shadow: 0 10px 28px var(--shadow);
     transform-origin: 50% 120%;
     transition: transform 0.25s ease;
+
+    &:nth-child(1) { transform: translate(-50%, -50%) rotate(-18deg); }
+    &:nth-child(2) { transform: translate(-50%, -50%) rotate(-6deg); }
+    &:nth-child(3) { transform: translate(-50%, -50%) rotate(6deg); }
+    &:nth-child(4) { transform: translate(-50%, -50%) rotate(18deg); }
   }
 
-  img:nth-child(1) { transform: rotate(-18deg) translateX(-1.9rem); }
-  img:nth-child(2) { transform: rotate(-6deg) translateX(-0.6rem); }
-  img:nth-child(3) { transform: rotate(6deg) translateX(0.6rem); }
-  img:nth-child(4) { transform: rotate(18deg) translateX(1.9rem); }
-
-  &:hover img:nth-child(1) { transform: rotate(-24deg) translateX(-2.8rem); }
-  &:hover img:nth-child(2) { transform: rotate(-8deg) translateX(-0.9rem); }
-  &:hover img:nth-child(3) { transform: rotate(8deg) translateX(0.9rem); }
-  &:hover img:nth-child(4) { transform: rotate(24deg) translateX(2.8rem); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-hero-stack img,
-  .home-button { transition: none; }
-}
-
-@media (max-width: 700px) {
-  .home-hero {
-    grid-template-columns: 1fr;
-    padding: 1.5rem 1.25rem;
+  &:hover img {
+    &:nth-child(1) { transform: translate(-50%, -50%) rotate(-26deg); }
+    &:nth-child(2) { transform: translate(-50%, -50%) rotate(-9deg); }
+    &:nth-child(3) { transform: translate(-50%, -50%) rotate(9deg); }
+    &:nth-child(4) { transform: translate(-50%, -50%) rotate(26deg); }
   }
+}
 
-  .home-hero-title { font-size: 1.9rem; }
+// How it works: numbered steps side by side ---------------------------------
 
-  .home-hero-stack {
-    order: -1;
-    height: 10.5rem;
+.home-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
 
-    img {
-      width: 5.6rem;
-      height: 7.9rem;
-      margin-left: -2.8rem;
-      top: 0.6rem;
+  li {
+    position: relative;
+    margin: 0;
+    padding: 3.25rem 1.25rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--panel);
+    counter-increment: step;
+
+    &::before {
+      content: counter(step);
+      position: absolute;
+      top: 1rem;
+      left: 1.25rem;
+      display: grid;
+      place-items: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--button-text);
+      font-weight: 800;
     }
   }
+
+  strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+  }
 }
 
-// Boxes: How it works, Made for, setups -------------------------------------
+// Who it's for -----------------------------------------------------------------
 
-.home-steps,
-.home-cards,
-.home-setups {
+.home-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin: 0 0 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 
   li {
+    margin: 0;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    border-radius: 14px;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+  }
+}
+
+// Card games: their logos, the same size, on a light plate (dark mode too)
+
+.image-wrapper.home-games {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  justify-content: stretch;
+
+  .image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
     padding: 1rem;
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--logo-plate);
+    font-size: 0.9rem;
+    font-weight: 700;
   }
 
-  strong { display: block; }
+  img {
+    width: 100%;
+    max-width: 10rem;
+    height: 4.5rem;
+    object-fit: contain;
+  }
 }
 
-// How it works: a big red number on each step
-.home-steps {
-  counter-reset: home-step;
+// Where it's at
+.home-status {
+  padding: 1.5rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  background: var(--panel);
 
-  li {
-    position: relative;
-    padding-top: 3.1rem;
-    counter-increment: home-step;
-  }
-
-  li::before {
-    content: counter(home-step);
-    position: absolute;
-    top: 0.9rem;
-    left: 1rem;
-    display: grid;
-    place-items: center;
-    width: 1.8rem;
-    height: 1.8rem;
-    background: var(--button);
-    color: var(--button-text);
-    border-radius: 50%;
-    font-weight: 800;
-  }
-
-  strong { font-size: 1.15rem; }
+  > :last-child { margin-bottom: 0; }
 }
 
-// Made for: a red line on top of each box
-.home-cards li { border-top: 4px solid var(--accent); }
+// Latest news (_layouts/home.html) --------------------------------------------
 
-.home-cards strong { font-size: 1.1rem; }
+.home-news { margin-top: 3.25rem; }
 
-// Setups: one box per built-in setup (_data/setups.yml)
-.home-setup {
+.home-news-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0;
+
+  &::before {
+    content: "";
+    width: 0.35rem;
+    height: 1.4rem;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+}
+
+.home-news-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.home-news-item {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
 }
 
-// clearly says it's one mncb comes with (not one you made)
+.home-news-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.home-news-link {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.home-news-excerpt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.home-news-more a { font-weight: 700; }
+
+// What it does (/features/) -----------------------------------------------------
+
+.features { max-width: 50rem; }
+
+.features-lead { font-size: 1.15rem; }
+
+.features-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+
+  a {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover { border-color: var(--accent); background: var(--accent-soft); }
+  }
+}
+
+.home-setups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
 .home-setup-badge {
   align-self: flex-start;
-  padding: 0.1rem 0.55rem;
-  background: var(--button);
+  padding: 0.05rem 0.5rem;
   border-radius: 999px;
-  color: var(--button-text);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .home-setup-name { font-size: 1.05rem; }
 
-.home-setup-about {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
+.home-setup-about { color: var(--muted); }
 
-// "Want more control?" boxes that open and close
+// Opens for more (sellers, power users)
 .home-more {
-  margin: 0 0 1.5rem;
-  background: var(--bg);
+  margin: 1rem 0;
+  padding: 0.85rem 1.1rem;
   border: 1px solid var(--panel-border);
   border-radius: 12px;
+  background: var(--panel);
 
   summary {
-    padding: 0.75rem 1rem;
-    color: var(--accent);
     font-weight: 700;
-    cursor: pointer;
-
-    span {
-      color: var(--muted);
-      font-weight: 400;
-    }
+    span { color: var(--muted); font-weight: 400; }
   }
 
-  ul { margin: 0 1rem 1rem 2.25rem; }
-
-  li { margin-bottom: 0.4rem; }
+  ul { margin: 0.75rem 0 0; }
 }
-
-// Card games: a box per game with its name and logo (.image-wrapper too,
-// or _images.scss's row would win) ------------------------------------------
-.image-wrapper.home-games {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin-bottom: 1.5rem;
-}
-
-.home-games .image-item {
-  min-width: 0; // a wide logo can't push its box wider than the others
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 15px;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
-  box-sizing: border-box;
-}
-
-.home-games .game-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-// black logos (Magic, One Piece) disappear on dark boxes, so each logo sits
-// on its own plate (_colors.scss: see-through in light mode, light in dark)
-.home-games img {
-  width: auto;
-  max-width: 100%;
-  max-height: 5rem;
-  padding: 6px 8px;
-  background: var(--logo-plate);
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
-// Selling ---------------------------------------------------------------------
 
 .home-planned {
   padding: 0.1rem 0.55rem;
-  border: 1px solid var(--accent);
   border-radius: 999px;
+  background: var(--accent-soft);
   color: var(--accent);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
-// one row per site: name, what it allows (Automatic/Partly/Not yet), and
-// what mncb can do there. No links on purpose.
+// Selling: each site, how much it lets mncb do
 .home-platforms {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px;
-  margin: 0 0 0.75rem;
+  gap: 0.5rem;
+  margin: 1rem 0;
   padding: 0;
   list-style: none;
 }
 
 .home-platform {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: start;
-  align-content: start; // text stays right under the name in short boxes
-  gap: 0.35rem 0.75rem;
-  padding: 0.85rem 1rem;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
+  grid-template-columns: 9rem 6.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
 .home-platform-name { font-weight: 700; }
 
 .home-platform-status {
+  justify-self: start;
   padding: 0.05rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  white-space: nowrap;
 
-  &.is-auto { background: var(--button); color: var(--button-text); }
-  &.is-half { border: 1px solid var(--accent); color: var(--accent); }
-  &.is-no { border: 1px solid var(--muted); color: var(--muted); }
+  &.is-auto { background: var(--good-soft); color: var(--good); }
+  &.is-half { background: var(--warn-soft); color: var(--warn); }
+  &.is-no { background: var(--accent-soft); color: var(--accent); }
 }
 
-.home-platform-can {
-  grid-column: 1 / -1;
+.home-platform-can { color: var(--muted); font-size: 0.95rem; }
+
+.home-note {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
-// Words you might see (in a box that opens, right under the top part) ---------
-
-.home-words .home-glossary { margin: 0.25rem 1rem 1rem; }
-
-
+// The words, each with what it means
 .home-glossary {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px 20px;
-  margin: 0 0 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.5rem;
 
   div {
-    padding: 0.6rem 0 0.6rem 0.9rem;
+    padding: 0.8rem 1rem;
     border-left: 3px solid var(--accent);
+    background: var(--panel);
+    border-radius: 0 10px 10px 0;
   }
 
   dt { font-weight: 700; }
+  dd { margin: 0; color: var(--muted); }
+}
 
-  dd {
-    margin: 0.15rem 0 0;
-    color: var(--muted);
-    font-size: 0.95rem;
+// Phones and small tablets: one column ------------------------------------------
+
+@media (max-width: 860px) {
+  .home-hero { grid-template-columns: minmax(0, 1fr); }
+  .home-hero-stack { height: 15rem; }
+  .home-hero-stack img { width: 8rem; }
+  .home-steps,
+  .home-cards,
+  .home-news-list { grid-template-columns: minmax(0, 1fr); }
+  .home-games { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .home-setups,
+  .home-glossary { grid-template-columns: minmax(0, 1fr); }
+
+  .home-platform {
+    grid-template-columns: minmax(0, 1fr) auto;
+    .home-platform-can { grid-column: 1 / -1; }
   }
-}
-
-// Latest news box (_layouts/home.html) --------------------------------------
-
-.home-news {
-  margin-top: 2.5rem;
-  padding: 1.25rem 1.5rem 1rem;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  border-top: 4px solid var(--accent);
-  border-radius: 12px;
-}
-
-// the box's own title doesn't get the red bar (it's already in a box)
-.home .home-news-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-
-  &::before { display: none; }
-}
-
-.home-news-list {
-  margin: 0;
-  list-style: none;
-}
-
-// line between posts (not above first)
-.home-news-item {
-  padding: 0.75rem 0;
-  border-top: 1px solid var(--panel-border);
-
-  &:first-child {
-    border-top: 0;
-    padding-top: 0.25rem;
-  }
-}
-
-.home-news-date {
-  display: block;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.home-news-link {
-  font-size: 1.15rem;
-  font-weight: 600;
-  text-decoration: none;
-
-  &:hover { text-decoration: underline; }
-}
-
-.home-news-excerpt {
-  margin: 0.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.home-news-more {
-  margin: 0;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--panel-border);
-  font-weight: 600;
 }

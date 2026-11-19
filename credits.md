@@ -97,9 +97,8 @@ in your build are in **Help > Credits**.
 | What | What the site uses it for | License |
 | :-- | :-- | :-- |
 | [Jekyll](https://jekyllrb.com), © 2008-present Tom Preston-Werner and Jekyll contributors | building the site | MIT |
-| [minima](https://github.com/jekyll/minima), © 2016-present Parker Moore and the minima contributors | the theme (the header, footer and post layouts started as minima's) | MIT |
-| [jekyll-feed](https://github.com/jekyll/jekyll-feed), © 2015-present Ben Balter and jekyll-feed contributors | the feeds | MIT |
-| [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag), © 2015-present Ben Balter and the jekyll-seo-tag contributors | link previews and search engine tags | MIT |
+| [minima](https://github.com/jekyll/minima), © 2016-present Parker Moore and the minima contributors | the site's first look (its layouts started as minima's) | MIT |
+| [jekyll-feed](https://github.com/jekyll/jekyll-feed), © 2015-present Ben Balter and jekyll-feed contributors | the feeds' template (`_includes/atom-feed.xml` started as its) | MIT |
 | [TZInfo](https://tzinfo.github.io), © 2005-2025 Philip Ross | dates and times | MIT |
 | [Decap CMS](https://decapcms.org), © 2016 Netlify | the post editor | MIT |
 | [GitHub Pages](https://pages.github.com) | hosting | |

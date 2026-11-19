@@ -1,51 +1,97 @@
-/* Header styles.
+/* The top of every page: the name (home), the pages, the theme button.
+It stays at the top while scrolling. On a phone the pages go under the name
+(and scroll sideways if they don't fit).
 Styled Files:
  - /_includes/header.html */
 
-// a thicker red bar across the top of every page
 .site-header {
-  border-top-width: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-top: 4px solid var(--top-bar);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: saturate(1.5) blur(12px);
+  -webkit-backdrop-filter: saturate(1.5) blur(12px);
 }
 
-// the title, with a little red card in front of it
+.site-header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  min-height: 3.75rem;
+}
+
 .site-title {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 1.6rem; // grows with the screen (_screens.scss)
-  font-weight: 700;
+  gap: 0.6rem;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 800;
   letter-spacing: -0.01em;
+  text-decoration: none;
 
-  &::before {
-    content: "";
-    width: 0.8em;
-    height: 1.1em;
-    background: var(--accent);
-    border-radius: 3px;
-    transform: rotate(-8deg);
-    box-shadow: 3px 2px 0 var(--accent-soft);
+  &:visited { color: var(--text); }
+  &:hover { color: var(--accent); }
+}
+
+.site-logo {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.page-link {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:visited { color: var(--text); }
+  &:hover,
+  &.is-here {
+    background: var(--accent-soft);
+    color: var(--accent);
   }
 }
 
-.site-nav .page-link { font-size: 1rem; }
-
-.site-nav .page-link:hover { color: var(--link); }
-
-// looks like the menu links next to it
 .header-theme-button {
-  padding: 0;
-  background: none;
-  border: 0;
-  color: var(--text);
+  margin-left: 0.25rem;
+  border: 1px solid var(--border);
+  background: transparent;
   font: inherit;
+  font-size: 0.9rem;
   cursor: pointer;
-
-  &:hover { text-decoration: underline; }
 }
 
-// phone menu: minima right-aligns the links
-@media (max-width: 600px) {
-  .site-nav .header-theme-button { margin-left: auto; }
-}
+@media (max-width: 640px) {
+  .site-header-inner {
+    padding-top: 0.55rem;
+    padding-bottom: 0.4rem;
+  }
 
-.site-nav .header-theme-button[hidden] { display: none; }
+  .site-nav {
+    width: 100%;
+    margin-left: -0.6rem;
+  }
+
+  .page-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
