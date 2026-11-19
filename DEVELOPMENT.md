@@ -49,7 +49,8 @@ bundle exec jekyll serve --open-url
 | File | What it's for |
 | :-- | :-- |
 | `_config.yml` | Site settings: title, theme, plugins, header menu, defaults |
-| `index.md` | The home page |
+| `index.md` | The home page: what mncb is, how it works, who it's for, the card games, where it's at, the latest news |
+| `features.md` | `/features/` (*What it does*): setups, selling, and every card and mncb word explained |
 | `news.html` | `/news/`: how to follow the feeds, then every post in full under All, App and Website tabs |
 | `authors.html` | `/authors/`: everyone who writes for the site |
 | `archive.html` | `/news/archive/`: archived posts |
@@ -58,24 +59,22 @@ bundle exec jekyll serve --open-url
 | `credits.md` | `/credits/`: everyone whose cards, prices, pictures and code the app and the site use (linked in the footer) |
 | `_posts/` | Updates, one file each, named `YYYY-MM-DD-title.md` |
 | `_authors/` | One file per author; each gets a page at `/authors/<file name>/` |
-| `_layouts/` | `home.html`, `post.html` and `author.html`. Each replaces minima's layout of the same name, or adds a new one |
-| `_includes/` | Pieces of HTML used by the pages and layouts. Each file says what it's for at the top. `head.html` and `header.html` replace minima's |
-| `assets/main.scss` | The site's stylesheet: minima's styles, then the files in `_sass/` |
+| `_layouts/` | `default.html` (every page: head, header, page, footer), `home.html`, `post.html` and `author.html` |
+| `_includes/` | Pieces of HTML used by the pages and layouts. Each file says what it's for at the top. `seo.html` is the title and link previews |
+| `assets/main.scss` | The site's stylesheet: the files in `_sass/`, `_base.scss` first |
 | `_sass/` | One file per part of the site. See `docs/_sass-RULES.md` |
 | `assets/js/` | `copy-button.js` (the Copy buttons on the news page), `news-tabs.js` (the All, App and Website tabs on the news page), `post-nav.js` (switching the Older/Newer links under a post between all posts, its topic and its authors), `local-dates.js` (dates in the reader's time zone) and `theme-button.js` (the light/dark button in the header) |
 | `admin/` | The post editor at `/admin/` (Decap CMS); settings in `admin/config.yml` |
 | `cms-auth/` | The Cloudflare Worker that handles "Sign in with GitHub" for the editor; not part of the site |
 | `tsconfig.json`, `package.json` | Type-checking, and `npm run editor` for editing locally; not part of the site |
 
-`_includes/atom-feed.xml` is the jekyll-feed plugin's template (archived posts
-left out), used by all three feeds. While `feed.xml` exists, the plugin uses it
-and doesn't generate its own.
+`_includes/atom-feed.xml` started as the jekyll-feed plugin's template
+(archived posts left out), it's used by all three feeds.
 
-- If the jekyll-feed plugin is ever updated, compare its template to the
-  current template, and make any needed changes.
-
-`_includes/head.html` and `_includes/header.html` are minima 2.5.2's, with the
-light/dark theme button added. If minima is ever updated, do the same for them.
+No theme and no plugins: Jekyll is the only gem the site needs (plus TZInfo
+for the time zone). Everything it used minima, jekyll-feed and jekyll-seo-tag
+for is the site's own now (`_layouts/default.html`, `_sass/_base.scss`,
+`_includes/seo.html`, the feeds).
 
 Files/directories not part of the site, like this markdown document, go under
 the `exclude:` section within the `_config.yml` *site settings* file, or they
@@ -153,6 +152,19 @@ to `main`, and the site then rebuilds and republishes itself.
 
 Saving within the editor rewrites the file's front matter block, removing any
 extra comments/attributes/etc. added outside the editor.
+
+The editor's script comes from unpkg with an `integrity` hash in
+`admin/index.html`, so the browser only runs that exact file. A new Decap
+version needs its new hash:
+
+```sh
+npm pack decap-cms@3.16.3
+tar -xzf decap-cms-3.16.3.tgz package/dist/decap-cms.js
+echo "sha384-$(openssl dgst -sha384 -binary package/dist/decap-cms.js | openssl base64 -A)"
+```
+
+Signing in only gives the editor the site's repo and other public repos
+(`public_repo`), never the private ones.
 
 ### Local Editing (test editor)
 

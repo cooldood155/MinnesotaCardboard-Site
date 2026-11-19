@@ -6,6 +6,9 @@ backend:
   branch: main
   # cms-auth/ sign-in worker
   base_url: https://mncardboard-cms-auth.evanrileyreumann.workers.dev
+  # The site's repo is public: no access to private repos (cms-auth asks for
+  # the same)
+  auth_scope: public_repo
   commit_messages:
     create: 'Add {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'

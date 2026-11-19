@@ -21,7 +21,9 @@ function startSignIn(url, env) {
   const githubUrl = new URL("https://github.com/login/oauth/authorize");
   githubUrl.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
   githubUrl.searchParams.set("redirect_uri", `${url.origin}/callback`);
-  githubUrl.searchParams.set("scope", "repo"); // lets the editor commit posts
+  // Lets the editor commit posts to the site's repo (it's public). NOT "repo":
+  // that one opens every private repo too.
+  githubUrl.searchParams.set("scope", "public_repo");
   githubUrl.searchParams.set("state", state);
 
   return new Response(null, {
@@ -75,15 +77,19 @@ function sendResult(env, status, content) {
   // "</script>" in a message will not end script early
   const toScript = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
 
+  // Only this page's own script runs (the nonce), and no other site can put
+  // it in a frame
+  const nonce = crypto.randomUUID();
+
   const html = `<!doctype html>
 <meta charset="utf-8">
 <title>Signing in</title>
 <p>Signing in... You can close this window if it stays open.</p>
-<script>
+<script nonce="${nonce}">
   const origins = ${toScript(origins)};
   const message = ${toScript(message)};
   window.addEventListener("message", (event) => {
-    if (origins.includes(event.origin)) window.opener.postMessage(message, event.origin);
+    if (origins.includes(event.origin)) window.opener?.postMessage(message, event.origin);
   });
   for (const origin of origins) window.opener?.postMessage("authorizing:github", origin);
 </script>`;
@@ -92,6 +98,9 @@ function sendResult(env, status, content) {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
       "Cache-Control": "no-store",
+      "Content-Security-Policy": `default-src 'none'; script-src 'nonce-${nonce}'; frame-ancestors 'none'`,
+      "Referrer-Policy": "no-referrer",
+      "X-Content-Type-Options": "nosniff",
       "Set-Cookie": "state=; Path=/callback; Max-Age=0",
     },
   });

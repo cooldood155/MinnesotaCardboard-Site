@@ -7,8 +7,11 @@
   <title>Minnesota Cardboard editor</title>
 </head>
 <body>
-  <!-- Decap CMS (decapcms.org) -->
-  <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+  <!-- Decap CMS (decapcms.org). integrity: the browser only runs this exact
+       file (a new version needs its hash: see DEVELOPMENT.md) -->
+  <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"
+          integrity="sha384-A/Gdn928CNLufmnGWGs9RM4Q9o8bSNLeJERqBFrBjwzL7FRpoLT3MPF8Tl0+Wd2p"
+          crossorigin="anonymous"></script>
   <script>
     CMS.registerPreviewStyle("/assets/main.css");
   </script>
