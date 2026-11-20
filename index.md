@@ -12,7 +12,7 @@ layout: home
     <p class="home-hero-note">Already have pictures of your cards, or your
     collection in another app? Import them!</p>
     <p class="home-hero-buttons">
-      <a class="button" href="#how-it-works">See how it works</a>
+      <a class="button" href="/features/">See what it does</a>
       <a class="button button-quiet" href="{{ '/try/' | relative_url }}">Try the test build</a>
     </p>
   </div>
