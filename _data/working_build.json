@@ -1,6 +1,6 @@
 {
   "version": "0.1.2",
-  "commit": "6b148ee",
+  "commit": "4d96d29",
   "built": "2026-11-20",
   "works_until": "2026-12-20",
   "days": 30,
@@ -11,7 +11,7 @@
       "file": "MinnesotaCardboard-working-windows.zip",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-windows.zip",
       "size": "7.2 MB",
-      "sha256": "c1def7edd58cdc0d46f4839e9865ef2b85c9eb707fed6944dcde34c741b8e5d3",
+      "sha256": "1745af00c59c56ecd42052cf87f37633011705df227180230c41cc32139e1513",
       "steps": [
         "Unzip it.",
         "Open the `bin` folder and run `mncb.exe`.",
@@ -24,7 +24,7 @@
       "file": "MinnesotaCardboard-working-macos.tar.gz",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-macos.tar.gz",
       "size": "4.1 MB",
-      "sha256": "c0f5b280f2e6e5a70413ba1cd140d4efae7faf3871f0822ac3593d18d6d0254e",
+      "sha256": "9998e54264a6936d2618458c30b5f67b00415b2e858416396c485da28af74abc",
       "steps": [
         "Double-click it to unpack it.",
         "Open Terminal in the folder it made and run `xattr -dr com.apple.quarantine . && ./bin/mncb`",
@@ -37,12 +37,12 @@
       "file": "MinnesotaCardboard-working-linux.tar.gz",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-linux.tar.gz",
       "size": "17.3 MB",
-      "sha256": "2cd8b88a185305635d65c0a1a79645a6543b7040b271d520bfe2d4bd298a0d50",
+      "sha256": "f1b66a19bde6ac8259b60cd70cefa316143cf0d17d54c199d9714587f8626b5c",
       "steps": [
         "Unpack it with `tar xf`.",
         "Run `bin/mncb`."
       ]
     }
   ],
-  "changes": "#### Added\n\n- Setups for where new cards go: Keep it simple, A binder for each set, Good\n  ones apart, Playing: 4 of each, Selling and Played ones apart. One click\n  makes their places and rules, then change them any way you like.\n- Rules can fit a card's language, condition, name and how many of it you\n  have already (4 sends what's past a playset somewhere else), and several\n  finishes at once.\n- A rule can leave a card where it is, and add a note to it (\"Trade\").\n- Sets, rarities, finishes, languages and conditions in a rule are picked\n  from the game's real ones (as many as you like), or typed.\n- Better pricing: price from the higher or lower of market and the lowest\n  listing, or TCGplayer's middle listing; ask under it (-0.05); a most;\n  foils and holos at a % of their own; LP, MP, HP and DMG copies at a %; never\n  under what you paid.\n- Cheap and pricey cards can have rules of their own (\"Under $1.00: $0.25\n  each\", \"$20.00 or more: 85%\").\n- **Price All** and **Reset to Rules** on the Sell page (Undo puts them back).\n- A rule for where new cards go can price them too (85%, or 4.99).\n\n#### Added\n\n#### Changed\n\n#### Deprecated\n\n#### Removed\n\n#### Fixed\n\n#### Security -->"
+  "changes": "#### Added\n\n- Setups for where new cards go: Keep it simple, A binder for each set, Good\n  ones apart, Playing: 4 of each, Selling and Played ones apart. One click\n  makes their places and rules, then change them any way you like.\n- Rules can fit a card's language, condition, name and how many of it you\n  have already (4 sends what's past a playset somewhere else), and several\n  finishes at once.\n- A rule can leave a card where it is, and add a note to it (\"Trade\").\n- Sets, rarities, finishes, languages and conditions in a rule are picked\n  from the game's real ones (as many as you like), or typed.\n- Better pricing: price from the higher or lower of market and the lowest\n  listing, or TCGplayer's middle listing; ask under it (-0.05); a most;\n  foils and holos at a % of their own; LP, MP, HP and DMG copies at a %; never\n  under what you paid.\n- Cheap and pricey cards can have rules of their own (\"Under $1.00: $0.25\n  each\", \"$20.00 or more: 85%\").\n- **Price All** and **Reset to Rules** on the Sell page (Undo puts them back).\n- A rule for where new cards go can price them too (85%, or 4.99)."
 }
