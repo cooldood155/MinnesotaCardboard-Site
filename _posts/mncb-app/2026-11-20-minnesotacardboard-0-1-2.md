@@ -1,6 +1,6 @@
 ---
 title: "Minnesota Cardboard 0.1.2: One Window, Scan, Sell and Dark Mode"
-date: 2026-11-19 16:50 -0600
+date: 2026-11-20 02:10 -0600
 topic: app
 authors:
   - Evan R. Reumann
