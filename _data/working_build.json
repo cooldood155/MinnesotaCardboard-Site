@@ -1,0 +1,48 @@
+{
+  "version": "0.1.2",
+  "commit": "6b148ee",
+  "built": "2026-11-20",
+  "works_until": "2026-12-20",
+  "days": 30,
+  "downloads": [
+    {
+      "system": "Windows",
+      "needs": "64-bit Windows.",
+      "file": "MinnesotaCardboard-working-windows.zip",
+      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-windows.zip",
+      "size": "7.2 MB",
+      "sha256": "c1def7edd58cdc0d46f4839e9865ef2b85c9eb707fed6944dcde34c741b8e5d3",
+      "steps": [
+        "Unzip it.",
+        "Open the `bin` folder and run `mncb.exe`.",
+        "Windows might say it doesn't know the app (it isn't signed yet). Click *More info*, then *Run anyway*."
+      ]
+    },
+    {
+      "system": "macOS",
+      "needs": "A Mac with Apple silicon (M1 or newer).",
+      "file": "MinnesotaCardboard-working-macos.tar.gz",
+      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-macos.tar.gz",
+      "size": "4.1 MB",
+      "sha256": "c0f5b280f2e6e5a70413ba1cd140d4efae7faf3871f0822ac3593d18d6d0254e",
+      "steps": [
+        "Double-click it to unpack it.",
+        "Open Terminal in the folder it made and run `xattr -dr com.apple.quarantine . && ./bin/mncb`",
+        "That command is needed because macOS blocks apps that aren't notarized yet."
+      ]
+    },
+    {
+      "system": "Linux",
+      "needs": "x86_64 with GTK 3 and glibc 2.39 or newer (Ubuntu 24.04, Fedora 40, Debian 13, etc.).",
+      "file": "MinnesotaCardboard-working-linux.tar.gz",
+      "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-linux.tar.gz",
+      "size": "17.3 MB",
+      "sha256": "2cd8b88a185305635d65c0a1a79645a6543b7040b271d520bfe2d4bd298a0d50",
+      "steps": [
+        "Unpack it with `tar xf`.",
+        "Run `bin/mncb`."
+      ]
+    }
+  ],
+  "changes": "#### Added\n\n- Setups for where new cards go: Keep it simple, A binder for each set, Good\n  ones apart, Playing: 4 of each, Selling and Played ones apart. One click\n  makes their places and rules, then change them any way you like.\n- Rules can fit a card's language, condition, name and how many of it you\n  have already (4 sends what's past a playset somewhere else), and several\n  finishes at once.\n- A rule can leave a card where it is, and add a note to it (\"Trade\").\n- Sets, rarities, finishes, languages and conditions in a rule are picked\n  from the game's real ones (as many as you like), or typed.\n- Better pricing: price from the higher or lower of market and the lowest\n  listing, or TCGplayer's middle listing; ask under it (-0.05); a most;\n  foils and holos at a % of their own; LP, MP, HP and DMG copies at a %; never\n  under what you paid.\n- Cheap and pricey cards can have rules of their own (\"Under $1.00: $0.25\n  each\", \"$20.00 or more: 85%\").\n- **Price All** and **Reset to Rules** on the Sell page (Undo puts them back).\n- A rule for where new cards go can price them too (85%, or 4.99).\n\n#### Added\n\n#### Changed\n\n#### Deprecated\n\n#### Removed\n\n#### Fixed\n\n#### Security -->"
+}
