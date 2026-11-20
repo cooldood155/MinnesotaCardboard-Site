@@ -1,0 +1,374 @@
+/* Current working build page styles.
+Styled Files:
+ - /working-build.html */
+
+.working-build-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+// a little light that's always on: it's the newest code
+.working-build-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--good);
+  animation: working-build-pulse 2s ease-out infinite;
+}
+
+@keyframes working-build-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 60%, transparent); }
+  100% { box-shadow: 0 0 0 0.55rem transparent; }
+}
+
+.working-build-title {
+  margin: 0 0 0.5rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.working-build-lead {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+}
+
+// not a release: the first thing anyone reads
+.working-build-warning {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem 1rem 1.25rem;
+  background: var(--warn-soft);
+  border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);
+  border-left: 6px solid var(--warn);
+  border-radius: 12px;
+
+  p { margin: 0; }
+
+  .working-build-warning-title { margin-bottom: 0.25rem; }
+}
+
+.working-build-warning-title {
+  color: var(--warn);
+  font-size: 1.1rem;
+  font-weight: 800;
+
+  &::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background: var(--warn);
+    color: var(--warn-soft);
+    font-size: 0.9rem;
+    vertical-align: 0.1rem;
+  }
+}
+
+// version, dates, the code and the changes link, in one line that wraps
+.working-build-version {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  color: var(--muted);
+
+  code { font-size: 0.85rem; }
+
+  a { font-weight: 700; }
+}
+
+.working-build-after {
+  padding: 0.1rem 0.6rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-weight: 800;
+}
+
+.working-build-phone,
+.working-build-expired,
+.working-build-none {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+// one box per system, the visitor's own first
+.working-build-downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 0 0 1rem;
+
+  &.is-expired .working-build-button {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.working-build-download {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 1.1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+
+  &.is-yours {
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 18px var(--shadow);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+}
+
+.working-build-yours {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.05rem 0.55rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &[hidden] { display: none; }
+}
+
+.working-build-needs {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.working-build-button,
+.working-build-button:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; // big enough to tap
+  margin: 0.25rem 0 0;
+  padding: 0.65rem 1rem;
+  background: var(--button);
+  border-radius: 999px;
+  color: var(--button-text);
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--button-text);
+    text-decoration: none;
+    filter: brightness(1.08);
+  }
+}
+
+.working-build-file {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+  overflow-wrap: anywhere; // long file names wrap on small phones
+}
+
+.working-build-steps {
+  margin: 0.25rem 0 0 1.25rem;
+
+  li { margin-bottom: 0.3rem; }
+
+  code { overflow-wrap: anywhere; }
+}
+
+.working-build-check {
+  margin-top: auto;
+  font-size: 0.85rem;
+
+  summary {
+    padding: 0.65rem 0; // big enough to tap
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  p { margin: 0 0 0.35rem; }
+
+  code {
+    display: block;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+    overflow-wrap: anywhere;
+  }
+
+  button {
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover { border-color: var(--accent); color: var(--accent); }
+  }
+}
+
+.working-build-copied {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+// Sections: a short red bar in front of every heading (like the home page)
+.working-build-section {
+  margin-top: 2.75rem;
+
+  > h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0;
+
+    &::before {
+      content: "";
+      flex: none;
+      width: 0.35rem;
+      height: 1.4rem;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+  }
+}
+
+.working-build-section-lead {
+  margin-top: -0.25rem;
+  color: var(--muted);
+}
+
+// what's new: a box for each kind (Added, Changed, Fixed...)
+.working-build-changes {
+  display: grid;
+  gap: 12px;
+}
+
+.working-build-change {
+  --working-build-kind: var(--accent);
+  --working-build-kind-soft: var(--accent-soft);
+  padding: 1rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-top: 4px solid var(--working-build-kind);
+  border-radius: 14px;
+
+  &.is-added {
+    --working-build-kind: var(--good);
+    --working-build-kind-soft: var(--good-soft);
+  }
+
+  &.is-fixed,
+  &.is-security,
+  &.is-deprecated {
+    --working-build-kind: var(--warn);
+    --working-build-kind-soft: var(--warn-soft);
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.6rem;
+    color: var(--working-build-kind);
+    font-size: 1.15rem;
+  }
+
+  ul {
+    margin: 0 0 0 1.25rem;
+  }
+
+  li { margin-bottom: 0.45rem; }
+
+  > :last-child { margin-bottom: 0; }
+}
+
+.working-build-count {
+  min-width: 1.5rem;
+  padding: 0 0.45rem;
+  background: var(--working-build-kind-soft);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+// working build or test build, side by side
+.working-build-compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.working-build-compare-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+
+  &.is-here { border: 2px solid var(--accent); }
+
+  ul {
+    flex: 1;
+    margin: 0 0 1rem 1.25rem;
+  }
+
+  li { margin-bottom: 0.3rem; }
+}
+
+.working-build-compare-name {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  span {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+.working-build-notes li { margin-bottom: 0.4rem; }
+
+@media (max-width: 600px) {
+  .working-build-title { font-size: 1.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .working-build-dot { animation: none; }
+}

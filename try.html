@@ -8,6 +8,8 @@ permalink: /try/
   through the news). Everything comes from _data/test_build.json, which the
   app-updates workflow (in MinnesotaCardboard) writes every time it publishes.
   Never edit that file by hand.
+  The working build (newest code, not a release) gets a box under the
+  downloads when there is one.
   Styles: _sass/_try.scss
 {%- endcomment -%}
 
@@ -62,6 +64,17 @@ permalink: /try/
   {%- else %}
   <p class="try-none">There's no test build right now. A new one is coming,
   keep an eye on the <a href="{{ '/news/' | relative_url }}#app">news</a>!</p>
+  {%- endif %}
+
+  {%- assign working = site.data.working_build %}
+  {%- if working and working.downloads.size > 0 %}
+  <a class="try-working" href="{{ '/working-build/' | relative_url }}">
+    <span class="try-working-title">Want the very newest?</span>
+    <span class="try-working-about">The working build has everything since
+    {{ working.version }} (built {{ working.built | date: "%B %-d" }}). It's
+    not a release, just the latest code that works.</span>
+    <span class="try-working-go">Get the working build</span>
+  </a>
   {%- endif %}
 
   <h2 class="try-heading">Before you try it</h2>

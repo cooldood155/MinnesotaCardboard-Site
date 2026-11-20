@@ -69,6 +69,10 @@ Mac or Linux on the <a href="{{ '/try/' | relative_url }}">Try it page</a>
 (it's not finished, lots will change!). What's new is always on the
 <a href="{{ '/news/' | relative_url }}">News page</a>.</p>
 
+<p>Want the very newest? The <a href="{{ '/working-build/' | relative_url }}">working
+build</a> is the latest code that builds and passes its tests, made every
+time something changes (it's not a release, so expect bugs).</p>
+
 <p>Something wrong, or got an idea? <a href="{{ site.report_url }}">Tell me
 here</a>, or email <a href="mailto:qa@mncardboard.com">qa@mncardboard.com</a>.</p>
 </section>

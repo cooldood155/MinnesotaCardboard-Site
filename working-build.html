@@ -1,0 +1,203 @@
+---
+layout: default
+title: Current working build
+nav_title: Working build
+description: "The newest Minnesota Cardboard code that builds and passes its tests, to download and try before it's in a release. Not a release!"
+permalink: /working-build/
+---
+{%- comment -%}
+  The newest code that builds and passes its tests (not a release), for
+  people who want to try what's coming. Everything comes from
+  _data/working_build.json, which the working-build workflow (in
+  MinnesotaCardboard) writes every time it builds. Never edit that file by
+  hand. The changes are CHANGELOG.md's Unreleased part, one box per kind.
+  Styles: _sass/_working-build.scss
+{%- endcomment -%}
+
+{%- assign build = site.data.working_build -%}
+{%- capture newline %}
+{% endcapture -%}
+{%- capture item_start %}{{ newline }}- {% endcapture -%}
+
+<div class="working-build">
+  <p class="working-build-kicker"><span class="working-build-dot" aria-hidden="true"></span> Newest code</p>
+  <h1 class="working-build-title">Current working build</h1>
+  <p class="working-build-lead">Want to try what's coming before it's out? This
+  is the newest mncb code that builds and passes its tests. It's made again
+  every time something changes.</p>
+
+  <div class="working-build-warning" role="note">
+    <p class="working-build-warning-title">This is not a release</p>
+    <p>It's just the latest working code, so it can have bugs a test build
+    wouldn't, things can be half done, and it can change any day. If you just
+    want to try mncb, <a href="{{ '/try/' | relative_url }}">get the test build</a>
+    instead.</p>
+  </div>
+
+  {%- if build and build.downloads.size > 0 %}
+  <div class="working-build-version" data-works-until="{{ build.works_until }}">
+    <span class="working-build-after">After {{ build.version }}</span>
+    <span>Built {{ build.built | date: "%B %-d, %Y" }}</span>
+    <span>Code <code>{{ build.commit }}</code></span>
+    <span data-working-build-until>Works until {{ build.works_until | date: "%B %-d, %Y" }}</span>
+    <a href="#working-build-changes">What's new in it</a>
+  </div>
+  <p class="working-build-phone" data-working-build-phone hidden>On a phone or
+  tablet? Working builds are for computers (Windows, Mac or Linux) for now.
+  Send yourself this page and try it there!</p>
+  <p class="working-build-expired" data-working-build-expired hidden>This one
+  has stopped working (working builds only last {{ build.days }} days). A new
+  one comes with the next change, or <a href="{{ '/try/' | relative_url }}">try
+  the test build</a>.</p>
+
+  <div class="working-build-downloads" data-working-build-downloads>
+    {%- for download in build.downloads %}
+    {%- assign system = download.system | downcase %}
+    <section class="working-build-download" data-system="{{ system }}">
+      <p class="working-build-yours" hidden>Your computer</p>
+      <h2>{{ download.system }}</h2>
+      <p class="working-build-needs">{{ download.needs }}</p>
+      <a class="working-build-button" href="{{ download.url }}">Download for {{ download.system }}</a>
+      <p class="working-build-file">{{ download.file }} ({{ download.size }})</p>
+      <ol class="working-build-steps">
+        {%- for step in download.steps %}
+        <li>{{ step | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+        {%- endfor %}
+      </ol>
+      <details class="working-build-check">
+        <summary>Check the download (optional)</summary>
+        <p>If you want to make sure the file is exactly what was built, its
+        SHA-256 is:</p>
+        <code id="working-build-sha-{{ system }}">{{ download.sha256 }}</code>
+        <button type="button" data-copy="working-build-sha-{{ system }}" aria-label="Copy the {{ download.system }} SHA-256" hidden>Copy</button>
+        <span class="working-build-copied" role="status"></span>
+      </details>
+    </section>
+    {%- endfor %}
+  </div>
+
+  <section class="working-build-section" id="working-build-changes">
+    <h2>What's new since {{ build.version }}</h2>
+    <p class="working-build-section-lead">Everything that's changed since the
+    last release, so you know what to try.</p>
+
+    {%- assign shown = 0 %}
+    <div class="working-build-changes">
+      {%- if build.changes contains "#### " %}
+      {%- assign groups = build.changes | remove: "-->" | split: "#### " %}
+      {%- for group in groups %}
+      {%- assign heading = group | split: newline | first | strip %}
+      {%- assign body = group | remove_first: heading | strip %}
+      {%- if heading != "" and body != "" %}
+      {%- assign shown = shown | plus: 1 %}
+      {%- assign count = body | prepend: newline | split: item_start | size | minus: 1 %}
+      <section class="working-build-change is-{{ heading | slugify }}">
+        <h3>{{ heading }}{% if count > 0 %} <span class="working-build-count">{{ count }}</span>{% endif %}</h3>
+        {{ body | markdownify }}
+      </section>
+      {%- endif %}
+      {%- endfor %}
+      {%- elsif build.changes and build.changes != "" %}
+      {%- assign shown = 1 %}
+      <section class="working-build-change">
+        {{ build.changes | markdownify }}
+      </section>
+      {%- endif %}
+    </div>
+    {%- if shown == 0 %}
+    <p class="working-build-none">Nothing new since {{ build.version }} yet.
+    It's the same as the test build for now!</p>
+    {%- endif %}
+  </section>
+  {%- else %}
+  <p class="working-build-none">There's no working build right now. A new one
+  comes with the next change, or <a href="{{ '/try/' | relative_url }}">try the
+  test build</a>.</p>
+  {%- endif %}
+
+  <section class="working-build-section">
+    <h2>Working build or test build?</h2>
+    <div class="working-build-compare">
+      <div class="working-build-compare-box">
+        <p class="working-build-compare-name">Test build</p>
+        <ul>
+          <li>Made when a new version is ready (like 0.1.2)</li>
+          <li>Has a news post saying what's in it</li>
+          <li>Changes less often</li>
+        </ul>
+        <a class="button button-quiet" href="{{ '/try/' | relative_url }}">Get the test build</a>
+      </div>
+      <div class="working-build-compare-box is-here">
+        <p class="working-build-compare-name">Working build <span>(this page)</span></p>
+        <ul>
+          <li>Made every time the code changes (and passes its tests)</li>
+          <li>Has new things before they're in a test build</li>
+          <li>Can have bugs a test build wouldn't</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="working-build-section">
+    <h2>Before you try it</h2>
+    <ul class="working-build-notes">
+      <li><strong>Nothing gets installed.</strong> It keeps its own collection
+      and settings, so nothing you already have gets touched.</li>
+      <li><strong>Don't keep your real collection in it.</strong> It stops
+      working {{ build.days | default: 30 }} days after it's built, and the
+      next one might not open what this one saved.</li>
+      <li><strong>Found something wrong, or have an idea?</strong>
+      <a href="{{ site.report_url }}">Tell me here</a>, or email
+      <a href="mailto:qa@mncardboard.com">qa@mncardboard.com</a>. Say it was
+      the working build{% if build.commit %} (code <code>{{ build.commit }}</code>){% endif %},
+      so I know which one.</li>
+    </ul>
+  </section>
+</div>
+
+<script src="{{ '/assets/js/copy-button.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script>
+  (function () {
+    // Puts the download for the visitor's computer first, and says so.
+    // Phones, tablets and Chromebooks don't get one (and phones get a note).
+    var downloads = document.querySelector("[data-working-build-downloads]");
+    if (downloads) {
+      var platform = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "").toLowerCase();
+      var agent = (navigator.userAgent || "").toLowerCase();
+      var touchMac = /mac/.test(platform) && navigator.maxTouchPoints > 1; // iPads say "Mac"
+      var system = "";
+      if (/android|iphone|ipad|ipod/.test(agent + " " + platform) || touchMac) {
+        document.querySelector("[data-working-build-phone]").hidden = false;
+      } else if (/cros|chrome os/.test(agent + " " + platform)) {
+        system = "";
+      } else if (/mac/.test(platform)) {
+        system = "macos";
+      } else if (/win/.test(platform)) {
+        system = "windows";
+      } else if (/linux/.test(platform)) {
+        system = "linux";
+      }
+      var mine = system && downloads.querySelector('[data-system="' + system + '"]');
+      if (mine) {
+        downloads.insertBefore(mine, downloads.firstChild);
+        mine.classList.add("is-yours");
+        mine.querySelector(".working-build-yours").hidden = false;
+      }
+    }
+
+    // How many days it has left, or that it has stopped working.
+    var version = document.querySelector("[data-works-until]");
+    if (version) {
+      var until = new Date(version.getAttribute("data-works-until") + "T23:59:59");
+      var left = Math.ceil((until - new Date()) / 86400000);
+      if (isNaN(left)) return;
+      if (left < 1) {
+        document.querySelector("[data-working-build-expired]").hidden = false;
+        if (downloads) downloads.classList.add("is-expired");
+      } else {
+        var label = version.querySelector("[data-working-build-until]");
+        label.textContent += left == 1 ? " (last day)" : " (" + left + " days left)";
+      }
+    }
+  })();
+</script>

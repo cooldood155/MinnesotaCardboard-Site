@@ -20,6 +20,8 @@
         {%- if site.report_url %}
         <li><a href="{{ site.report_url }}">Report a problem (or share an idea)</a></li>
         {%- endif %}
+        <li><a href="{{ '/try/' | relative_url }}">Try the test build</a></li>
+        <li><a href="{{ '/working-build/' | relative_url }}">The working build (newest code)</a></li>
         <li><a href="{{ '/news/' | relative_url }}#feed-subscribe-title">Follow the news</a></li>
         <li><a href="{{ '/credits/' | relative_url }}">Credits</a></li>
       </ul>

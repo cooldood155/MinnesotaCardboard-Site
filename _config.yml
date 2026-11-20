@@ -20,6 +20,7 @@ timezone: UTC
 header_pages:
   - features.md
   - try.html
+  - working-build.html
   - news.html
   - authors.html
 
@@ -52,3 +53,5 @@ exclude:
   - tsconfig.json
   - node_modules
   - cms-auth
+  # the working-build workflow used to write this page (working-build.html is it now)
+  - working-build.md

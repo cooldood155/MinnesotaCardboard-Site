@@ -22,7 +22,9 @@ a:focus-visible,
 button:focus-visible,
 summary:focus-visible,
 .home-button:focus-visible,
-.try-button:focus-visible {
+.try-button:focus-visible,
+.try-working:focus-visible,
+.working-build-button:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
