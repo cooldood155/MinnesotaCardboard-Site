@@ -1,7 +1,8 @@
 {
   "version": "0.1.2",
-  "commit": "5944811",
+  "commit": "c5dfbe7",
   "built": "2026-11-25",
+  "built_at": "2026-11-25T01:59:48+00:00",
   "works_until": "2026-12-25",
   "days": 30,
   "downloads": [
@@ -11,7 +12,7 @@
       "file": "MinnesotaCardboard-working-windows.zip",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-windows.zip",
       "size": "7.2 MB",
-      "sha256": "075b3d1dfa631bc9056a17283abf209ce2c7a087d19aafb205e39ada30e9d9b6",
+      "sha256": "1cb5719f3f95b06494cc7c2ada3120be20f9e4cfe8e9a5303c5a9b466c9911b6",
       "steps": [
         "Unzip it.",
         "Open the `bin` folder and run `mncb.exe`.",
@@ -24,7 +25,7 @@
       "file": "MinnesotaCardboard-working-macos.tar.gz",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-macos.tar.gz",
       "size": "4.1 MB",
-      "sha256": "9a565d45fd2bf3b78676d9e93e871035c6b9d68fb3981b67b432fd5aeb526bc6",
+      "sha256": "cfec1e8ed288cbd65d2a595e39019ebad20f5a3d853963aa9fb7b0218be7affc",
       "steps": [
         "Double-click it to unpack it.",
         "Open Terminal in the folder it made and run `xattr -dr com.apple.quarantine . && ./bin/mncb`",
@@ -37,7 +38,7 @@
       "file": "MinnesotaCardboard-working-linux.tar.gz",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-linux.tar.gz",
       "size": "17.3 MB",
-      "sha256": "10a62af351904c7a36ab0c5c335d4629b1a3d2399ac2a33b602a25ce9b12ee22",
+      "sha256": "fa71d358889a92f9c0cac1e6696871043c2fdcaa7d735e8dce1d5a9551d49e41",
       "steps": [
         "Unpack it with `tar xf`.",
         "Run `bin/mncb`."
