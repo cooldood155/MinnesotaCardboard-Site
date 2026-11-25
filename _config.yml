@@ -22,6 +22,7 @@ header_pages:
   - try.html
   - working-build.html
   - news.html
+  - help/index.md
   - authors.html
 
 collections:
@@ -46,6 +47,9 @@ defaults:
 exclude:
   - README.md
   - DEVELOPMENT.md
+  - SECURITY.md
+  - CODE_OF_CONDUCT.md
+  - SUPPORT.md
   - Gemfile
   - Gemfile.lock
   - package.json
