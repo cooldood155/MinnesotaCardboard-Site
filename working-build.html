@@ -37,7 +37,7 @@ permalink: /working-build/
   {%- if build and build.downloads.size > 0 %}
   <div class="working-build-version" data-works-until="{{ build.works_until }}">
     <span class="working-build-after">After {{ build.version }}</span>
-    <span>Built {{ build.built | date: "%B %-d, %Y" }}</span>
+    <span>Built <time datetime="{{ build.built_at | default: build.built }}" data-working-build-built>{{ build.built | date: "%B %-d, %Y" }}</time></span>
     <span>Code <code>{{ build.commit }}</code></span>
     <span data-working-build-until>Works until {{ build.works_until | date: "%B %-d, %Y" }}</span>
     <a href="#working-build-changes">What's new in it</a>
@@ -185,18 +185,25 @@ permalink: /working-build/
       }
     }
 
-    // How many days it has left, or that it has stopped working.
+    var built = document.querySelector("[data-working-build-built]");
+    if (built && built.dateTime.indexOf("T") > 0) {
+      var at = new Date(built.dateTime);
+      if (!isNaN(at)) built.textContent = at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    }
+
     var version = document.querySelector("[data-works-until]");
     if (version) {
-      var until = new Date(version.getAttribute("data-works-until") + "T23:59:59");
-      var left = Math.ceil((until - new Date()) / 86400000);
+      var day = version.getAttribute("data-works-until").split("-");
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var left = Math.round((new Date(day[0], day[1] - 1, day[2]) - today) / 86400000);
       if (isNaN(left)) return;
-      if (left < 1) {
+      if (left < 0) {
         document.querySelector("[data-working-build-expired]").hidden = false;
         if (downloads) downloads.classList.add("is-expired");
       } else {
         var label = version.querySelector("[data-working-build-until]");
-        label.textContent += left == 1 ? " (last day)" : " (" + left + " days left)";
+        label.textContent += left == 0 ? " (last day)" : left == 1 ? " (1 day left)" : " (" + left + " days left)";
       }
     }
   })();
