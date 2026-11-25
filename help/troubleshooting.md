@@ -7,7 +7,7 @@ permalink: /help/troubleshooting/
 
 # When Something's Wrong
 
-Find what you're seeing. Not here? [Report it](/help/).
+Find what you're seeing. Not here? [Report it](#report-a-problem).
 
 ## Starting the app
 
@@ -81,3 +81,5 @@ Test builds write to the same log.
 
 On Windows, paste `%LOCALAPPDATA%\mncb\logs` into File Explorer's address
 bar to go straight there.
+
+{% include report-a-problem.md %}
