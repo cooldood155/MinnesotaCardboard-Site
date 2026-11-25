@@ -10,6 +10,7 @@
 [![update-site](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/update-site.yml)
 [![app-updates](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/app-updates.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/app-updates.yml)
 [![verify](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/verify.yml)
+[![phones](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/phones.yml/badge.svg)](https://github.com/cooldood155/MinnesotaCardboard/actions/workflows/phones.yml)
 
 **MinnesotaCardboard-Site (current) Repository Badges:**
 
