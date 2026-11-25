@@ -1,0 +1,50 @@
+name: "Task (developers)"
+description: Work that isn't a bug or an idea (a cleanup, a refactor, CI, docs). For people working on mncb.
+title: "[Task]: "
+labels: ["task", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For people working on mncb. Found a bug or have an idea? Use one of those forms instead.
+        How issues are tracked: docs/WORKFLOW.md (in the app's repo).
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What's wrong or missing, and what it gets in the way of.
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: What's true when it's finished, a line each. Anyone should be able to check it without asking.
+      value: |
+        - [ ] 
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where
+      multiple: true
+      options:
+        - app
+        - phones
+        - core
+        - catalog
+        - site
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Where to start, links, anything that helps.
+    validations:
+      required: false

@@ -1,7 +1,7 @@
 name: "App: something's wrong"
-description: The app did something it shouldn't (or didn't do something it should).
+description: The app (desktop or phone) did something it shouldn't (or didn't do something it should).
 title: "[Bug]: "
-labels: ["bug", "app", "tester"]
+labels: ["bug", "app", "tester", "triage"]
 body:
   - type: markdown
     attributes:
@@ -40,6 +40,8 @@ body:
         - Windows
         - macOS
         - Linux
+        - Android
+        - iPhone or iPad
     validations:
       required: true
 

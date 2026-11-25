@@ -1,12 +1,12 @@
 name: "Site: new idea"
 description: Something mncardboard.com should do, or do better.
 title: "[Idea]: "
-labels: ["idea", "site", "tester"]
+labels: ["idea", "site", "tester", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Don't put anything private in here, everyone can see it! Email me directly at evanrileyreumann@gmail.com if there is anything that you cannot share publicly here.
+        Don't put anything private in here, everyone can see it! Email me directly at evanreumann@mncardboard.com if there is anything that you cannot share publicly here.
 
   - type: textarea
     id: want
@@ -35,3 +35,12 @@ body:
         - label: One Piece Card Game
         - label: Yu-Gi-Oh!
         - label: A game mncb doesn't have yet
+
+  - type: textarea
+    id: done
+    attributes:
+      label: How would you know it's done?
+      description: |
+        What you'd be able to do once it's there, a line each (e.g., "scan a stack and every card is in the right binder"). Not sure? Leave it, it gets filled in.
+    validations:
+      required: false

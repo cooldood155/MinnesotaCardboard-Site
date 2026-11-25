@@ -1,7 +1,7 @@
 name: "Site: something's wrong"
 description: mncardboard.com did something it shouldn't (or didn't do something it should).
 title: "[Bug]: "
-labels: ["bug", "site", "tester"]
+labels: ["bug", "site", "tester", "triage"]
 body:
   - type: markdown
     attributes:
