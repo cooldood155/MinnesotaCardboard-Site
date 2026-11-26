@@ -2,8 +2,8 @@
 
 The usage stats Worker for mncardboard.com and the app: a Cloudflare Worker
 with a D1 database. Not part of the site (`_config.yml` excludes it). What
-it keeps is exactly what [the usage stats
-page](https://mncardboard.com/help/usage-stats/) (`help/usage-stats.md`)
+it keeps is exactly what [the usage stats page]
+(https://mncardboard.com/help/usage-stats/) (`help/usage-stats.md`)
 says.
 
 | Path | What it is |
@@ -45,7 +45,8 @@ card, a file, an error's message or anything typed.
 
 ## Looking at it
 
-Until the stats page is made:
+The analytics page (one of the private dev pages) shows all of this. By
+hand:
 
 ```sql
 -- Views and visitors a day (a visitor is one person for one day)
