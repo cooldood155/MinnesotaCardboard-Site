@@ -13,10 +13,12 @@ permalink: /help/
 | :-- | :-- |
 | How do I start? | [Getting started](/help/getting-started/) |
 | How does this part work? | [Using mncb](/help/using/) |
-| Something's wrong | [When something's wrong](/help/troubleshooting/) |
+| Something's wrong (potential fix) | [When something's wrong](/help/troubleshooting/) |
 | Is it free? Where's my data? | [Questions](/help/faq/) |
 | I'm testing it | [Testing mncb](/help/testing/) |
+| What do the app and the site count? | [Usage stats](/help/usage-stats/) |
 | What's coming? | [The roadmap](/roadmap/) |
+| What's being worked on now? | [The project board]({{ site.board_url }}) |
 
 {% include report-a-problem.md %}
 

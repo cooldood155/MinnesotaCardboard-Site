@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "description": "The usage stats Worker for mncardboard.com and the app (README.md).",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  }
+}

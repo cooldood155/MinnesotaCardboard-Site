@@ -65,9 +65,10 @@ bundle exec jekyll serve --open-url
 | `_includes/` | Pieces of HTML used by the pages and layouts. Each file says what it's for at the top. `seo.html` is the title and link previews |
 | `assets/main.scss` | The site's stylesheet: the files in `_sass/`, `_base.scss` first |
 | `_sass/` | One file per part of the site. See `docs/_sass-RULES.md` |
-| `assets/js/` | `copy-button.js` (the Copy buttons on the news and working build pages), `news-tabs.js` (the All, App and Website tabs on the news page), `post-nav.js` (switching the Older/Newer links under a post between all posts, its topic and its authors), `local-dates.js` (dates in the reader's time zone) and `theme-button.js` (the light/dark button in the header) |
+| `assets/js/` | `copy-button.js` (the Copy buttons on the news and working build pages), `news-tabs.js` (the All, App and Website tabs on the news page), `post-nav.js` (switching the Older/Newer links under a post between all posts, its topic and its authors), `local-dates.js` (dates in the reader's time zone), `theme-button.js` (the light/dark button in the header), `stats.js` (the site's usage stats, only on the real site) and `stats-choice.js` (*Don't Count My Visits* in the footer and on `/help/usage-stats/`) |
 | `admin/` | The post editor at `/admin/` (Decap CMS); settings in `admin/config.yml` |
 | `cms-auth/` | The Cloudflare Worker that handles "Sign in with GitHub" for the editor; not part of the site |
+| `stats/` | The Cloudflare Worker (and its D1 database) that keeps the site's and the app's usage stats; not part of the site. See `stats/README.md` |
 | `tsconfig.json`, `package.json` | Type-checking, and `npm run editor` for editing locally; not part of the site |
 
 `_includes/atom-feed.xml` started as the jekyll-feed plugin's template
@@ -214,6 +215,17 @@ Anyone can sign in via GitHub, but **only** accounts that can push to this repo
 can see or change anything. The sign-in lasts until you log out (top right of
 the editor). **Log out** on computers you don't own: the token can push to your
 repos.
+
+## Usage Stats
+
+Every page on the real site (built with `JEKYLL_ENV=production`, like the
+workflow does) loads `assets/js/stats.js`, which sends to the `stats/`
+Worker at `stats_url` in `_config.yml`. Running the site locally sends
+nothing. The app sends its own, once its user says yes.
+
+What's counted is on `/help/usage-stats/` (`help/usage-stats.md`), and it
+has to stay true: counting something new means saying so there first. What
+the Worker keeps, and queries for looking at it: `stats/README.md`.
 
 ## JavaScript `<script>` tags
 

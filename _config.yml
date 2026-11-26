@@ -8,7 +8,16 @@ author: Evan R. Reumann
 # "Report a problem" in the footer and on the home page (the issue forms).
 report_url: "https://github.com/cooldood155/MinnesotaCardboard-Site/issues/new/choose"
 
+# The project board: every issue and what's being worked on (the footer, the
+# roadmap, the help pages, the home page and the build pages).
+board_url: "https://github.com/users/cooldood155/projects/6"
+
 include: [".well-known"]
+
+# The site's and the app's usage stats (stats/, a Cloudflare Worker). Pages
+# send to it only when built for the real site (JEKYLL_ENV=production). What's
+# counted: help/usage-stats.md.
+stats_url: "https://mncardboard-stats.evanrileyreumann.workers.dev"
 
 # assets/js/local-dates.js localizes times/dates for reader's (Jekyll writes in UTC).
 timezone: UTC
@@ -57,5 +66,6 @@ exclude:
   - tsconfig.json
   - node_modules
   - cms-auth
+  - stats
   # the working-build workflow used to write this page (working-build.html is it now)
   - working-build.md

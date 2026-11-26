@@ -74,5 +74,7 @@ build</a> is the latest code that builds and passes its tests, made every
 time something changes (it's not a release, so expect bugs).</p>
 
 <p>Something wrong, or got an idea? <a href="{{ site.report_url }}">Tell me
-here</a>, or email <a href="mailto:qa@mncardboard.com">qa@mncardboard.com</a>.</p>
+here</a>, or email <a href="mailto:qa@mncardboard.com">qa@mncardboard.com</a>.
+Everything that's been reported, and what I'm working on, is on the
+<a href="{{ site.board_url }}">project board</a>.</p>
 </section>

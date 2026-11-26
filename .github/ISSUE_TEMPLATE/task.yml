@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         For people working on mncb. Found a bug or have an idea? Use one of those forms instead.
-        How issues are tracked: docs/WORKFLOW.md (in the app's repo).
+        How issues are tracked: docs/WORKFLOW.md (in the app's repo). Where each one's at: [the project board](https://github.com/users/cooldood155/projects/6).
 
   - type: textarea
     id: why

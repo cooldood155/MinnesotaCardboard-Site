@@ -1,0 +1,27 @@
+/* Usage stats page styles.
+Styled Files:
+ - /help/usage-stats.md
+ - /_includes/footer.html (every page) */
+
+// "Don't Count My Visits" / "your visits aren't counted" box
+.stats-choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-left: 6px solid var(--accent);
+  border-radius: 12px;
+
+  p { margin: 0; }
+
+  [data-stats-now] {
+    flex: 1 1 16rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+}

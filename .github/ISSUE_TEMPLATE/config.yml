@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Already reported? See every issue on the project board
+    url: https://github.com/users/cooldood155/projects/6
+    about: Every bug and idea, and what's being worked on. Add to an issue that's already there instead of making a new one.
   - name: No GitHub account? Need to send something private? Email me at evanreumann@mncardboard.com
     url: https://mail.google.com/mail/?view=cm&fs=1&to=evanreumann@mncardboard.com
     about: Send what went wrong (or your idea) and I'll put it in here myself (if it's not meant to be private).

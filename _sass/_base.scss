@@ -127,9 +127,11 @@ pre {
   line-height: 1.45;
 }
 
+// tables wider than page's width scroll sideways
 table {
   display: block;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
   font-size: 0.95rem;
@@ -155,9 +157,11 @@ th { font-weight: 700; }
   border-radius: 999px;
   background: var(--button);
   color: var(--button-text);
+  font: inherit;
   font-weight: 700;
   text-decoration: none;
   line-height: 1.2;
+  cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 
   &:visited { color: var(--button-text); }

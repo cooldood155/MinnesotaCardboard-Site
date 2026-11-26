@@ -1,6 +1,8 @@
 {%- comment -%}
   Every page's head: its title and link previews (seo.html), the stylesheet,
-  the feeds, the icons, and the theme scripts (assets/js/theme-button.js).
+  the feeds, the icons, the theme scripts (assets/js/theme-button.js) and the
+  site's usage stats (assets/js/stats.js, only on the real site: the stats/
+  Worker's address is stats_url in _config.yml).
   The inline script applies a saved theme before the page is drawn, so it
   doesn't flash the wrong colors.
 
@@ -23,6 +25,9 @@
     })();
   </script>
   <script src="{{ '/assets/js/theme-button.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  {%- if site.stats_url and jekyll.environment == "production" %}
+  <script src="{{ '/assets/js/stats.js' | relative_url }}?v={{ site.time | date: '%s' }}" data-stats="{{ site.stats_url }}" defer></script>
+  {%- endif %}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | absolute_url }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}: the app" href="{{ '/feed/app.xml' | absolute_url }}">

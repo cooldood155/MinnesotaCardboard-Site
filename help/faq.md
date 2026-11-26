@@ -29,7 +29,8 @@ limits.
 
 **Is it finished?**
 No. It's a test build: things will change and some things won't work right
-yet. What's new is on [the news page](https://mncardboard.com/news/).
+yet. What's new is on [the news page](https://mncardboard.com/news/), and
+what I'm working on is on [the project board]({{ site.board_url }}).
 
 **Do I have to type my cards in?**
 Never. Scan them, pick them from the list of every card, or import them.
@@ -42,8 +43,10 @@ it). *Import & export > Show the Folder* opens it. Where it is on each
 system: [Using mncb](/help/using/#keeping-your-collection-safe).
 
 **Does it send my collection anywhere?**
-No. There's no account and no server. mncb only *downloads*: the card lists,
-prices and card pictures.
+No. There's no account and no server for collections. mncb only *downloads*:
+the card lists, prices and card pictures. If you turn on usage stats
+(*Settings*), it sends how much each part gets used and what goes wrong,
+never your cards: [what's sent](/help/usage-stats/).
 
 **Can I take my collection to another app?**
 Yes. *Import & export > Export...*, and pick the app (Moxfield, ManaBox,

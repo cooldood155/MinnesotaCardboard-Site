@@ -17,4 +17,6 @@
 - **A security problem:** [how to tell me privately](https://github.com/{{ site.github_username }}/MinnesotaCardboard-Site/blob/main/SECURITY.md),
   never a public issue.
 
+**All issues** and **what's being worked on** are on [mncb's project board]({{ site.board_url }}).
+
 I maintain mncb by **myself**. Most emails get an answer *within a few days*.

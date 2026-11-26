@@ -1,8 +1,8 @@
 {%- comment -%}
-  The bottom of every page: who makes it and how to reach them, the pages,
-  and the legal line (the cards, the prices and the games belong to their
-  owners).
-  Styles: _sass/_footer.scss
+  The bottom of every page: who makes it and how to reach them, Don't Count
+  My Visits (assets/js/stats-choice.js), the pages, and the legal line (the
+  cards, the prices and the games belong to their owners).
+  Styles: _sass/_footer.scss, _sass/_usage-stats.scss
 {%- endcomment -%}
 <footer class="site-footer">
   <div class="wrapper">
@@ -10,6 +10,12 @@
       <div class="footer-about">
         <p class="footer-name">{{ site.title | escape }}</p>
         <p>{{ site.description | escape }}</p>
+        <hr>
+        <div class="stats-choice">
+          <p data-stats-now>Without JavaScript, your visits aren't counted.</p>
+          <p data-stats-choice hidden><button class="button" type="button">Don't Count My Visits</button></p>
+        </div>
+        <script src="{{ '/assets/js/stats-choice.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
       </div>
 
       <ul class="footer-links">
@@ -20,10 +26,14 @@
         {%- if site.report_url %}
         <li><a href="{{ site.report_url }}">Report a problem (or share an idea)</a></li>
         {%- endif %}
+        {%- if site.board_url %}
+        <li><a href="{{ site.board_url }}">What's being worked on (the project board)</a></li>
+        {%- endif %}
         <li><a href="{{ '/try/' | relative_url }}">Try the test build</a></li>
         <li><a href="{{ '/working-build/' | relative_url }}">The working build (newest code)</a></li>
         <li><a href="{{ '/news/' | relative_url }}#feed-subscribe-title">Follow the news</a></li>
         <li><a href="{{ '/credits/' | relative_url }}">Credits</a></li>
+        <li><a href="{{ '/help/usage-stats/' | relative_url }}">Usage stats (what's counted)</a></li>
       </ul>
     </div>
 

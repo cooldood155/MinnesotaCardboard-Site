@@ -1,0 +1,26 @@
+// The usage stats Worker for the site and the app (README.md).
+{
+	"name": "mncardboard-stats",
+	"account_id": "c2ebd812f8a205752dd8450eec599528",
+	"main": "src/index.js",
+	"compatibility_date": "2026-10-01",
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "mncardboard-stats",
+			"database_id": "08c0ce5e-51f7-414f-b04f-c429e3855c14"
+		}
+	],
+	// GitHub's download counts, and yesterday's salt gone (06:17 UTC)
+	"triggers": {
+		"crons": [
+			"17 6 * * *"
+		]
+	},
+	"vars": {
+		// Sites whose pages can send hits
+		"ALLOWED_ORIGINS": "https://mncardboard.com,http://localhost:4000,http://127.0.0.1:4000",
+		// Its releases' download counts
+		"RELEASES_REPO": "cooldood155/MinnesotaCardboard-Site"
+	}
+}

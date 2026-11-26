@@ -28,6 +28,9 @@ Linux.
   users, while power users *may need* the app to unlock MNCB's full
   potential.
 
+Every issue (the app's and the site's) and what's being worked on:
+[the project board](https://github.com/users/cooldood155/projects/6).
+
 ## What the Site Is Currently Capable Of
 
 The site posts updates on the app's and the website's development. Follow the

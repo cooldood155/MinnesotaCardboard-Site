@@ -58,6 +58,9 @@ reporting, not only what's broken.
 [qa@mncardboard.com](mailto:qa@mncardboard.com) and it'll go in the forms
 for you.
 
+Look on [the project board]({{ site.board_url }}) first: if it's already
+there, add to that issue instead.
+
 **Something's wrong:**
 
 1. What you were doing, step by step.
@@ -79,6 +82,7 @@ how you'd know it's done.
 
 1. I look at your issue within a week (every Sunday) and label it. If
    something's missing, I'll ask.
-2. When I'm working on it, it says so.
+2. When I'm working on it, it says so (on the issue and on
+   [the project board]({{ site.board_url }})).
 3. When it's fixed, it closes and says so. The fix is in the working build
    that day, and in the next test build.

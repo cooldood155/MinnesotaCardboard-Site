@@ -13,7 +13,8 @@ are kept private). What's in each version exactly is its
 [milestone](https://github.com/cooldood155/MinnesotaCardboard-Site/milestones),
 and every bug and idea is an
 [issue](https://github.com/cooldood155/MinnesotaCardboard-Site/issues) you
-can follow (or add to).
+can follow (or add to). What I'm working on right now is on
+[the project board]({{ site.board_url }}).
 
 ## Now: 0.1.x
 

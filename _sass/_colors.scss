@@ -2,51 +2,71 @@
 Styled Files:
  - every page */
 
+@use "sass:map";
+
+// Each color is --name for the theme that's showing and --opposite-name for
+// the other one (var(--opposite-bg) is dark on a light page, light on a dark
+// one). In another file, map.get(colors.$dark, bg) is always the dark one.
+$light: (
+  bg: #fdfcfc,
+  text: #1b1517,
+  muted: #5f5458,
+  border: #eee3e5,
+  top-bar: #c8102e,
+  link: #b3122b,
+  link-hover: #7a0c1d,
+  panel: #fdf3f4,
+  panel-border: #f2cdd3,
+  code-bg: #ffffff,
+  button: #c8102e,
+  button-text: #ffffff,
+  accent: #c8102e,
+  accent-soft: #fde7ea,
+  logo-plate: transparent,
+  shadow: rgba(122, 12, 29, 0.18),
+  good: #17602f,
+  good-soft: #e3f4e8,
+  warn: #7a4d00,
+  warn-soft: #fdf0d8,
+);
+
+$dark: (
+  bg: #141113,
+  text: #ece6e7,
+  muted: #b0a5a8,
+  border: #2e2528,
+  top-bar: #e0233f,
+  link: #ff7a8a,
+  link-hover: #ffffff,
+  panel: #221a1c,
+  panel-border: #45282e,
+  code-bg: #0f0c0d,
+  button: #e0233f,
+  button-text: #ffffff,
+  accent: #ff4d63,
+  accent-soft: #3a1a20,
+  logo-plate: #f3eef0,
+  shadow: rgba(0, 0, 0, 0.45),
+  good: #7ad79a,
+  good-soft: #17301f,
+  warn: #f0c46a,
+  warn-soft: #3a2c12,
+);
+
+@mixin colors($these, $other) {
+  @each $name, $color in $these {
+    --#{$name}: #{$color};
+    --opposite-#{$name}: #{map.get($other, $name)};
+  }
+}
+
 :root {
-  --bg: #fdfcfc;
-  --text: #1b1517;
-  --muted: #5f5458;
-  --border: #eee3e5;
-  --top-bar: #c8102e;
-  --link: #b3122b;
-  --link-hover: #7a0c1d;
-  --panel: #fdf3f4;
-  --panel-border: #f2cdd3;
-  --code-bg: #ffffff;
-  --button: #c8102e;
-  --button-text: #ffffff;
-  --accent: #c8102e;
-  --accent-soft: #fde7ea;
-  --logo-plate: transparent;
-  --shadow: rgba(122, 12, 29, 0.18);
-  --good: #17602f;
-  --good-soft: #e3f4e8;
-  --warn: #7a4d00;
-  --warn-soft: #fdf0d8;
+  @include colors($light, $dark);
   color-scheme: light;
 }
 
 @mixin dark-colors {
-  --bg: #141113;
-  --text: #ece6e7;
-  --muted: #b0a5a8;
-  --border: #2e2528;
-  --top-bar: #e0233f;
-  --link: #ff7a8a;
-  --link-hover: #ffffff;
-  --panel: #221a1c;
-  --panel-border: #45282e;
-  --code-bg: #0f0c0d;
-  --button: #e0233f;
-  --button-text: #ffffff;
-  --accent: #ff4d63;
-  --accent-soft: #3a1a20;
-  --logo-plate: #f3eef0;
-  --shadow: rgba(0, 0, 0, 0.45);
-  --good: #7ad79a;
-  --good-soft: #17301f;
-  --warn: #f0c46a;
-  --warn-soft: #3a2c12;
+  @include colors($dark, $light);
   color-scheme: dark;
 }
 
@@ -111,11 +131,7 @@ code {
 pre code { background-color: transparent; }
 
 // tables: readable on a light or a dark page
-table {
-  width: auto;
-  color: var(--text);
-  border: 1px solid var(--panel-border);
-}
+table { color: var(--text); }
 
 table tr:nth-child(even) { background-color: transparent; }
 

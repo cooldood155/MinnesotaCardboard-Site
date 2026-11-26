@@ -3,6 +3,9 @@ Styled Files:
  - /index.md, /_layouts/home.html (the latest news)
  - /features.md */
 
+@use "sass:map";
+@use "colors";
+
 // Sections: a short red bar in front of every heading
 .home-section {
   margin-top: 3.25rem;
@@ -179,6 +182,7 @@ Styled Files:
   justify-content: stretch;
 
   .image-item {
+    color: map.get(colors.$light, text); // the plate is light in both themes
     display: flex;
     flex-direction: column;
     align-items: center;
