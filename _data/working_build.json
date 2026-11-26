@@ -1,9 +1,9 @@
 {
   "version": "0.1.2",
-  "commit": "c5dfbe7",
-  "built": "2026-11-25",
-  "built_at": "2026-11-25T01:59:48+00:00",
-  "works_until": "2026-12-25",
+  "commit": "14849aa",
+  "built": "2026-11-26",
+  "built_at": "2026-11-26T14:46:54+00:00",
+  "works_until": "2026-12-26",
   "days": 30,
   "downloads": [
     {
@@ -11,8 +11,8 @@
       "needs": "64-bit Windows.",
       "file": "MinnesotaCardboard-working-windows.zip",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-windows.zip",
-      "size": "7.2 MB",
-      "sha256": "1cb5719f3f95b06494cc7c2ada3120be20f9e4cfe8e9a5303c5a9b466c9911b6",
+      "size": "7.4 MB",
+      "sha256": "341ee0b425f1d31ed91b401cc26fea7a20591f13a0dd4ec2227c4b0e74a3cdb5",
       "steps": [
         "Unzip it.",
         "Open the `bin` folder and run `mncb.exe`.",
@@ -25,7 +25,7 @@
       "file": "MinnesotaCardboard-working-macos.tar.gz",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-macos.tar.gz",
       "size": "4.1 MB",
-      "sha256": "cfec1e8ed288cbd65d2a595e39019ebad20f5a3d853963aa9fb7b0218be7affc",
+      "sha256": "4e9ea99e2ab5b8a007b5ea90d63bbc3fc01a174cf50208c09ed010d6f7716bcc",
       "steps": [
         "Double-click it to unpack it.",
         "Open Terminal in the folder it made and run `xattr -dr com.apple.quarantine . && ./bin/mncb`",
@@ -37,13 +37,13 @@
       "needs": "x86_64 with GTK 3 and glibc 2.39 or newer (Ubuntu 24.04, Fedora 40, Debian 13, etc.).",
       "file": "MinnesotaCardboard-working-linux.tar.gz",
       "url": "https://github.com/cooldood155/MinnesotaCardboard-Site/releases/download/working/MinnesotaCardboard-working-linux.tar.gz",
-      "size": "17.3 MB",
-      "sha256": "fa71d358889a92f9c0cac1e6696871043c2fdcaa7d735e8dce1d5a9551d49e41",
+      "size": "17.4 MB",
+      "sha256": "313d34862330f996cbfc7e665c292eb89c3f00c9a3b7240e697a47f50ee1709f",
       "steps": [
         "Unpack it with `tar xf`.",
         "Run `bin/mncb`."
       ]
     }
   ],
-  "changes": "#### Added\n\n- Setups for where new cards go: Keep it simple, A binder for each set, Good\n  ones apart, Playing: 4 of each, Selling and Played ones apart. One click\n  makes their places and rules, then change them any way you like.\n- Rules can fit a card's language, condition, name and how many of it you\n  have already (4 sends what's past a playset somewhere else), and several\n  finishes at once.\n- A rule can leave a card where it is, and add a note to it (\"Trade\").\n- Sets, rarities, finishes, languages and conditions in a rule are picked\n  from the game's real ones (as many as you like), or typed.\n- Better pricing: price from the higher or lower of market and the lowest\n  listing, or TCGplayer's middle listing; ask under it (-0.05); a most;\n  foils and holos at a % of their own; LP, MP, HP and DMG copies at a %; never\n  under what you paid.\n- Cheap and pricey cards can have rules of their own (\"Under $1.00: $0.25\n  each\", \"$20.00 or more: 85%\").\n- **Price All** and **Reset to Rules** on the Sell page (Undo puts them back).\n- A rule for where new cards go can price them too (85%, or 4.99)."
+  "changes": "#### Added\n\n- Setups for where new cards go: Keep it simple, A binder for each set, Good\n  ones apart, Playing: 4 of each, Selling and Played ones apart. One click\n  makes their places and rules, then change them any way you like.\n- Rules can fit a card's language, condition, name and how many of it you\n  have already (4 sends what's past a playset somewhere else), and several\n  finishes at once.\n- A rule can leave a card where it is, and add a note to it (\"Trade\").\n- Sets, rarities, finishes, languages and conditions in a rule are picked\n  from the game's real ones (as many as you like), or typed.\n- Better pricing: price from the higher or lower of market and the lowest\n  listing, or TCGplayer's middle listing; ask under it (-0.05); a most;\n  foils and holos at a % of their own; LP, MP, HP and DMG copies at a %; never\n  under what you paid.\n- Cheap and pricey cards can have rules of their own (\"Under $1.00: $0.25\n  each\", \"$20.00 or more: 85%\").\n- **Price All** and **Reset to Rules** on the Sell page (Undo puts them back).\n- A rule for where new cards go can price them too (85%, or 4.99).\n- Usage stats, only if you say yes (mncb asks once, and *Settings > Usage\n  stats* changes it): how much each part of mncb gets used, how long it\n  takes and what goes wrong. Never your cards, prices, files or anything you\n  type. **Show What's Sent** shows exactly what goes, and turning it off\n  forgets it all."
 }
