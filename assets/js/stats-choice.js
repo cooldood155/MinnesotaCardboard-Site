@@ -8,10 +8,13 @@
 /** @type {NodeListOf<HTMLElement>} */
 const statsBoxes = document.querySelectorAll(".stats-choice");
 
-/** @returns {boolean} */
+// Which one the browser sends to ask sites not to track it ("" for neither)
+/** @returns {string} */
 function statsAskedNotTo() {
   const asks = /** @type {Navigator & { globalPrivacyControl?: boolean }} */ (navigator);
-  return asks.globalPrivacyControl === true || navigator.doNotTrack === "1";
+  if (asks.globalPrivacyControl === true) return "Global Privacy Control, usually from a privacy extension";
+  if (navigator.doNotTrack === "1") return "Do Not Track, a setting in your browser";
+  return "";
 }
 
 /** @returns {boolean} */
@@ -37,7 +40,7 @@ function showStatsChoice(problem) {
     if (problem) {
       now.textContent = problem;
     } else if (asked) {
-      now.textContent = "Currently, your browser asks sites not to track it; your visits aren't counted.";
+      now.textContent = "Currently, your browser asks sites not to track it (" + asked + "); your visits aren't counted.";
       row.hidden = true;
     } else {
       now.textContent = off ? "Your visits aren't counted in this browser." : "Your visits are counted.";
